@@ -40,15 +40,15 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 md:px-8">
-          {/* Logo */}
+          {/* Logo — bigger, dominant in navbar */}
           <a href="#top" className="group flex shrink-0 items-center gap-3">
-            <div className="relative flex h-12 w-28 items-center justify-start md:w-36">
+            <div className="relative flex h-14 w-40 items-center justify-start md:h-16 md:w-52">
               <Image
-                src="/alarab-logo-clean.png"
+                src="/alarab-logo-new-clean.png"
                 alt="AL ARAB — Official Logo"
                 fill
                 priority
-                sizes="(max-width: 768px) 112px, 144px"
+                sizes="(max-width: 768px) 160px, 208px"
                 className="object-contain"
               />
             </div>
@@ -61,7 +61,7 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="group relative font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b89a] transition-colors hover:text-[#f4e9c9]"
+                className="group relative font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
@@ -102,7 +102,7 @@ export function Navbar() {
             className="fixed inset-0 z-[60] xl:hidden"
           >
             <div
-              className="absolute inset-0 bg-[#050505]/90 backdrop-blur-xl"
+              className="absolute inset-0 bg-[#0b4065]/90 backdrop-blur-xl"
               onClick={() => setOpen(false)}
             />
             <motion.nav
@@ -110,15 +110,15 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 240, damping: 30 }}
-              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#0a0a0a] px-6 py-8"
+              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#082740] px-6 py-8"
             >
               <div className="mb-6 flex items-center justify-between">
-                <div className="relative h-8 w-28">
+                <div className="relative h-12 w-40">
                   <Image
-                    src="/alarab-logo-clean.png"
+                    src="/alarab-logo-new-clean.png"
                     alt="AL ARAB"
                     fill
-                    sizes="112px"
+                    sizes="160px"
                     className="object-contain"
                   />
                 </div>
@@ -138,7 +138,7 @@ export function Navbar() {
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.05 + i * 0.04 }}
-                  className="border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b89a] transition-colors hover:text-[#f4e9c9]"
+                  className="border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
                 >
                   {item.label}
                 </motion.a>

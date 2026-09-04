@@ -54,35 +54,35 @@ export function HeroSection() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
 
-        {/* Official Logo + Spinning Coin — side-by-side on desktop, stacked on mobile */}
-        <div className="relative flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
+        {/* Official Logo + Spinning Coin — logo is now MUCH BIGGER (90% viewport width on mobile, 800px on desktop) */}
+        <div className="relative flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            initial={{ opacity: 0, scale: 0.85, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[7vh] w-[58vw] max-w-[560px] md:h-[10vh]"
+            transition={{ duration: 1.3, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative h-[12vh] w-[88vw] max-w-[800px] md:h-[16vh]"
           >
             <Image
-              src="/alarab-logo-clean.png"
+              src="/alarab-logo-new-clean.png"
               alt="AL ARAB — Official Logo"
               fill
               priority
               loading="eager"
-              sizes="(max-width: 768px) 58vw, 560px"
-              className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.45)]"
+              sizes="(max-width: 768px) 88vw, 800px"
+              className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.55)]"
             />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
+            initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.4, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative shrink-0"
           >
             <SpinningCoin
               src="/alarab-coin-3-clean.png"
               alt="AL ARAB — Concept token (3D spinning)"
-              size={140}
+              size={160}
               spinDuration={18}
               glow={0.65}
               parallax
@@ -111,7 +111,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
-          className="mt-10 max-w-2xl text-base font-light leading-relaxed text-[#c9b89a] md:text-xl"
+          className="mt-10 max-w-2xl text-base font-light leading-relaxed text-[#c9b88a] md:text-xl"
         >
           <span className="font-display italic text-[#f4e9c9]">
             The Digital Future of the Arab World
@@ -128,7 +128,7 @@ export function HeroSection() {
         >
           <a
             href="#vision"
-            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#050505] shadow-gold transition-all hover:scale-[1.02]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#0b4065] shadow-gold transition-all hover:scale-[1.02]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
             <Sparkles className="h-4 w-4" />
@@ -136,7 +136,7 @@ export function HeroSection() {
           </a>
           <a
             href="#metaverse"
-            className="rounded-full border border-[#c9a85c]/40 bg-[#050505]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
+            className="rounded-full border border-[#c9a85c]/40 bg-[#0b4065]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
           >
             {t.hero.ctaSecondary}
           </a>
@@ -171,7 +171,7 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#9a9a9a]">
+          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#8fb4d6]">
             {t.hero.scroll}
           </span>
           <ChevronDown className="h-4 w-4 text-[#c9a85c]" />

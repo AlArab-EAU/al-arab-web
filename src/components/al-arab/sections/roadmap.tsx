@@ -24,9 +24,9 @@ export function RoadmapSection() {
       case 'active':
         return { icon: Loader2, color: '#c9a85c' }
       case 'next':
-        return { icon: Circle, color: '#6a6a6a' }
+        return { icon: Circle, color: '#1565a8' }
       case 'planned':
-        return { icon: Circle, color: '#6a6a6a' }
+        return { icon: Circle, color: '#1565a8' }
     }
   }
 
@@ -88,11 +88,11 @@ export function RoadmapSection() {
               >
                 {label}
               </span>
-              <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#6a6a6a]">
+              <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#1565a8]">
                 {phase.period}
               </span>
 
-              <p className="mt-4 text-xs leading-relaxed text-[#9a9a9a]">
+              <p className="mt-4 text-xs leading-relaxed text-[#8fb4d6]">
                 {phase.description}
               </p>
 
@@ -100,7 +100,7 @@ export function RoadmapSection() {
                 {phase.deliverables.map((d) => (
                   <li
                     key={d}
-                    className="flex items-center gap-2 text-[11px] text-[#c9b89a]"
+                    className="flex items-center gap-2 text-[11px] text-[#c9b88a]"
                   >
                     <span
                       className="h-1.5 w-1.5 rounded-full"

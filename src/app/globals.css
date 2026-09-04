@@ -47,41 +47,41 @@
 
 :root {
   --radius: 0.75rem;
-  /* AL ARAB cinematic palette — deep matte black / gold accents */
-  --background: #050505;
+  /* AL ARAB cinematic palette — deep Islamic blue + gold + cyan glows */
+  --background: #0b4065;
   --foreground: #f4e9c9;
-  --card: rgba(10, 10, 10, 0.6);
+  --card: rgba(8, 40, 64, 0.55);
   --card-foreground: #f4e9c9;
-  --popover: #0a0a0a;
+  --popover: #082740;
   --popover-foreground: #f4e9c9;
-  --primary: #c9a85c;
-  --primary-foreground: #050505;
-  --secondary: rgba(20, 20, 20, 0.7);
+  --primary: #d4af37;
+  --primary-foreground: #0b4065;
+  --secondary: rgba(15, 91, 138, 0.4);
   --secondary-foreground: #f4e9c9;
-  --muted: rgba(20, 20, 20, 0.5);
-  --muted-foreground: #8a8a8a;
-  --accent: #d4af37;
-  --accent-foreground: #050505;
+  --muted: rgba(8, 40, 64, 0.5);
+  --muted-foreground: #8fb4d6;
+  --accent: #00d4ff;
+  --accent-foreground: #062738;
   --destructive: #e5484d;
   --destructive-foreground: #f4e9c9;
-  --border: rgba(201, 168, 92, 0.18);
-  --input: rgba(20, 20, 20, 0.6);
-  --ring: #c9a85c;
+  --border: rgba(212, 175, 55, 0.22);
+  --input: rgba(8, 40, 64, 0.6);
+  --ring: #d4af37;
   /* Chart palette aligned with brand */
   --chart-1: #d4af37;
   --chart-2: #c9a85c;
-  --chart-3: #5d7ba8;
-  --chart-4: #1e2d4a;
-  --chart-5: #8a9bb8;
+  --chart-3: #00d4ff;
+  --chart-4: #1565a8;
+  --chart-5: #8fb4d6;
   /* Sidebar */
-  --sidebar: #0a0a0a;
+  --sidebar: #082740;
   --sidebar-foreground: #f4e9c9;
-  --sidebar-primary: #c9a85c;
-  --sidebar-primary-foreground: #050505;
-  --sidebar-accent: #1e2d4a;
+  --sidebar-primary: #d4af37;
+  --sidebar-primary-foreground: #0b4065;
+  --sidebar-accent: #0f5b8a;
   --sidebar-accent-foreground: #f4e9c9;
-  --sidebar-border: rgba(201, 168, 92, 0.18);
-  --sidebar-ring: #c9a85c;
+  --sidebar-border: rgba(212, 175, 55, 0.22);
+  --sidebar-ring: #d4af37;
 }
 
 html {
@@ -137,54 +137,54 @@ body {
   }
 
   .glass {
-    background: rgba(10, 10, 10, 0.55);
+    background: rgba(8, 40, 64, 0.55);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid rgba(201, 168, 92, 0.18);
+    border: 1px solid rgba(212, 175, 55, 0.22);
   }
 
   .glass-strong {
-    background: rgba(10, 10, 10, 0.78);
+    background: rgba(8, 40, 64, 0.78);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
-    border: 1px solid rgba(201, 168, 92, 0.28);
+    border: 1px solid rgba(212, 175, 55, 0.32);
   }
 
   .glass-gold {
-    background: rgba(201, 168, 92, 0.08);
+    background: rgba(212, 175, 55, 0.08);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid rgba(201, 168, 92, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.32);
   }
 
   .border-gold {
-    border-color: rgba(201, 168, 92, 0.32);
+    border-color: rgba(212, 175, 55, 0.35);
   }
 
   .shadow-gold {
     box-shadow:
-      0 0 0 1px rgba(201, 168, 92, 0.18),
-      0 18px 60px -20px rgba(201, 168, 92, 0.45);
+      0 0 0 1px rgba(212, 175, 55, 0.22),
+      0 18px 60px -20px rgba(212, 175, 55, 0.55);
   }
 
   .shadow-deep {
     box-shadow:
-      0 30px 80px -20px rgba(0, 0, 0, 0.85),
-      0 0 0 1px rgba(201, 168, 92, 0.12);
+      0 30px 80px -20px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(212, 175, 55, 0.15);
   }
 
   .bg-radial-gold {
     background: radial-gradient(
       circle at 50% 0%,
-      rgba(201, 168, 92, 0.18) 0%,
-      rgba(5, 8, 16, 0) 60%
+      rgba(212, 175, 55, 0.22) 0%,
+      rgba(11, 64, 101, 0) 60%
     );
   }
 
   .bg-grid-gold {
     background-image:
-      linear-gradient(rgba(201, 168, 92, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201, 168, 92, 0.08) 1px, transparent 1px);
+      linear-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.12) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -291,12 +291,12 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #0b4065;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c9a85c, #8a6f2e);
+  background: linear-gradient(180deg, #d4af37, #8a6f2e);
   border-radius: 6px;
-  border: 2px solid #050505;
+  border: 2px solid #0b4065;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #d4af37, #c9a85c);

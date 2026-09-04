@@ -49,7 +49,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           <span className="font-arabic-serif text-lg text-[#c9a85c]/70">
             {cs.arabic}
           </span>
-          <p className="text-sm leading-relaxed text-[#9a9a9a]">
+          <p className="text-sm leading-relaxed text-[#8fb4d6]">
             {cs.description}
           </p>
         </div>
@@ -91,10 +91,10 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#c9a85c]/15 bg-[#050505]/50 p-4"
+        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#c9a85c]/15 bg-[#0b4065]/50 p-4"
       >
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
-        <p className="text-[11px] leading-relaxed text-[#9a9a9a]">
+        <p className="text-[11px] leading-relaxed text-[#8fb4d6]">
           {cs.disclaimer}
         </p>
       </motion.div>
@@ -127,7 +127,7 @@ function CoinCard({
       whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative flex flex-col items-center gap-2 rounded-2xl border border-[#c9a85c]/20 bg-[#050505]/40 p-3 backdrop-blur-md"
+      className="group relative flex flex-col items-center gap-2 rounded-2xl border border-[#c9a85c]/20 bg-[#0b4065]/40 p-3 backdrop-blur-md"
     >
       <SpinningCoin
         src={src}
@@ -140,7 +140,7 @@ function CoinCard({
         <span className="font-display text-[10px] font-medium uppercase tracking-[0.14em] text-[#d4af37]">
           {name.split('—')[0]}
         </span>
-        <span className="text-[9px] leading-relaxed text-[#9a9a9a]">
+        <span className="text-[9px] leading-relaxed text-[#8fb4d6]">
           {caption}
         </span>
       </figcaption>

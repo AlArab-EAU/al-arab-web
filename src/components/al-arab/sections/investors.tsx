@@ -81,7 +81,7 @@ export function InvestorsSection() {
                     {o.arabic}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#9a9a9a]">
+                <p className="mt-3 text-sm leading-relaxed text-[#8fb4d6]">
                   {o.description}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export function InvestorsSection() {
             <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
               {it.formTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#9a9a9a]">
+            <p className="mt-3 text-sm leading-relaxed text-[#8fb4d6]">
               {it.formDescription}
             </p>
             <div className="mt-6 flex flex-col gap-4">
@@ -112,7 +112,7 @@ export function InvestorsSection() {
                   <Mail className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#6a6a6a]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1565a8]">
                     {it.emailLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
@@ -123,7 +123,7 @@ export function InvestorsSection() {
                   <Phone className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#6a6a6a]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1565a8]">
                     {it.irLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
@@ -135,7 +135,7 @@ export function InvestorsSection() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b89a]">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
                   {it.fields.name}
                 </span>
                 <input
@@ -143,25 +143,25 @@ export function InvestorsSection() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="rounded-lg border border-[#c9a85c]/25 bg-[#0a0a0a]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                  className="rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                   placeholder={it.fields.namePlaceholder}
                 />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b89a]">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
                   {it.fields.company}
                 </span>
                 <input
                   type="text"
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="rounded-lg border border-[#c9a85c]/25 bg-[#0a0a0a]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                  className="rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                   placeholder={it.fields.companyPlaceholder}
                 />
               </label>
             </div>
             <label className="flex flex-col gap-1.5">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b89a]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
                 {it.fields.email}
               </span>
               <input
@@ -169,18 +169,18 @@ export function InvestorsSection() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="rounded-lg border border-[#c9a85c]/25 bg-[#0a0a0a]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                 placeholder={it.fields.emailPlaceholder}
               />
             </label>
             <label className="flex flex-col gap-1.5">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b89a]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
                 {it.fields.interest}
               </span>
               <select
                 value={form.interest}
                 onChange={(e) => setForm({ ...form, interest: e.target.value })}
-                className="rounded-lg border border-[#c9a85c]/25 bg-[#0a0a0a]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
               >
                 {it.interestOptions.map((opt) => (
                   <option key={opt}>{opt}</option>
@@ -188,7 +188,7 @@ export function InvestorsSection() {
               </select>
             </label>
             <label className="flex flex-col gap-1.5">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b89a]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
                 {it.fields.message}
               </span>
               <textarea
@@ -196,13 +196,13 @@ export function InvestorsSection() {
                 required
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="resize-none rounded-lg border border-[#c9a85c]/25 bg-[#0a0a0a]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="resize-none rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                 placeholder={it.fields.messagePlaceholder}
               />
             </label>
             <button
               type="submit"
-              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#050505] transition-all hover:scale-[1.01]"
+              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0b4065] transition-all hover:scale-[1.01]"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
               <Send className="h-4 w-4" />
