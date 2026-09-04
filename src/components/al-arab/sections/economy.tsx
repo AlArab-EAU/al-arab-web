@@ -10,6 +10,7 @@ import {
   Repeat,
 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
+import { CoinShowcase } from '../coin-showcase'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 const FEATURE_ICONS = [Store, Wallet, Layers, Repeat]
@@ -91,6 +92,11 @@ export function EconomySection() {
             </motion.article>
           )
         })}
+      </div>
+
+      {/* Coin showcase */}
+      <div className="mt-12">
+        <CoinShowcase />
       </div>
 
       {/* Disclaimer / transparency notes */}

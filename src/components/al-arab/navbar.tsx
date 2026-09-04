@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 import { LanguageSwitcher } from './language-switcher'
 
@@ -41,21 +42,17 @@ export function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 md:px-8">
           {/* Logo */}
           <a href="#top" className="group flex shrink-0 items-center gap-3">
-            <div className="relative flex h-11 w-11 items-center justify-center">
-              <div className="absolute inset-0 rounded-full border border-[#c9a85c]/50 animate-spin-slower" />
-              <div className="absolute inset-[3px] rounded-full border border-[#c9a85c]/30" />
-              <span className="font-arabic-serif text-lg font-bold text-gradient-gold">
-                ع
-              </span>
+            <div className="relative flex h-12 w-28 items-center justify-start md:w-36">
+              <Image
+                src="/alarab-logo-clean.png"
+                alt="AL ARAB — Official Logo"
+                fill
+                priority
+                sizes="(max-width: 768px) 112px, 144px"
+                className="object-contain"
+              />
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-lg font-semibold tracking-[0.35em] text-gradient-gold">
-                AL ARAB
-              </span>
-              <span className="mt-1 font-arabic text-[10px] tracking-[0.3em] text-[#8a9bb8]">
-                العرب
-              </span>
-            </div>
+            <span className="sr-only">AL ARAB — العرب</span>
           </a>
 
           {/* Desktop nav */}
@@ -116,9 +113,15 @@ export function Navbar() {
               className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#0a1224] px-6 py-8"
             >
               <div className="mb-6 flex items-center justify-between">
-                <span className="font-display text-xl tracking-[0.3em] text-gradient-gold">
-                  AL ARAB
-                </span>
+                <div className="relative h-8 w-28">
+                  <Image
+                    src="/alarab-logo-clean.png"
+                    alt="AL ARAB"
+                    fill
+                    sizes="112px"
+                    className="object-contain"
+                  />
+                </div>
                 <button
                   onClick={() => setOpen(false)}
                   className="rounded-md p-2 text-[#f4e9c9]"

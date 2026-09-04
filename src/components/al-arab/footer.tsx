@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowUp, Github, Linkedin, Twitter, Youtube } from 'lucide-react'
+import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 const SOCIAL_ICONS = [Twitter, Linkedin, Youtube, Github]
@@ -35,19 +36,14 @@ export function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-3">
-              <div className="relative flex h-12 w-12 items-center justify-center">
-                <div className="absolute inset-0 rounded-full border border-[#c9a85c]/40 animate-spin-slower" />
-                <span className="font-arabic-serif text-lg font-bold text-gradient-gold">
-                  ع
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display text-xl font-semibold tracking-[0.32em] text-gradient-gold">
-                  AL ARAB
-                </span>
-                <span className="font-arabic text-[10px] tracking-[0.3em] text-[#8a9bb8]">
-                  العرب
-                </span>
+              <div className="relative h-12 w-32 md:w-40">
+                <Image
+                  src="/alarab-logo-clean.png"
+                  alt="AL ARAB — Official Logo"
+                  fill
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-contain"
+                />
               </div>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#8a9bb8]">

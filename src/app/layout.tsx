@@ -29,6 +29,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alarab.ecosystem"),
   title: "AL ARAB — The Digital Future of the Arab World",
   description:
     "AL ARAB is a comprehensive digital ecosystem combining technology, entertainment, commerce, culture, innovation and community into a unified metaverse experience inspired by the Arab world.",
@@ -44,18 +45,24 @@ export const metadata: Metadata = {
     "Digital Ecosystem",
   ],
   authors: [{ name: "AL ARAB" }],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "AL ARAB — The Digital Future of the Arab World",
     description:
       "A unified digital ecosystem combining technology, entertainment, commerce, culture and innovation inspired by the Arab world.",
     siteName: "AL ARAB",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AL ARAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AL ARAB — The Digital Future of the Arab World",
     description:
       "A unified digital ecosystem combining technology, entertainment, commerce, culture and innovation.",
+    images: ["/og-image.jpg"],
   },
 };
 

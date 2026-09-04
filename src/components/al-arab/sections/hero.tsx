@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronDown, Sparkles } from 'lucide-react'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { ParticleField } from '../particle-field'
 import { YouTubeCinematic } from '../youtube-cinematic'
 import { useI18n } from '@/lib/i18n/i18n-provider'
@@ -35,12 +36,15 @@ export function HeroSection() {
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col items-center justify-center px-5 pt-24 text-center md:px-8">
+        {/* H1 for SEO / sr-only */}
+        <h1 className="sr-only">AL ARAB — The Digital Future of the Arab World</h1>
+
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mb-6 flex items-center gap-3"
+          className="mb-8 flex items-center gap-3"
         >
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#c9a85c]" />
           <span className="font-arabic-serif text-base text-[#d4af37]">
@@ -49,25 +53,34 @@ export function HeroSection() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
 
-        {/* Title */}
+        {/* Official Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-2 h-[7vh] w-[60vw] max-w-[640px] md:h-[10vh]"
+        >
+          <Image
+            src="/alarab-logo-clean.png"
+            alt="AL ARAB — Official Logo"
+            fill
+            priority
+            loading="eager"
+            sizes="(max-width: 768px) 60vw, 640px"
+            className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.45)]"
+          />
+        </motion.div>
+
+        {/* Title (subtle Arabic display under official logo) */}
         <motion.div
           style={{ y: titleY, opacity: titleOpacity }}
           className="relative flex flex-col items-center"
         >
-          <motion.h1
-            initial={{ opacity: 0, scale: 1.08, letterSpacing: '0.4em' }}
-            animate={{ opacity: 1, scale: 1, letterSpacing: '0.18em' }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[18vw] font-semibold leading-none tracking-[0.18em] text-gradient-gold text-glow-gold md:text-[10rem] lg:text-[12rem]"
-          >
-            {t.hero.title}
-          </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.85 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             className="font-arabic-serif text-3xl text-[#d4af37]/80 md:text-5xl"
-            style={{ marginTop: '-0.5rem' }}
           >
             {t.hero.titleArabic}
           </motion.div>
