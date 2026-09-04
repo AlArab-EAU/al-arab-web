@@ -62,7 +62,7 @@ export function TechnologySection() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-[#8a9bb8]">
+                <p className="mt-5 text-sm leading-relaxed text-[#9a9a9a]">
                   {tech.description}
                 </p>
 
@@ -70,7 +70,7 @@ export function TechnologySection() {
                   {tech.points.map((p) => (
                     <li
                       key={p}
-                      className="flex items-center gap-2 text-[11px] text-[#c9b88a]"
+                      className="flex items-center gap-2 text-[11px] text-[#c9b89a]"
                     >
                       <span className="h-1 w-1 rounded-full bg-[#d4af37]" />
                       {p}
@@ -96,7 +96,7 @@ export function TechnologySection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
               {tt.architectureTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#8a9bb8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#9a9a9a]">
               {tt.architectureDescription}
             </p>
           </div>
@@ -108,12 +108,12 @@ export function TechnologySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#0a1224]/60 px-4 py-3"
+                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#0a0a0a]/60 px-4 py-3"
               >
                 <span className="font-display text-sm text-[#f4e9c9]">
                   {row.layer}
                 </span>
-                <span className="text-xs text-[#8a9bb8]">{row.tech}</span>
+                <span className="text-xs text-[#9a9a9a]">{row.tech}</span>
               </motion.div>
             ))}
           </div>

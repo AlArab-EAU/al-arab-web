@@ -83,7 +83,7 @@ export function EcosystemSection() {
                 <h3 className="font-display text-xl font-medium text-[#f4e9c9]">
                   {v.title}
                 </h3>
-                <p className="text-xs leading-relaxed text-[#8a9bb8]">
+                <p className="text-xs leading-relaxed text-[#9a9a9a]">
                   {v.description}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export function EcosystemSection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl">
               {et.bannerTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#8a9bb8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#9a9a9a]">
               {et.bannerDescription}
             </p>
           </div>
@@ -113,7 +113,7 @@ export function EcosystemSection() {
             {et.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-[#c9a85c]/30 bg-[#c9a85c]/8 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#c9b88a]"
+                className="rounded-full border border-[#c9a85c]/30 bg-[#c9a85c]/8 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#c9b89a]"
               >
                 {tag}
               </span>

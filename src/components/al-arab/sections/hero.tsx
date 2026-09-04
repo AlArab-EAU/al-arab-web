@@ -111,7 +111,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
-          className="mt-10 max-w-2xl text-base font-light leading-relaxed text-[#c9b88a] md:text-xl"
+          className="mt-10 max-w-2xl text-base font-light leading-relaxed text-[#c9b89a] md:text-xl"
         >
           <span className="font-display italic text-[#f4e9c9]">
             The Digital Future of the Arab World
@@ -128,7 +128,7 @@ export function HeroSection() {
         >
           <a
             href="#vision"
-            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#050810] shadow-gold transition-all hover:scale-[1.02]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#050505] shadow-gold transition-all hover:scale-[1.02]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
             <Sparkles className="h-4 w-4" />
@@ -136,7 +136,7 @@ export function HeroSection() {
           </a>
           <a
             href="#metaverse"
-            className="rounded-full border border-[#c9a85c]/40 bg-[#050810]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
+            className="rounded-full border border-[#c9a85c]/40 bg-[#050505]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
           >
             {t.hero.ctaSecondary}
           </a>
@@ -171,7 +171,7 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#8a9bb8]">
+          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#9a9a9a]">
             {t.hero.scroll}
           </span>
           <ChevronDown className="h-4 w-4 text-[#c9a85c]" />
