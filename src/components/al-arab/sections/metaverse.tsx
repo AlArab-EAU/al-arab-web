@@ -61,7 +61,7 @@ export function MetaverseSection() {
           <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
             {mt.districtsTitle}
           </h3>
-          <p className="text-sm leading-relaxed text-[#8fb4d6]">
+          <p className="text-sm leading-relaxed text-[#6a8db0]">
             {mt.districtsDescription}
           </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -72,7 +72,7 @@ export function MetaverseSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.06 }}
-                className="rounded-xl border border-[#c9a85c]/20 bg-[#082740]/60 p-4 backdrop-blur-md"
+                className="rounded-xl border border-[#c9a85c]/20 bg-[#04101e]/60 p-4 backdrop-blur-md"
               >
                 <div className="flex items-baseline justify-between gap-2">
                   <h4 className="font-display text-base font-medium text-[#d4af37]">
@@ -82,7 +82,7 @@ export function MetaverseSection() {
                     {d.arabic}
                   </span>
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-[#8fb4d6]">
+                <p className="mt-2 text-xs leading-relaxed text-[#6a8db0]">
                   {d.description}
                 </p>
               </motion.div>
@@ -108,7 +108,7 @@ export function MetaverseSection() {
               <h4 className="font-display text-sm font-medium text-[#f4e9c9]">
                 {c.title}
               </h4>
-              <p className="text-[11px] leading-relaxed text-[#8fb4d6]">
+              <p className="text-[11px] leading-relaxed text-[#6a8db0]">
                 {c.description}
               </p>
             </motion.div>

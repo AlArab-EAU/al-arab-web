@@ -83,7 +83,7 @@ export function EcosystemSection() {
                 <h3 className="font-display text-xl font-medium text-[#f4e9c9]">
                   {v.title}
                 </h3>
-                <p className="text-xs leading-relaxed text-[#8fb4d6]">
+                <p className="text-xs leading-relaxed text-[#6a8db0]">
                   {v.description}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export function EcosystemSection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl">
               {et.bannerTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#8fb4d6]">
+            <p className="mt-3 text-sm leading-relaxed text-[#6a8db0]">
               {et.bannerDescription}
             </p>
           </div>

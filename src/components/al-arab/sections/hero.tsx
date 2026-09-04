@@ -55,12 +55,12 @@ export function HeroSection() {
         </motion.div>
 
         {/* Official Logo + Spinning Coin — logo is now MUCH BIGGER (90% viewport width on mobile, 800px on desktop) */}
-        <div className="relative flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16">
+        <div className="relative flex flex-col items-center justify-center gap-6 md:flex-row md:gap-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.3, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[12vh] w-[88vw] max-w-[800px] md:h-[16vh]"
+            className="relative h-[10vh] w-[78vw] max-w-[680px] md:h-[14vh]"
           >
             <Image
               src="/alarab-logo-new-clean.png"
@@ -68,7 +68,7 @@ export function HeroSection() {
               fill
               priority
               loading="eager"
-              sizes="(max-width: 768px) 88vw, 800px"
+              sizes="(max-width: 768px) 78vw, 680px"
               className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.55)]"
             />
           </motion.div>
@@ -80,11 +80,11 @@ export function HeroSection() {
             className="relative shrink-0"
           >
             <SpinningCoin
-              src="/alarab-coin-3-clean.png"
+              src="/alarab-coin-4-clean.png"
               alt="AL ARAB — Concept token (3D spinning)"
-              size={160}
-              spinDuration={18}
-              glow={0.65}
+              size={260}
+              spinDuration={20}
+              glow={0.75}
               parallax
             />
           </motion.div>
@@ -128,7 +128,7 @@ export function HeroSection() {
         >
           <a
             href="#vision"
-            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#0b4065] shadow-gold transition-all hover:scale-[1.02]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#030a14] shadow-gold transition-all hover:scale-[1.02]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
             <Sparkles className="h-4 w-4" />
@@ -136,7 +136,7 @@ export function HeroSection() {
           </a>
           <a
             href="#metaverse"
-            className="rounded-full border border-[#c9a85c]/40 bg-[#0b4065]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
+            className="rounded-full border border-[#c9a85c]/40 bg-[#030a14]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
           >
             {t.hero.ctaSecondary}
           </a>
@@ -171,7 +171,7 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#8fb4d6]">
+          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#6a8db0]">
             {t.hero.scroll}
           </span>
           <ChevronDown className="h-4 w-4 text-[#c9a85c]" />

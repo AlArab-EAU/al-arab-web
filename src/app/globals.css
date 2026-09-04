@@ -47,38 +47,38 @@
 
 :root {
   --radius: 0.75rem;
-  /* AL ARAB cinematic palette — deep Islamic blue + gold + cyan glows */
-  --background: #0b4065;
+  /* AL ARAB cinematic palette — VERY DARK deep blue (almost black) + gold + cyan glows */
+  --background: #030a14;
   --foreground: #f4e9c9;
-  --card: rgba(8, 40, 64, 0.55);
+  --card: rgba(6, 20, 36, 0.65);
   --card-foreground: #f4e9c9;
-  --popover: #082740;
+  --popover: #04101e;
   --popover-foreground: #f4e9c9;
   --primary: #d4af37;
-  --primary-foreground: #0b4065;
-  --secondary: rgba(15, 91, 138, 0.4);
+  --primary-foreground: #030a14;
+  --secondary: rgba(8, 25, 45, 0.5);
   --secondary-foreground: #f4e9c9;
-  --muted: rgba(8, 40, 64, 0.5);
-  --muted-foreground: #8fb4d6;
+  --muted: rgba(6, 20, 36, 0.6);
+  --muted-foreground: #6a8db0;
   --accent: #00d4ff;
-  --accent-foreground: #062738;
+  --accent-foreground: #021018;
   --destructive: #e5484d;
   --destructive-foreground: #f4e9c9;
   --border: rgba(212, 175, 55, 0.22);
-  --input: rgba(8, 40, 64, 0.6);
+  --input: rgba(6, 20, 36, 0.7);
   --ring: #d4af37;
   /* Chart palette aligned with brand */
   --chart-1: #d4af37;
   --chart-2: #c9a85c;
   --chart-3: #00d4ff;
-  --chart-4: #1565a8;
-  --chart-5: #8fb4d6;
+  --chart-4: #0d4a78;
+  --chart-5: #6a8db0;
   /* Sidebar */
-  --sidebar: #082740;
+  --sidebar: #04101e;
   --sidebar-foreground: #f4e9c9;
   --sidebar-primary: #d4af37;
-  --sidebar-primary-foreground: #0b4065;
-  --sidebar-accent: #0f5b8a;
+  --sidebar-primary-foreground: #030a14;
+  --sidebar-accent: #082135;
   --sidebar-accent-foreground: #f4e9c9;
   --sidebar-border: rgba(212, 175, 55, 0.22);
   --sidebar-ring: #d4af37;
@@ -137,14 +137,14 @@ body {
   }
 
   .glass {
-    background: rgba(8, 40, 64, 0.55);
+    background: rgba(6, 20, 36, 0.65);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border: 1px solid rgba(212, 175, 55, 0.22);
   }
 
   .glass-strong {
-    background: rgba(8, 40, 64, 0.78);
+    background: rgba(6, 20, 36, 0.85);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid rgba(212, 175, 55, 0.32);
@@ -176,8 +176,8 @@ body {
   .bg-radial-gold {
     background: radial-gradient(
       circle at 50% 0%,
-      rgba(212, 175, 55, 0.22) 0%,
-      rgba(11, 64, 101, 0) 60%
+      rgba(212, 175, 55, 0.18) 0%,
+      rgba(3, 10, 20, 0) 60%
     );
   }
 
@@ -291,12 +291,12 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b4065;
+  background: #030a14;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #d4af37, #8a6f2e);
   border-radius: 6px;
-  border: 2px solid #0b4065;
+  border: 2px solid #030a14;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #d4af37, #c9a85c);

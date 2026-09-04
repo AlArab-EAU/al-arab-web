@@ -21,7 +21,7 @@ export function Footer() {
   const ft = t.footer
 
   return (
-    <footer className="relative mt-32 border-t border-[#c9a85c]/15 bg-[#0b4065]">
+    <footer className="relative mt-32 border-t border-[#c9a85c]/15 bg-[#030a14]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c9a85c]/60 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-radial-gold opacity-30" />
 
@@ -46,7 +46,7 @@ export function Footer() {
                 />
               </div>
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#8fb4d6]">
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#6a8db0]">
               {ft.tagline}
             </p>
             <div className="mt-6 flex gap-3">
@@ -55,7 +55,7 @@ export function Footer() {
                   key={i}
                   href="#"
                   aria-label={ft.social[i] ?? `Social ${i}`}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#c9a85c]/25 bg-[#082740]/60 text-[#c9b88a] transition-all hover:border-[#d4af37] hover:text-[#d4af37] hover:shadow-gold"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#c9a85c]/25 bg-[#04101e]/60 text-[#c9b88a] transition-all hover:border-[#d4af37] hover:text-[#d4af37] hover:shadow-gold"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -80,7 +80,7 @@ export function Footer() {
                   <li key={item}>
                     <a
                       href={FOOTER_HREFS[i]?.[j] ?? '#'}
-                      className="group inline-flex items-center gap-2 text-sm text-[#8fb4d6] transition-colors hover:text-[#f4e9c9]"
+                      className="group inline-flex items-center gap-2 text-sm text-[#6a8db0] transition-colors hover:text-[#f4e9c9]"
                     >
                       <span className="h-px w-0 bg-[#d4af37] transition-all duration-300 group-hover:w-4" />
                       {item}
@@ -94,12 +94,12 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-[#c9a85c]/10 pt-8 md:flex-row">
-          <p className="text-center text-[11px] leading-relaxed text-[#1565a8] md:text-left">
+          <p className="text-center text-[11px] leading-relaxed text-[#0d4a78] md:text-left">
             {ft.copyright}
           </p>
           <a
             href="#top"
-            className="group flex items-center gap-2 rounded-full border border-[#c9a85c]/30 bg-[#082740]/60 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#c9b88a] transition-all hover:border-[#d4af37] hover:text-[#f4e9c9]"
+            className="group flex items-center gap-2 rounded-full border border-[#c9a85c]/30 bg-[#04101e]/60 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#c9b88a] transition-all hover:border-[#d4af37] hover:text-[#f4e9c9]"
           >
             {ft.backToTop}
             <ArrowUp className="h-3 w-3 transition-transform group-hover:-translate-y-0.5" />
