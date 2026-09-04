@@ -6,6 +6,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { ParticleField } from '../particle-field'
 import { YouTubeCinematic } from '../youtube-cinematic'
+import { SpinningCoin } from '../spinning-coin'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 export function HeroSection() {
@@ -53,23 +54,41 @@ export function HeroSection() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
 
-        {/* Official Logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mb-2 h-[7vh] w-[60vw] max-w-[640px] md:h-[10vh]"
-        >
-          <Image
-            src="/alarab-logo-clean.png"
-            alt="AL ARAB — Official Logo"
-            fill
-            priority
-            loading="eager"
-            sizes="(max-width: 768px) 60vw, 640px"
-            className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.45)]"
-          />
-        </motion.div>
+        {/* Official Logo + Spinning Coin — side-by-side on desktop, stacked on mobile */}
+        <div className="relative flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative h-[7vh] w-[58vw] max-w-[560px] md:h-[10vh]"
+          >
+            <Image
+              src="/alarab-logo-clean.png"
+              alt="AL ARAB — Official Logo"
+              fill
+              priority
+              loading="eager"
+              sizes="(max-width: 768px) 58vw, 560px"
+              className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.45)]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative shrink-0"
+          >
+            <SpinningCoin
+              src="/alarab-coin-3-clean.png"
+              alt="AL ARAB — Concept token (3D spinning)"
+              size={140}
+              spinDuration={18}
+              glow={0.65}
+              parallax
+            />
+          </motion.div>
+        </div>
 
         {/* Title (subtle Arabic display under official logo) */}
         <motion.div

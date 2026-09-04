@@ -1,9 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { AlertCircle } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/i18n-provider'
+import { SpinningCoin } from './spinning-coin'
 
 interface CoinShowcaseProps {
   /** Compact mode uses tighter padding inside a parent section */
@@ -54,21 +54,33 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           </p>
         </div>
 
-        {/* Coins column */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Spinning coins column — all three coins now rotate */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
           <CoinCard
-            src="/alarab-coin-clean.png"
+            src="/alarab-coin-3-clean.png"
             alt="AL ARAB concept token"
             name={cs.coin1Name}
             caption={cs.coin1Caption}
             delay={0.1}
+            size={120}
+          />
+          <CoinCard
+            src="/alarab-coin-clean.png"
+            alt="AL ARAB concept token — variant"
+            name={cs.coin1Name}
+            caption={cs.coin1Caption}
+            delay={0.2}
+            size={120}
+            spinDuration={22}
           />
           <CoinCard
             src="/alarab-coin-al-amin-clean.png"
             alt="AL AMIN concept token"
             name={cs.coin2Name}
             caption={cs.coin2Caption}
-            delay={0.2}
+            delay={0.3}
+            size={120}
+            spinDuration={20}
           />
         </div>
       </div>
@@ -96,33 +108,39 @@ interface CoinCardProps {
   name: string
   caption: string
   delay: number
+  size: number
+  spinDuration?: number
 }
 
-function CoinCard({ src, alt, name, caption, delay }: CoinCardProps) {
+function CoinCard({
+  src,
+  alt,
+  name,
+  caption,
+  delay,
+  size,
+  spinDuration = 18,
+}: CoinCardProps) {
   return (
     <motion.figure
       initial={{ opacity: 0, scale: 0.85, rotateY: -15 }}
       whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ scale: 1.04, rotateZ: 1 }}
-      className="group relative flex flex-col items-center gap-3 rounded-2xl border border-[#c9a85c]/20 bg-[#050810]/40 p-4 backdrop-blur-md"
+      className="group relative flex flex-col items-center gap-2 rounded-2xl border border-[#c9a85c]/20 bg-[#050810]/40 p-3 backdrop-blur-md"
     >
-      {/* Floating animation wrapper */}
-      <div className="relative aspect-square w-full animate-float-slow">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 768px) 40vw, 200px"
-          className="object-contain drop-shadow-[0_8px_30px_rgba(212,175,55,0.4)]"
-        />
-      </div>
+      <SpinningCoin
+        src={src}
+        alt={alt}
+        size={size}
+        spinDuration={spinDuration}
+        glow={0.4}
+      />
       <figcaption className="flex flex-col gap-1 text-center">
-        <span className="font-display text-xs font-medium uppercase tracking-[0.18em] text-[#d4af37]">
-          {name}
+        <span className="font-display text-[10px] font-medium uppercase tracking-[0.14em] text-[#d4af37]">
+          {name.split('—')[0]}
         </span>
-        <span className="text-[10px] leading-relaxed text-[#8a9bb8]">
+        <span className="text-[9px] leading-relaxed text-[#8a9bb8]">
           {caption}
         </span>
       </figcaption>
