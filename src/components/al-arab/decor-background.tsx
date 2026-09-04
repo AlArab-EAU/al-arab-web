@@ -1,193 +1,89 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { QuantumField } from './quantum-field'
 
 /**
- * Layered cinematic background — inspired by the Islamic luxury reference:
+ * Layered cinematic background — quantum edition.
  *
- *  - Deep Islamic blue base (#0b4065)
- *  - Geometric Islamic star pattern overlay
- *  - Cyan/teal radial glows for ethereal depth
- *  - Sweeping golden curves crossing the composition
- *  - Gold halo top + arabesque pattern (subtle)
- *  - Vignette + grain for premium cinematic finish
+ * Replaces the previous diagonal "rayas doradas" with:
+ *  - Animated quantum particle field (stardust + gold + cyan)
+ *  - Animated sine-wave frequency lines (oscilloscope-style)
+ *  - Energy waves with stroke-dasharray animation
+ *  - Radial bokeh glows (gold + cyan)
+ *  - Subtle Islamic star pattern (much fainter than before)
+ *  - Soft depth-of-field vignette
+ *
+ * Inspired by particle physics visualizations and Web3 hero designs.
  */
 export function DecorBackground() {
   const { scrollYProgress } = useScroll()
-  const gridY = useTransform(scrollYProgress, [0, 1], ['0%', '60%'])
   const orbY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const curveY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* === 1. Base deep Islamic blue === */}
+      {/* === 1. Base deep Islamic blue (smooth gradient, no harsh edges) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 100% 80% at 50% 0%, #0d4568 0%, #0b4065 40%, #082740 80%)',
+            'radial-gradient(ellipse 90% 70% at 50% 30%, #143D59 0%, #0b4065 35%, #082740 70%, #050f1d 100%)',
         }}
       />
 
-      {/* === 2. Islamic geometric star pattern overlay === */}
+      {/* === 2. Quantum particle field (animated canvas) === */}
+      <QuantumField density={220} />
+
+      {/* === 3. Islamic geometric star pattern — VERY subtle now === */}
       <IslamicStarPattern />
 
-      {/* === 3. Cyan/teal radial glows === */}
+      {/* === 4. Radial bokeh glows === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 25% 30%, rgba(0, 212, 255, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 75% 70%, rgba(0, 212, 255, 0.06) 0%, transparent 60%)',
+            'radial-gradient(ellipse 50% 35% at 70% 40%, rgba(212, 175, 55, 0.15) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 25% 65%, rgba(0, 212, 255, 0.10) 0%, transparent 60%), radial-gradient(ellipse 35% 25% at 50% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 70%)',
         }}
       />
 
-      {/* === 4. Overlapping translucent dark blue curves === */}
-      <svg
-        className="absolute inset-0 h-full w-full opacity-50"
-        preserveAspectRatio="none"
-        viewBox="0 0 1440 900"
-        fill="none"
-      >
-        <defs>
-          <linearGradient id="curveDark1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0f5b8a" stopOpacity="0" />
-            <stop offset="50%" stopColor="#1565a8" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#0f5b8a" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="curveDark2" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#082740" stopOpacity="0" />
-            <stop offset="50%" stopColor="#0b4065" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#082740" stopOpacity="0" />
-          </linearGradient>
-        </defs>
+      {/* === 5. Animated quantum sine-wave frequency lines === */}
+      <QuantumWaves />
 
-        <path
-          d="M -200 800 Q 400 400 800 500 T 1700 100"
-          stroke="url(#curveDark1)"
-          strokeWidth="280"
-          fill="none"
-        />
-        <path
-          d="M -200 100 Q 400 500 800 400 T 1700 800"
-          stroke="url(#curveDark2)"
-          strokeWidth="220"
-          fill="none"
-        />
-      </svg>
+      {/* === 6. Energy trails (light streams with gradient) === */}
+      <EnergyTrails />
 
-      {/* === 5. Halftone dot patterns on left & right borders === */}
-      <HalftoneDots side="left" />
-      <HalftoneDots side="right" />
-
-      {/* === 6. Sweeping golden curves === */}
-      <motion.svg
-        style={{ y: curveY }}
-        className="absolute inset-0 h-full w-full"
-        preserveAspectRatio="none"
-        viewBox="0 0 1440 900"
-        fill="none"
-      >
-        <defs>
-          <linearGradient id="goldCurve1" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#d4af37" stopOpacity="0" />
-            <stop offset="40%" stopColor="#d4af37" stopOpacity="0.7" />
-            <stop offset="60%" stopColor="#f4e9c9" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="goldCurve2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#c9a85c" stopOpacity="0" />
-            <stop offset="50%" stopColor="#c9a85c" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#c9a85c" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-
-        <path
-          d="M -100 750 Q 400 400 720 420 T 1600 150"
-          stroke="url(#goldCurve1)"
-          strokeWidth="2.5"
-          fill="none"
-        />
-        <path
-          d="M -100 760 Q 400 410 720 430 T 1600 160"
-          stroke="url(#goldCurve2)"
-          strokeWidth="1"
-          fill="none"
-        />
-        <path
-          d="M -100 780 Q 400 430 720 450 T 1600 180"
-          stroke="url(#goldCurve2)"
-          strokeWidth="0.5"
-          fill="none"
-        />
-        <path
-          d="M -100 740 Q 400 390 720 410 T 1600 140"
-          stroke="url(#goldCurve2)"
-          strokeWidth="0.5"
-          fill="none"
-        />
-
-        <path
-          d="M -100 150 Q 400 500 720 480 T 1600 750"
-          stroke="url(#goldCurve1)"
-          strokeWidth="2"
-          fill="none"
-        />
-        <path
-          d="M -100 160 Q 400 510 720 490 T 1600 760"
-          stroke="url(#goldCurve2)"
-          strokeWidth="0.8"
-          fill="none"
-        />
-        <path
-          d="M -100 140 Q 400 490 720 470 T 1600 740"
-          stroke="url(#goldCurve2)"
-          strokeWidth="0.4"
-          fill="none"
-        />
-      </motion.svg>
-
-      {/* === 7. Subtle arabesque pattern === */}
-      <div className="absolute inset-0 arab-pattern opacity-[0.08]" />
-
-      {/* === 8. Gold halo top center === */}
-      <div className="absolute inset-0 bg-radial-gold opacity-80" />
-
-      {/* === 9. Floating orbs === */}
+      {/* === 7. Floating orbs (bokeh-style with heavy blur) === */}
       <motion.div
         style={{ y: orbY }}
-        className="absolute left-[8%] top-[18%] h-72 w-72 rounded-full blur-[110px]"
+        className="absolute left-[10%] top-[15%] h-80 w-80 rounded-full blur-[120px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/12 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#d4af37]/15 animate-float-slow" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
-        className="absolute right-[6%] top-[55%] h-96 w-96 rounded-full blur-[130px]"
+        className="absolute right-[8%] top-[60%] h-96 w-96 rounded-full blur-[140px]"
       >
-        <div className="h-full w-full rounded-full bg-[#00d4ff]/10 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#00d4ff]/12 animate-float-medium" />
+      </motion.div>
+      <motion.div
+        style={{ y: orbY }}
+        className="absolute left-[45%] top-[85%] h-64 w-64 rounded-full blur-[100px]"
+      >
+        <div className="h-full w-full rounded-full bg-[#d4af37]/8 animate-float-slow" />
       </motion.div>
 
-      {/* === 10. Perspective grid floor (very subtle) === */}
-      <motion.div
-        style={{ y: gridY }}
-        className="absolute inset-x-0 bottom-0 h-[50vh] bg-grid-gold opacity-10"
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 h-[50vh]"
-        style={{
-          background:
-            'linear-gradient(to top, rgba(11, 64, 101, 1) 0%, rgba(11, 64, 101, 0.7) 30%, transparent 100%)',
-        }}
-      />
+      {/* === 8. Subtle arabesque pattern (kept faint) === */}
+      <div className="absolute inset-0 arab-pattern opacity-[0.04]" />
 
-      {/* === 11. Noise/grain overlay === */}
-      <div className="absolute inset-0 bg-noise opacity-[0.04]" />
+      {/* === 9. Noise/grain overlay for quantum field texture === */}
+      <div className="absolute inset-0 bg-noise opacity-[0.05]" />
 
-      {/* === 12. Vignette === */}
+      {/* === 10. Depth-of-field vignette (darken edges, focus center) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(8, 39, 64, 0.55) 100%)',
+            'radial-gradient(ellipse 70% 55% at 50% 45%, transparent 35%, rgba(5, 15, 29, 0.5) 100%)',
         }}
       />
     </div>
@@ -195,48 +91,31 @@ export function DecorBackground() {
 }
 
 /**
- * Islamic geometric star pattern — renders an SVG with 8-pointed stars
- * (Khatam-style) tiled across the screen in slightly darker blue,
- * with cyan glows at star intersections.
+ * Islamic geometric star pattern — much fainter than before (opacity 0.12).
+ * Kept subtle so the quantum effects dominate.
  */
 function IslamicStarPattern() {
-  // 8-pointed star: two overlapping squares at 0° and 45°
-  // We tile them every 200px in a 5-column pattern
-  const stars = []
-  for (let x = -50; x < 1450; x += 200) {
-    for (let y = -50; y < 950; y += 200) {
-      stars.push({ x, y })
-    }
-  }
-
   return (
     <svg
-      className="absolute inset-0 h-full w-full opacity-30"
+      className="absolute inset-0 h-full w-full opacity-[0.12]"
       preserveAspectRatio="xMidYMid slice"
-      viewBox="0 0 1440 900"
       fill="none"
     >
       <defs>
-        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.6" />
-          <stop offset="60%" stopColor="#00d4ff" stopOpacity="0.1" />
-          <stop offset="100%" stopColor="#00d4ff" stopOpacity="0" />
-        </radialGradient>
         <pattern
-          id="islamicStar"
+          id="islamicStar2"
           x="0"
           y="0"
           width="200"
           height="200"
           patternUnits="userSpaceOnUse"
         >
-          {/* 8-pointed star = two overlapping squares */}
           <g
             transform="translate(100,100)"
             stroke="#1565a8"
-            strokeWidth="1.2"
+            strokeWidth="1"
             fill="none"
-            opacity="0.7"
+            opacity="0.6"
           >
             <rect x="-40" y="-40" width="80" height="80" />
             <rect
@@ -250,61 +129,171 @@ function IslamicStarPattern() {
           </g>
         </pattern>
       </defs>
-
-      {/* Tile the pattern */}
-      <rect width="100%" height="100%" fill="url(#islamicStar)" />
-
-      {/* Cyan glow dots at strategic intersections (every 3rd star) */}
-      {stars
-        .filter((_, i) => i % 5 === 0)
-        .map((s, i) => (
-          <circle
-            key={i}
-            cx={s.x + 100}
-            cy={s.y + 100}
-            r="50"
-            fill="url(#starGlow)"
-          />
-        ))}
+      <rect width="100%" height="100%" fill="url(#islamicStar2)" />
     </svg>
   )
 }
 
 /**
- * Halftone dot pattern on the side borders — denser at the edges,
- * fading toward the center.
+ * QuantumWaves — animated sine-wave lines that flow across the screen,
+ * evoking oscilloscope / frequency / vibration aesthetics.
+ *
+ * Implemented as SVG paths with stroke-dasharray animation that moves
+ * along the path, creating the illusion of flowing energy.
  */
-function HalftoneDots({ side }: { side: 'left' | 'right' }) {
+function QuantumWaves() {
+  // We render 5 sine wave lines at different Y positions and phases
+  const waves = [
+    { y: 180, amp: 30, freq: 0.012, phase: 0, color: '#d4af37', opacity: 0.35, speed: 14 },
+    { y: 320, amp: 45, freq: 0.009, phase: 1.2, color: '#00d4ff', opacity: 0.25, speed: 20 },
+    { y: 460, amp: 25, freq: 0.014, phase: 2.4, color: '#d4af37', opacity: 0.30, speed: 16 },
+    { y: 620, amp: 38, freq: 0.010, phase: 3.6, color: '#00d4ff', opacity: 0.22, speed: 22 },
+    { y: 760, amp: 28, freq: 0.013, phase: 4.8, color: '#d4af37', opacity: 0.28, speed: 18 },
+  ]
+
+  const pathFor = (wave: (typeof waves)[number]) => {
+    const points: string[] = []
+    for (let x = -100; x <= 1600; x += 8) {
+      const y = wave.y + Math.sin(x * wave.freq + wave.phase) * wave.amp
+      points.push(`${x},${y}`)
+    }
+    return `M ${points.join(' L ')}`
+  }
+
   return (
-    <div
-      className={`absolute inset-y-0 ${side === 'left' ? 'left-0' : 'right-0'} w-1/4 md:w-1/5`}
-      style={{
-        maskImage:
-          side === 'left'
-            ? 'linear-gradient(to right, black 0%, transparent 100%)'
-            : 'linear-gradient(to left, black 0%, transparent 100%)',
-        WebkitMaskImage:
-          side === 'left'
-            ? 'linear-gradient(to right, black 0%, transparent 100%)'
-            : 'linear-gradient(to left, black 0%, transparent 100%)',
-        opacity: 0.4,
-      }}
+    <svg
+      className="absolute inset-0 h-full w-full"
+      preserveAspectRatio="none"
+      viewBox="0 0 1440 900"
+      fill="none"
     >
-      <svg className="h-full w-full" preserveAspectRatio="none">
-        <defs>
-          <pattern
-            id={`halftone-${side}`}
-            x="0"
-            y="0"
-            width="14"
-            height="14"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle cx="2" cy="2" r="1.1" fill="#1565a8" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#halftone-${side})`} />
-      </svg>
-    </div>
+      <defs>
+        <linearGradient id="waveFade" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="transparent" />
+          <stop offset="20%" stopColor="currentColor" stopOpacity="1" />
+          <stop offset="80%" stopColor="currentColor" stopOpacity="1" />
+          <stop offset="100%" stopColor="transparent" />
+        </linearGradient>
+      </defs>
+
+      {waves.map((wave, i) => (
+        <g key={i} style={{ color: wave.color }}>
+          <path
+            d={pathFor(wave)}
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeOpacity={wave.opacity}
+            fill="none"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+              animation: `quantum-flow ${wave.speed}s linear infinite`,
+              strokeDasharray: '12 8',
+              strokeDashoffset: 0,
+            }}
+          />
+        </g>
+      ))}
+
+      <style>{`
+        @keyframes quantum-flow {
+          0% { stroke-dashoffset: 0; }
+          100% { stroke-dashoffset: -200; }
+        }
+      `}</style>
+    </svg>
+  )
+}
+
+/**
+ * EnergyTrails — long, soft, blurred light streams that fade in/out,
+ * evoking long-exposure photography and quantum particle trails.
+ *
+ * Implemented as SVG paths with linear gradients and large blur filter.
+ */
+function EnergyTrails() {
+  const trails = [
+    {
+      d: 'M -100 700 Q 300 400 720 480 T 1600 200',
+      color: '#d4af37',
+      width: 1.5,
+      opacity: 0.4,
+      duration: 8,
+      delay: 0,
+    },
+    {
+      d: 'M -100 200 Q 350 550 720 460 T 1600 720',
+      color: '#00d4ff',
+      width: 1,
+      opacity: 0.3,
+      duration: 10,
+      delay: 2,
+    },
+    {
+      d: 'M -100 450 Q 400 350 720 420 T 1600 380',
+      color: '#d4af37',
+      width: 0.8,
+      opacity: 0.25,
+      duration: 12,
+      delay: 4,
+    },
+  ]
+
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full"
+      preserveAspectRatio="none"
+      viewBox="0 0 1440 900"
+      fill="none"
+    >
+      <defs>
+        <linearGradient id="trailFade1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#d4af37" stopOpacity="0" />
+          <stop offset="50%" stopColor="#d4af37" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="trailFade2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#00d4ff" stopOpacity="0" />
+          <stop offset="50%" stopColor="#00d4ff" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#00d4ff" stopOpacity="0" />
+        </linearGradient>
+        <filter id="trailBlur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" />
+        </filter>
+      </defs>
+
+      <g filter="url(#trailBlur)">
+        <motion.path
+          d={trails[0].d}
+          stroke="url(#trailFade1)"
+          strokeWidth={trails[0].width}
+          fill="none"
+          style={{ opacity: trails[0].opacity }}
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: trails[0].duration, delay: trails[0].delay, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        />
+        <motion.path
+          d={trails[1].d}
+          stroke="url(#trailFade2)"
+          strokeWidth={trails[1].width}
+          fill="none"
+          style={{ opacity: trails[1].opacity }}
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: trails[1].duration, delay: trails[1].delay, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        />
+        <motion.path
+          d={trails[2].d}
+          stroke="url(#trailFade1)"
+          strokeWidth={trails[2].width}
+          fill="none"
+          style={{ opacity: trails[2].opacity }}
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: trails[2].duration, delay: trails[2].delay, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        />
+      </g>
+    </svg>
   )
 }
