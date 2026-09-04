@@ -5,8 +5,10 @@ import { ChevronDown, Sparkles } from 'lucide-react'
 import { useRef } from 'react'
 import { ParticleField } from '../particle-field'
 import { YouTubeCinematic } from '../youtube-cinematic'
+import { useI18n } from '@/lib/i18n/i18n-provider'
 
 export function HeroSection() {
+  const { t } = useI18n()
   const ref = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -42,7 +44,7 @@ export function HeroSection() {
         >
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#c9a85c]" />
           <span className="font-arabic-serif text-base text-[#d4af37]">
-            المستقبل الرقمي للعالم العربي
+            {t.hero.arabicEyebrow}
           </span>
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
@@ -58,7 +60,7 @@ export function HeroSection() {
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-[18vw] font-semibold leading-none tracking-[0.18em] text-gradient-gold text-glow-gold md:text-[10rem] lg:text-[12rem]"
           >
-            AL ARAB
+            {t.hero.title}
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
@@ -67,7 +69,7 @@ export function HeroSection() {
             className="font-arabic-serif text-3xl text-[#d4af37]/80 md:text-5xl"
             style={{ marginTop: '-0.5rem' }}
           >
-            العرب
+            {t.hero.titleArabic}
           </motion.div>
         </motion.div>
 
@@ -82,8 +84,7 @@ export function HeroSection() {
           <span className="font-display italic text-[#f4e9c9]">
             The Digital Future of the Arab World
           </span>{' '}
-          — un ecosistema unificado donde la tecnología, la cultura y la innovación
-          convergen en un metaverso inspirado en el patrimonio árabe.
+          — {t.hero.subtitle}
         </motion.p>
 
         {/* CTA buttons */}
@@ -99,13 +100,13 @@ export function HeroSection() {
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
             <Sparkles className="h-4 w-4" />
-            Descubrir el ecosistema
+            {t.hero.ctaPrimary}
           </a>
           <a
             href="#metaverse"
             className="rounded-full border border-[#c9a85c]/40 bg-[#050810]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
           >
-            Explorar el metaverso
+            {t.hero.ctaSecondary}
           </a>
         </motion.div>
 
@@ -118,8 +119,9 @@ export function HeroSection() {
         >
           <YouTubeCinematic
             videoId="5L6tvrXrUWM"
-            title="AL ARAB — Official Teaser"
-            description="Una mirada cinematográfica al universo digital que está redefiniendo la presencia árabe en el mundo tecnológico global."
+            title={t.hero.video1Title}
+            description={t.hero.video1Description}
+            officialBadge={t.hero.officialVideo}
           />
         </motion.div>
       </div>
@@ -138,7 +140,7 @@ export function HeroSection() {
           className="flex flex-col items-center gap-2"
         >
           <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#8a9bb8]">
-            Scroll
+            {t.hero.scroll}
           </span>
           <ChevronDown className="h-4 w-4 text-[#c9a85c]" />
         </motion.div>

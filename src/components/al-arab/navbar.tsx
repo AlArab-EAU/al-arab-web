@@ -3,20 +3,23 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const NAV_ITEMS = [
-  { href: '#vision', label: 'Visión', en: 'Vision' },
-  { href: '#metaverse', label: 'Metaverso', en: 'Metaverse' },
-  { href: '#economy', label: 'Economía', en: 'Economy' },
-  { href: '#technology', label: 'Tecnología', en: 'Technology' },
-  { href: '#ecosystem', label: 'Ecosistema', en: 'Ecosystem' },
-  { href: '#roadmap', label: 'Roadmap', en: 'Roadmap' },
-  { href: '#investors', label: 'Inversores', en: 'Investors' },
-]
+import { useI18n } from '@/lib/i18n/i18n-provider'
+import { LanguageSwitcher } from './language-switcher'
 
 export function Navbar() {
+  const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const NAV_ITEMS = [
+    { href: '#vision', label: t.nav.vision },
+    { href: '#metaverse', label: t.nav.metaverse },
+    { href: '#economy', label: t.nav.economy },
+    { href: '#technology', label: t.nav.technology },
+    { href: '#ecosystem', label: t.nav.ecosystem },
+    { href: '#roadmap', label: t.nav.roadmap },
+    { href: '#investors', label: t.nav.investors },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -35,9 +38,9 @@ export function Navbar() {
           scrolled ? 'glass-strong shadow-deep' : 'bg-transparent'
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 md:px-8">
           {/* Logo */}
-          <a href="#top" className="group flex items-center gap-3">
+          <a href="#top" className="group flex shrink-0 items-center gap-3">
             <div className="relative flex h-11 w-11 items-center justify-center">
               <div className="absolute inset-0 rounded-full border border-[#c9a85c]/50 animate-spin-slower" />
               <div className="absolute inset-[3px] rounded-full border border-[#c9a85c]/30" />
@@ -56,7 +59,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-7 xl:flex">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
@@ -69,23 +72,26 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
-          <a
-            href="#investors"
-            className="hidden items-center gap-2 rounded-full border border-[#c9a85c]/40 bg-[#c9a85c]/8 px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#f4e9c9] transition-all hover:bg-[#c9a85c]/18 hover:shadow-gold md:inline-flex"
-          >
-            Contacto
-          </a>
+          {/* Right-side controls */}
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <a
+              href="#investors"
+              className="hidden items-center gap-2 rounded-full border border-[#c9a85c]/40 bg-[#c9a85c]/8 px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#f4e9c9] transition-all hover:bg-[#c9a85c]/18 hover:shadow-gold md:inline-flex"
+            >
+              {t.nav.contact}
+            </a>
 
-          {/* Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="rounded-md p-2 text-[#f4e9c9] lg:hidden"
-            aria-label="Abrir menú"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+            {/* Mobile toggle */}
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="rounded-md p-2 text-[#f4e9c9] xl:hidden"
+              aria-label={t.nav.openMenu}
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -96,7 +102,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] lg:hidden"
+            className="fixed inset-0 z-[60] xl:hidden"
           >
             <div
               className="absolute inset-0 bg-[#050810]/90 backdrop-blur-xl"
@@ -116,7 +122,7 @@ export function Navbar() {
                 <button
                   onClick={() => setOpen(false)}
                   className="rounded-md p-2 text-[#f4e9c9]"
-                  aria-label="Cerrar"
+                  aria-label={t.nav.closeMenu}
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -134,12 +140,15 @@ export function Navbar() {
                   {item.label}
                 </motion.a>
               ))}
+              <div className="mt-4">
+                <LanguageSwitcher />
+              </div>
               <a
                 href="#investors"
                 onClick={() => setOpen(false)}
                 className="mt-6 rounded-full border border-[#c9a85c]/50 bg-[#c9a85c]/15 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.25em] text-[#f4e9c9]"
               >
-                Contacto
+                {t.nav.contact}
               </a>
             </motion.nav>
           </motion.div>

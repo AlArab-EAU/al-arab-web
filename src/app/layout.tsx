@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo, Amiri, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { I18nProvider } from "@/lib/i18n/i18n-provider";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -68,7 +69,7 @@ export default function RootLayout({
       <body
         className={`${cairo.variable} ${amiri.variable} ${cormorant.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <I18nProvider>{children}</I18nProvider>
         <Toaster />
       </body>
     </html>

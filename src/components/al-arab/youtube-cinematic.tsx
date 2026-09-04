@@ -10,6 +10,8 @@ interface YouTubeCinematicProps {
   description?: string
   /** Optional custom poster image (YouTube thumbnail by default) */
   poster?: string
+  /** Text shown in the "Official Video" badge — defaults to "Official Video" */
+  officialBadge?: string
   variant?: 'full' | 'card'
 }
 
@@ -24,6 +26,7 @@ export function YouTubeCinematic({
   title,
   description,
   poster,
+  officialBadge = 'Official Video',
   variant = 'card',
 }: YouTubeCinematicProps) {
   const [playing, setPlaying] = useState(false)
@@ -85,7 +88,7 @@ export function YouTubeCinematic({
             </button>
             <div className="absolute left-5 top-5 flex items-center gap-2">
               <span className="rounded-full border border-[#c9a85c]/40 bg-[#050810]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
-                Official Video
+                {officialBadge}
               </span>
             </div>
           </>

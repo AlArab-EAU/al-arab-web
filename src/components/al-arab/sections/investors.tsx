@@ -12,92 +12,82 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
+import { useI18n } from '@/lib/i18n/i18n-provider'
 
-const OPPORTUNITIES = [
-  {
-    icon: Handshake,
-    title: 'Partnerships estratégicos',
-    arabic: 'شراكات استراتيجية',
-    description:
-      'Marcas, estudios y plataformas que quieran establecer presencia a largo plazo dentro del ecosistema AlArab con un rol activo en su desarrollo.',
-  },
-  {
-    icon: Map,
-    title: 'Land y espacios digitales',
-    arabic: 'الأراضي الرقمية',
-    description:
-      'Adquisición y desarrollo de landplots digitales dentro de los distritos del metaverso: showrooms, galerías, escenarios y sedes corporativas.',
-  },
-  {
-    icon: Building2,
-    title: 'Oportunidades corporativas',
-    arabic: 'الفرص المؤسسية',
-    description:
-      'Programas de cooperación corporativa para empresas que quieran integrar sus servicios en la capa de aplicación del ecosistema AlArab.',
-  },
-]
+const OPPORTUNITY_ICONS = [Handshake, Map, Building2]
 
 export function InvestorsSection() {
+  const { t } = useI18n()
+  const it = t.investors
+
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
     name: '',
     company: '',
     email: '',
-    interest: 'Partnership',
+    interest: it.interestOptions[0],
     message: '',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // No backend persistence — surface a confirmation only
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 5000)
-    setForm({ name: '', company: '', email: '', interest: 'Partnership', message: '' })
+    setForm({
+      name: '',
+      company: '',
+      email: '',
+      interest: it.interestOptions[0],
+      message: '',
+    })
   }
 
   return (
     <Section id="investors">
       <SectionHeading
-        eyebrow="Empresas & Inversores"
-        arabic="الشركات والمستثمرون"
+        eyebrow={it.eyebrow}
+        arabic={it.arabic}
         title={
           <>
-            Construye el futuro
+            {it.title}
             <br />
-            <span className="text-gradient-gold">junto a AlArab</span>
+            <span className="text-gradient-gold">{it.titleHighlight}</span>
           </>
         }
-        description="Tres vías de participación para empresas, marcas e inversores que quieran formar parte del ecosistema. Cada vía tiene un proceso de evaluación dedicado y un equipo de partnerships como punto de contacto."
+        description={it.description}
       />
 
       <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
-        {OPPORTUNITIES.map((o, i) => (
-          <motion.article
-            key={o.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, delay: i * 0.08 }}
-            className="group relative overflow-hidden rounded-2xl border border-[#c9a85c]/22 glass p-7 transition-all hover:-translate-y-1 hover:border-[#c9a85c]/45 hover:shadow-gold"
-          >
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#c9a85c]/30 bg-[#c9a85c]/8">
-              <o.icon className="h-6 w-6 text-[#d4af37]" />
-            </div>
-            <div className="mt-5">
-              <div className="flex items-baseline justify-between gap-2">
-                <h3 className="font-display text-xl font-medium text-[#f4e9c9]">
-                  {o.title}
-                </h3>
-                <span className="font-arabic-serif text-sm text-[#c9a85c]/70">
-                  {o.arabic}
-                </span>
+        {it.opportunities.map((o, i) => {
+          const Icon = OPPORTUNITY_ICONS[i] ?? Handshake
+          return (
+            <motion.article
+              key={o.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, delay: i * 0.08 }}
+              className="group relative overflow-hidden rounded-2xl border border-[#c9a85c]/22 glass p-7 transition-all hover:-translate-y-1 hover:border-[#c9a85c]/45 hover:shadow-gold"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-[#c9a85c]/30 bg-[#c9a85c]/8">
+                <Icon className="h-6 w-6 text-[#d4af37]" />
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-[#8a9bb8]">
-                {o.description}
-              </p>
-            </div>
-          </motion.article>
-        ))}
+              <div className="mt-5">
+                <div className="flex items-baseline justify-between gap-2">
+                  <h3 className="font-display text-xl font-medium text-[#f4e9c9]">
+                    {o.title}
+                  </h3>
+                  <span className="font-arabic-serif text-sm text-[#c9a85c]/70">
+                    {o.arabic}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-[#8a9bb8]">
+                  {o.description}
+                </p>
+              </div>
+            </motion.article>
+          )
+        })}
       </div>
 
       {/* Contact form */}
@@ -111,12 +101,10 @@ export function InvestorsSection() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
             <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
-              Hablemos
+              {it.formTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[#8a9bb8]">
-              Cuéntanos sobre tu organización y los objetivos que persigues
-              dentro del ecosistema AlArab. Un miembro del equipo de partnerships
-              se pondrá en contacto para evaluar el encaje.
+              {it.formDescription}
             </p>
             <div className="mt-6 flex flex-col gap-4">
               <div className="flex items-center gap-3">
@@ -125,9 +113,9 @@ export function InvestorsSection() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.25em] text-[#5d7ba8]">
-                    Email
+                    {it.emailLabel}
                   </p>
-                  <p className="text-sm text-[#f4e9c9]">partners@alarab.ecosystem</p>
+                  <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -136,9 +124,9 @@ export function InvestorsSection() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.25em] text-[#5d7ba8]">
-                    Investor relations
+                    {it.irLabel}
                   </p>
-                  <p className="text-sm text-[#f4e9c9]">Disponible bajo solicitud</p>
+                  <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
                 </div>
               </div>
             </div>
@@ -148,7 +136,7 @@ export function InvestorsSection() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
-                  Nombre
+                  {it.fields.name}
                 </span>
                 <input
                   type="text"
@@ -156,25 +144,25 @@ export function InvestorsSection() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="rounded-lg border border-[#c9a85c]/25 bg-[#0a1224]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
-                  placeholder="Tu nombre"
+                  placeholder={it.fields.namePlaceholder}
                 />
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
-                  Empresa
+                  {it.fields.company}
                 </span>
                 <input
                   type="text"
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
                   className="rounded-lg border border-[#c9a85c]/25 bg-[#0a1224]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
-                  placeholder="Tu organización"
+                  placeholder={it.fields.companyPlaceholder}
                 />
               </label>
             </div>
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
-                Email
+                {it.fields.email}
               </span>
               <input
                 type="email"
@@ -182,27 +170,26 @@ export function InvestorsSection() {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="rounded-lg border border-[#c9a85c]/25 bg-[#0a1224]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
-                placeholder="tucorreo@empresa.com"
+                placeholder={it.fields.emailPlaceholder}
               />
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
-                Interés
+                {it.fields.interest}
               </span>
               <select
                 value={form.interest}
                 onChange={(e) => setForm({ ...form, interest: e.target.value })}
                 className="rounded-lg border border-[#c9a85c]/25 bg-[#0a1224]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
               >
-                <option>Partnership</option>
-                <option>Land digital</option>
-                <option>Inversión</option>
-                <option>Otro</option>
+                {it.interestOptions.map((opt) => (
+                  <option key={opt}>{opt}</option>
+                ))}
               </select>
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c9b88a]">
-                Mensaje
+                {it.fields.message}
               </span>
               <textarea
                 rows={4}
@@ -210,7 +197,7 @@ export function InvestorsSection() {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="resize-none rounded-lg border border-[#c9a85c]/25 bg-[#0a1224]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
-                placeholder="Cuéntanos sobre tus objetivos"
+                placeholder={it.fields.messagePlaceholder}
               />
             </label>
             <button
@@ -219,7 +206,7 @@ export function InvestorsSection() {
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
               <Send className="h-4 w-4" />
-              Enviar solicitud
+              {it.submit}
             </button>
             {submitted && (
               <motion.div
@@ -228,7 +215,7 @@ export function InvestorsSection() {
                 className="flex items-center gap-2 rounded-lg border border-[#d4af37]/40 bg-[#d4af37]/10 px-4 py-3 text-xs text-[#d4af37]"
               >
                 <CheckCircle2 className="h-4 w-4" />
-                Solicitud recibida. Te contactaremos pronto.
+                {it.success}
               </motion.div>
             )}
           </form>

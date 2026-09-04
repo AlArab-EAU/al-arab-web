@@ -3,127 +3,53 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2, Circle, Loader2 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
+import { useI18n } from '@/lib/i18n/i18n-provider'
 
-const PHASES = [
-  {
-    id: '01',
-    title: 'Fundación',
-    arabic: 'التأسيس',
-    period: 'Fase inicial',
-    description:
-      'Concepción del ecosistema, definición de la arquitectura tecnológica, partnerships estratégicos iniciales y diseño de la identidad visual del universo AlArab.',
-    deliverables: [
-      'Identidad de marca',
-      'Arquitectura tecnológica',
-      'Equipo fundador',
-      'Alianzas iniciales',
-    ],
-    status: 'done',
-  },
-  {
-    id: '02',
-    title: 'Lanzamiento',
-    arabic: 'الإطلاق',
-    period: 'Activación inicial',
-    description:
-      'Lanzamiento de la presencia pública de AlArab, teaser cinematográfico, los primeros distritos del metaverso y el marketplace digital en versión inicial.',
-    deliverables: [
-      'Web oficial',
-      'Metaverso v1',
-      'Marketplace beta',
-      'Comunidad inicial',
-    ],
-    status: 'active',
-  },
-  {
-    id: '03',
-    title: 'Expansión',
-    arabic: 'التوسع',
-    period: 'Crecimiento regional',
-    description:
-      'Apertura de nuevos distritos, integración de partners corporativos, programa para creadores y despliegue de la capa de identidad y billetera en producción.',
-    deliverables: [
-      'Nuevos distritos',
-      'Programa de creadores',
-      'Billetera en producción',
-      'Partners corporativos',
-    ],
-    status: 'next',
-  },
-  {
-    id: '04',
-    title: 'Metaverso completo',
-    arabic: 'الميتافيرس الكامل',
-    period: 'Madurez del ecosistema',
-    description:
-      'Integración de VR nativa, voz espacial, eventos en vivo a gran escala y conectividad cross-platform. El mundo virtual alcanza su forma definitiva.',
-    deliverables: [
-      'VR nativa',
-      'Eventos en vivo',
-      'Conectividad total',
-      'Comunidad global',
-    ],
-    status: 'planned',
-  },
-  {
-    id: '05',
-    title: 'Ecosistema global',
-    arabic: 'المنظومة العالمية',
-    period: 'Escalado internacional',
-    description:
-      'Expansión del modelo AlArab a otras geografías y culturas, manteniendo la identidad árabe como núcleo, con hubs regionales y una red federada de ecosistemas.',
-    deliverables: [
-      'Hubs regionales',
-      'Red federada',
-      'Expansión cultural',
-      'Comunidad mundial',
-    ],
-    status: 'planned',
-  },
-]
+type PhaseStatus = 'done' | 'active' | 'next' | 'planned'
 
-const STATUS_MAP = {
-  done: {
-    icon: CheckCircle2,
-    label: 'Completado',
-    color: '#d4af37',
-  },
-  active: {
-    icon: Loader2,
-    label: 'En curso',
-    color: '#c9a85c',
-  },
-  next: {
-    icon: Circle,
-    label: 'Próxima',
-    color: '#5d7ba8',
-  },
-  planned: {
-    icon: Circle,
-    label: 'Planificada',
-    color: '#5d7ba8',
-  },
-} as const
+interface StatusMeta {
+  icon: typeof CheckCircle2
+  color: string
+}
 
 export function RoadmapSection() {
+  const { t } = useI18n()
+  const rt = t.roadmap
+  const statusLabels = rt.statusLabels as Record<PhaseStatus, string>
+
+  const statusMeta = (status: PhaseStatus): StatusMeta => {
+    switch (status) {
+      case 'done':
+        return { icon: CheckCircle2, color: '#d4af37' }
+      case 'active':
+        return { icon: Loader2, color: '#c9a85c' }
+      case 'next':
+        return { icon: Circle, color: '#5d7ba8' }
+      case 'planned':
+        return { icon: Circle, color: '#5d7ba8' }
+    }
+  }
+
   return (
     <Section id="roadmap">
       <SectionHeading
-        eyebrow="Roadmap"
-        arabic="خريطة الطريق"
+        eyebrow={rt.eyebrow}
+        arabic={rt.arabic}
         title={
           <>
-            Cinco fases hacia
+            {rt.title}
             <br />
-            <span className="text-gradient-gold">el ecosistema global</span>
+            <span className="text-gradient-gold">{rt.titleHighlight}</span>
           </>
         }
-        description="La hoja de ruta de AlArab se estructura en cinco fases que conectan la concepción del proyecto con su consolidación como ecosistema global. Cada fase tiene entregables verificables y marca el inicio de la siguiente."
+        description={rt.description}
       />
 
       <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-5">
-        {PHASES.map((phase, i) => {
-          const status = STATUS_MAP[phase.status as keyof typeof STATUS_MAP]
+        {rt.phases.map((phase, i) => {
+          const meta = statusMeta(phase.status as PhaseStatus)
+          const StatusIcon = meta.icon
+          const label = statusLabels[phase.status as PhaseStatus] ?? phase.status
           return (
             <motion.article
               key={phase.id}
@@ -134,7 +60,7 @@ export function RoadmapSection() {
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#c9a85c]/22 glass p-6"
             >
               {/* Vertical line / connector */}
-              {i < PHASES.length - 1 && (
+              {i < rt.phases.length - 1 && (
                 <div className="absolute right-0 top-1/2 hidden h-px w-5 -translate-y-1/2 translate-x-full bg-gradient-to-r from-[#c9a85c]/40 to-transparent lg:block" />
               )}
 
@@ -142,9 +68,9 @@ export function RoadmapSection() {
                 <span className="font-display text-3xl font-semibold text-gradient-gold">
                   {phase.id}
                 </span>
-                <status.icon
+                <StatusIcon
                   className={`h-5 w-5 ${phase.status === 'active' ? 'animate-spin' : ''}`}
-                  style={{ color: status.color }}
+                  style={{ color: meta.color }}
                 />
               </div>
 
@@ -158,9 +84,9 @@ export function RoadmapSection() {
               </div>
               <span
                 className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em]"
-                style={{ color: status.color }}
+                style={{ color: meta.color }}
               >
-                {status.label}
+                {label}
               </span>
               <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#5d7ba8]">
                 {phase.period}
@@ -178,7 +104,7 @@ export function RoadmapSection() {
                   >
                     <span
                       className="h-1.5 w-1.5 rounded-full"
-                      style={{ background: status.color }}
+                      style={{ background: meta.color }}
                     />
                     {d}
                   </li>
