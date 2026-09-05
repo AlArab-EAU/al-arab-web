@@ -28,9 +28,9 @@ export function EconomySection() {
       return { color: '#d4af37', label }
     }
     if (rawStatus === 'Parcial') {
-      return { color: '#6a8db0', label }
+      return { color: '#7eb8e2', label }
     }
-    return { color: '#0d4a78', label }
+    return { color: '#1a6ba8', label }
   }
 
   return (
@@ -85,7 +85,7 @@ export function EconomySection() {
                     {f.arabic}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#6a8db0]">
+                <p className="mt-3 text-sm leading-relaxed text-[#7eb8e2]">
                   {f.description}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export function EconomySection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mt-10 rounded-2xl border border-[#c9a85c]/15 bg-[#04101e]/40 p-6 backdrop-blur-md"
+        className="mt-10 rounded-2xl border border-[#c9a85c]/15 bg-[#072138]/40 p-6 backdrop-blur-md"
       >
         <h4 className="font-display text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
           {et.noteTitle}
@@ -114,7 +114,7 @@ export function EconomySection() {
           {et.notes.map((note, i) => (
             <li key={i} className="flex items-start gap-3">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#c9a85c]" />
-              <span className="text-xs leading-relaxed text-[#6a8db0]">
+              <span className="text-xs leading-relaxed text-[#7eb8e2]">
                 {note}
               </span>
             </li>

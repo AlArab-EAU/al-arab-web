@@ -27,7 +27,7 @@ export function DecorBackground() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 90% 70% at 50% 30%, #082135 0%, #04101e 35%, #020812 70%, #010408 100%)',
+            'radial-gradient(ellipse 100% 75% at 50% 25%, #1a6ba8 0%, #0f4c81 25%, #0b3a63 50%, #061a2e 80%, #020812 100%)',
         }}
       />
 
@@ -37,12 +37,12 @@ export function DecorBackground() {
       {/* === 3. Islamic geometric star pattern — VERY subtle now === */}
       <IslamicStarPattern />
 
-      {/* === 4. Radial bokeh glows — reduced intensity for darker overall look === */}
+      {/* === 4. Radial bokeh glows — combined with cyan star-burst effect from reference === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 50% 35% at 70% 40%, rgba(212, 175, 55, 0.10) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 25% 65%, rgba(0, 212, 255, 0.07) 0%, transparent 60%), radial-gradient(ellipse 35% 25% at 50% 90%, rgba(212, 175, 55, 0.05) 0%, transparent 70%)',
+            'radial-gradient(ellipse 50% 35% at 70% 30%, rgba(0, 212, 255, 0.14) 0%, transparent 55%), radial-gradient(ellipse 40% 30% at 25% 65%, rgba(0, 212, 255, 0.10) 0%, transparent 60%), radial-gradient(ellipse 35% 25% at 50% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 70%), radial-gradient(ellipse 45% 35% at 80% 70%, rgba(212, 175, 55, 0.10) 0%, transparent 60%)',
         }}
       />
 
@@ -52,24 +52,24 @@ export function DecorBackground() {
       {/* === 6. Energy trails (light streams with gradient) === */}
       <EnergyTrails />
 
-      {/* === 7. Floating orbs (bokeh-style with heavy blur) — reduced opacity === */}
+      {/* === 7. Floating orbs (bokeh-style with heavy blur) — enhanced cyan + gold === */}
       <motion.div
         style={{ y: orbY }}
         className="absolute left-[10%] top-[15%] h-80 w-80 rounded-full blur-[120px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/10 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#00d4ff]/12 animate-float-slow" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
         className="absolute right-[8%] top-[60%] h-96 w-96 rounded-full blur-[140px]"
       >
-        <div className="h-full w-full rounded-full bg-[#00d4ff]/8 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#d4af37]/10 animate-float-medium" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
         className="absolute left-[45%] top-[85%] h-64 w-64 rounded-full blur-[100px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/5 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#00d4ff]/8 animate-float-slow" />
       </motion.div>
 
       {/* === 8. Subtle arabesque pattern (kept faint) === */}
@@ -78,12 +78,12 @@ export function DecorBackground() {
       {/* === 9. Noise/grain overlay for quantum field texture === */}
       <div className="absolute inset-0 bg-noise opacity-[0.05]" />
 
-      {/* === 10. Depth-of-field vignette (darken edges, focus center) — stronger === */}
+      {/* === 10. Depth-of-field vignette — softened (reference has uniform lighting) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 55% at 50% 45%, transparent 30%, rgba(1, 4, 8, 0.7) 100%)',
+            'radial-gradient(ellipse 80% 65% at 50% 45%, transparent 40%, rgba(2, 8, 18, 0.5) 100%)',
         }}
       />
     </div>
@@ -91,13 +91,14 @@ export function DecorBackground() {
 }
 
 /**
- * Islamic geometric star pattern — much fainter than before (opacity 0.12).
- * Kept subtle so the quantum effects dominate.
+ * Islamic geometric star pattern — uses exact reference colors #1A6BA8 (light blue)
+ * and #0B3A63 (dark shadow) for the embossed laser-cut effect.
+ * Opacity raised to 0.22 to evoke the Islamic Background reference more clearly.
  */
 function IslamicStarPattern() {
   return (
     <svg
-      className="absolute inset-0 h-full w-full opacity-[0.12]"
+      className="absolute inset-0 h-full w-full opacity-[0.22]"
       preserveAspectRatio="xMidYMid slice"
       fill="none"
     >
@@ -112,10 +113,10 @@ function IslamicStarPattern() {
         >
           <g
             transform="translate(100,100)"
-            stroke="#0d4a78"
-            strokeWidth="1"
+            stroke="#1a6ba8"
+            strokeWidth="1.2"
             fill="none"
-            opacity="0.6"
+            opacity="0.85"
           >
             <rect x="-40" y="-40" width="80" height="80" />
             <rect
@@ -125,7 +126,9 @@ function IslamicStarPattern() {
               height="80"
               transform="rotate(45)"
             />
-            <circle cx="0" cy="0" r="22" strokeOpacity="0.4" />
+            <circle cx="0" cy="0" r="22" strokeOpacity="0.5" />
+            {/* Inner small star — darker shadow */}
+            <rect x="-18" y="-18" width="36" height="36" stroke="#0b3a63" strokeOpacity="0.7" />
           </g>
         </pattern>
       </defs>
