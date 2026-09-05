@@ -19,12 +19,12 @@ export function DecorBackground() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* === 1. Base — vertical gradient: dark navy → royal blue → sky blue === */}
+      {/* === 1. Base — vertical gradient: dark navy → gray (no light blue) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, #0a2e5c 0%, #0b3a6b 20%, #1a6ba8 50%, #2a8fd4 80%, #b8c5d6 100%)',
+            'linear-gradient(180deg, #0a2e5c 0%, #0b3a6b 30%, #1a3a5c 55%, #3a4a5c 80%, #5a6478 100%)',
         }}
       />
 
@@ -33,40 +33,40 @@ export function DecorBackground() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184, 197, 214, 0.3) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184, 197, 214, 0.18) 0%, transparent 60%)',
         }}
       />
 
       {/* === 3. PROMINENT Islamic geometric pattern with embossed effect === */}
       <IslamicStarPattern />
 
-      {/* === 4. Glowing cyan star bursts (decorative lanterns) === */}
-      <StarBursts />
+      {/* === 4. Glowing star bursts — DISABLED to keep only dark blue + gray === */}
+      {/* <StarBursts /> */}
 
       {/* === 5. Quantum particle field (subtle stardust) === */}
       <QuantumField density={100} />
 
-      {/* === 6. Radial bokeh glows === */}
+      {/* === 6. Radial bokeh glows — gold + subtle gray (no cyan) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 40% 30% at 75% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 55%), radial-gradient(ellipse 35% 25% at 25% 70%, rgba(212, 175, 55, 0.10) 0%, transparent 60%)',
+            'radial-gradient(ellipse 40% 30% at 75% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 55%), radial-gradient(ellipse 35% 25% at 25% 70%, rgba(138, 150, 168, 0.08) 0%, transparent 60%)',
         }}
       />
 
-      {/* === 7. Floating orbs === */}
+      {/* === 7. Floating orbs — gold + gray (no cyan) === */}
       <motion.div
         style={{ y: orbY }}
         className="absolute left-[8%] top-[20%] h-80 w-80 rounded-full blur-[120px]"
       >
-        <div className="h-full w-full rounded-full bg-[#00d4ff]/12 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#d4af37]/8 animate-float-slow" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
         className="absolute right-[10%] top-[55%] h-96 w-96 rounded-full blur-[140px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/10 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#8a96a8]/10 animate-float-medium" />
       </motion.div>
 
       {/* === 8. Subtle arabesque pattern === */}
@@ -122,10 +122,10 @@ function IslamicStarPattern() {
         >
           <g
             transform="translate(100,100)"
-            stroke="#b8c5d6"
-            strokeWidth="1.3"
+            stroke="#3a4250"
+            strokeWidth="1.1"
             fill="none"
-            opacity="0.7"
+            opacity="0.55"
             filter="url(#emboss)"
           >
             {/* 8-pointed star = two overlapping squares */}
@@ -202,7 +202,7 @@ function StarBurst({ delay = 0, size = 40 }: { delay?: number; size?: number }) 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
+      animate={{ opacity: [0.5, 1, 0.5], scale: [0.9, 1.15, 0.9] }}
       transition={{
         duration: 4,
         delay,
@@ -214,10 +214,10 @@ function StarBurst({ delay = 0, size = 40 }: { delay?: number; size?: number }) 
     >
       {/* Outer glow */}
       <div
-        className="absolute inset-0 rounded-full blur-xl"
+        className="absolute inset-0 rounded-full blur-lg"
         style={{
           background:
-            'radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(0, 212, 255, 0.6) 0%, transparent 70%)',
         }}
       />
       {/* 8-pointed star SVG */}

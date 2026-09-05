@@ -90,7 +90,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           <span className="font-arabic-serif text-lg text-[#d4af37]/70" dir="rtl">
             {cs.arabic}
           </span>
-          <p className="text-sm leading-relaxed text-[#b8c5d6]">
+          <p className="text-sm leading-relaxed text-[#8a96a8]">
             {cs.description}
           </p>
 
@@ -133,7 +133,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
         className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#0a2e5c]/70 p-4 backdrop-blur-md"
       >
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
-        <p className="text-[11px] leading-relaxed text-[#b8c5d6]">
+        <p className="text-[11px] leading-relaxed text-[#8a96a8]">
           {cs.disclaimer}
         </p>
       </motion.div>
@@ -185,10 +185,10 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
         <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
           {coin.name}
         </span>
-        <span className="font-arabic-serif text-sm text-[#b8c5d6]" dir="rtl">
+        <span className="font-arabic-serif text-sm text-[#8a96a8]" dir="rtl">
           {coin.arabicName}
         </span>
-        <span className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#b8c5d6]/70">
+        <span className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#8a96a8]/70">
           {coin.caption}
         </span>
       </div>

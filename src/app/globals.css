@@ -47,9 +47,9 @@
 
 :root {
   --radius: 0.75rem;
-  /* AL ARAB cinematic palette — dark blue + light blue + gray
-     Inspired by Islamic luxury: lapis lazuli → sky blue → cool gray
-     Gradient evokes depth from night sky to dawn light */
+  /* AL ARAB cinematic palette — dark blue + gray only (no light blue)
+     Inspired by Islamic luxury: lapis lazuli night → cool slate gray
+     Gradient evokes depth from night sky to stone */
   --background: #0a2e5c;
   --foreground: #f4e9c9;
   --card: rgba(15, 58, 107, 0.55);
@@ -58,29 +58,29 @@
   --popover-foreground: #f4e9c9;
   --primary: #d4af37;
   --primary-foreground: #0a2e5c;
-  --secondary: rgba(26, 107, 168, 0.4);
+  --secondary: rgba(26, 58, 92, 0.45);
   --secondary-foreground: #f4e9c9;
-  --muted: rgba(42, 143, 212, 0.3);
-  --muted-foreground: #b8c5d6;
+  --muted: rgba(58, 74, 92, 0.4);
+  --muted-foreground: #8a96a8;
   --accent: #00d4ff;
   --accent-foreground: #021824;
   --destructive: #e5484d;
   --destructive-foreground: #f4e9c9;
   --border: rgba(212, 175, 55, 0.3);
-  --input: rgba(26, 107, 168, 0.5);
+  --input: rgba(58, 74, 92, 0.5);
   --ring: #d4af37;
   /* Chart palette */
   --chart-1: #d4af37;
   --chart-2: #e8c547;
   --chart-3: #00d4ff;
-  --chart-4: #2a8fd4;
-  --chart-5: #b8c5d6;
+  --chart-4: #3a4a5c;
+  --chart-5: #8a96a8;
   /* Sidebar */
   --sidebar: #0b3a6b;
   --sidebar-foreground: #f4e9c9;
   --sidebar-primary: #d4af37;
   --sidebar-primary-foreground: #0a2e5c;
-  --sidebar-accent: #1a6ba8;
+  --sidebar-accent: #1a3a5c;
   --sidebar-accent-foreground: #f4e9c9;
   --sidebar-border: rgba(212, 175, 55, 0.3);
   --sidebar-ring: #d4af37;
@@ -178,7 +178,7 @@ body {
   .bg-radial-gold {
     background: radial-gradient(
       circle at 50% 0%,
-      rgba(212, 175, 55, 0.22) 0%,
+      rgba(212, 175, 55, 0.20) 0%,
       rgba(10, 46, 92, 0) 60%
     );
   }

@@ -61,7 +61,7 @@ export function MetaverseSection() {
           <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
             {mt.districtsTitle}
           </h3>
-          <p className="text-sm leading-relaxed text-[#b8c5d6]">
+          <p className="text-sm leading-relaxed text-[#8a96a8]">
             {mt.districtsDescription}
           </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -82,7 +82,7 @@ export function MetaverseSection() {
                     {d.arabic}
                   </span>
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-[#b8c5d6]">
+                <p className="mt-2 text-xs leading-relaxed text-[#8a96a8]">
                   {d.description}
                 </p>
               </motion.div>
@@ -108,7 +108,7 @@ export function MetaverseSection() {
               <h4 className="font-display text-sm font-medium text-[#f4e9c9]">
                 {c.title}
               </h4>
-              <p className="text-[11px] leading-relaxed text-[#b8c5d6]">
+              <p className="text-[11px] leading-relaxed text-[#8a96a8]">
                 {c.description}
               </p>
             </motion.div>

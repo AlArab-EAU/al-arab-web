@@ -81,7 +81,7 @@ export function InvestorsSection() {
                     {o.arabic}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#b8c5d6]">
+                <p className="mt-3 text-sm leading-relaxed text-[#8a96a8]">
                   {o.description}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export function InvestorsSection() {
             <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
               {it.formTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#b8c5d6]">
+            <p className="mt-3 text-sm leading-relaxed text-[#8a96a8]">
               {it.formDescription}
             </p>
             <div className="mt-6 flex flex-col gap-4">
@@ -112,7 +112,7 @@ export function InvestorsSection() {
                   <Mail className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1a6ba8]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1a3a5c]">
                     {it.emailLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
@@ -123,7 +123,7 @@ export function InvestorsSection() {
                   <Phone className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1a6ba8]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#1a3a5c]">
                     {it.irLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
