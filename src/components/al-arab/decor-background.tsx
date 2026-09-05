@@ -18,22 +18,24 @@ export function DecorBackground() {
   const orbY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* === 1. Base — solid dark blue with subtle gradient (no light gray at bottom) === */}
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" style={{ minHeight: '100%' }}>
+      {/* === 1. Base — gradient: dark navy (top) → slate gray (bottom)
+         Covers full page height so gradient is visible across all sections === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, #0a2e5c 0%, #0b3a6b 30%, #0a2e5c 60%, #082545 100%)',
+            'linear-gradient(180deg, #0a194d 0%, #162e6e 15%, #1e3a5f 30%, #334155 50%, #475569 70%, #94a3b8 100%)',
+          minHeight: '100%',
         }}
       />
 
-      {/* === 2. Radial glow top-center (light source) === */}
+      {/* === 2. Radial glow top-center (light source on dark blue) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184, 197, 214, 0.18) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 40% at 50% 0%, rgba(37, 99, 235, 0.25) 0%, transparent 60%)',
         }}
       />
 
@@ -46,27 +48,27 @@ export function DecorBackground() {
       {/* === 5. Quantum particle field (subtle stardust) === */}
       <QuantumField density={100} />
 
-      {/* === 6. Radial bokeh glows — gold + subtle gray (no cyan) === */}
+      {/* === 6. Radial bokeh glows — gold + subtle blue === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 40% 30% at 75% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 55%), radial-gradient(ellipse 35% 25% at 25% 70%, rgba(138, 150, 168, 0.08) 0%, transparent 60%)',
+            'radial-gradient(ellipse 40% 30% at 75% 30%, rgba(212, 175, 55, 0.14) 0%, transparent 55%), radial-gradient(ellipse 35% 25% at 25% 70%, rgba(37, 99, 235, 0.10) 0%, transparent 60%)',
         }}
       />
 
-      {/* === 7. Floating orbs — gold + gray (no cyan) === */}
+      {/* === 7. Floating orbs — gold + slate gray === */}
       <motion.div
         style={{ y: orbY }}
         className="absolute left-[8%] top-[20%] h-80 w-80 rounded-full blur-[120px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/8 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#d4af37]/10 animate-float-slow" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
         className="absolute right-[10%] top-[55%] h-96 w-96 rounded-full blur-[140px]"
       >
-        <div className="h-full w-full rounded-full bg-[#a8b8c8]/10 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#94a3b8]/12 animate-float-medium" />
       </motion.div>
 
       {/* === 8. Subtle arabesque pattern === */}
@@ -104,7 +106,7 @@ function IslamicStarPattern() {
         <filter id="emboss" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" />
           <feOffset dx="1" dy="1" result="offsetBlur" />
-          <feFlood floodColor="#0a2e5c" floodOpacity="0.6" />
+          <feFlood floodColor="#0a194d" floodOpacity="0.6" />
           <feComposite in2="offsetBlur" operator="in" />
           <feMerge>
             <feMergeNode />
@@ -122,10 +124,10 @@ function IslamicStarPattern() {
         >
           <g
             transform="translate(100,100)"
-            stroke="#3a4250"
-            strokeWidth="1.1"
+            stroke="#64748b"
+            strokeWidth="1.2"
             fill="none"
-            opacity="0.55"
+            opacity="0.5"
             filter="url(#emboss)"
           >
             {/* 8-pointed star = two overlapping squares */}
@@ -228,7 +230,7 @@ function StarBurst({ delay = 0, size = 40 }: { delay?: number; size?: number }) 
       >
         <g
           transform="translate(50,50)"
-          stroke="#00d4ff"
+          stroke="#2563eb"
           strokeWidth="1.5"
           opacity="0.8"
         >
@@ -242,7 +244,7 @@ function StarBurst({ delay = 0, size = 40 }: { delay?: number; size?: number }) 
           />
         </g>
         {/* Center bright dot */}
-        <circle cx="50" cy="50" r="3" fill="#00d4ff" opacity="0.9" />
+        <circle cx="50" cy="50" r="3" fill="#2563eb" opacity="0.9" />
       </svg>
     </motion.div>
   )

@@ -40,7 +40,7 @@ export function PartnersPhoto() {
         />
 
         {/* Top-right badge */}
-        <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#0a2e5c]/70 px-4 py-2 backdrop-blur-md">
+        <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#0a194d]/70 px-4 py-2 backdrop-blur-md">
           <Handshake className="h-4 w-4 text-[#d4af37]" />
           <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
             Official Partners
@@ -58,7 +58,7 @@ export function PartnersPhoto() {
           <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl">
             Strategic alliances driving the ecosystem
           </h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#a8b8c8]">
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#94a3b8]">
             A unified network of leaders, investors, and cultural ambassadors
             shaping the digital future of the Arab world.
           </p>

@@ -63,7 +63,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className={`max-w-2xl text-base leading-relaxed text-[#a8b8c8] md:text-lg ${
+          className={`max-w-2xl text-base leading-relaxed text-[#94a3b8] md:text-lg ${
             align === 'center' ? 'mx-auto' : ''
           }`}
         >
@@ -88,7 +88,7 @@ export function Section({ id, children, className = '', dark = false }: SectionP
       id={id}
       className={`relative w-full ${
         dark
-          ? 'bg-[#0a2e5c]/60 backdrop-blur-sm border-y border-[#d4af37]/15'
+          ? 'bg-[#0a194d]/60 backdrop-blur-sm border-y border-[#d4af37]/15'
           : ''
       } ${className}`}
     >

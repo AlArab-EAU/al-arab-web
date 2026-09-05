@@ -64,7 +64,7 @@ export function VisionSection() {
                 <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
                   {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#a8b8c8]">
+                <p className="text-sm leading-relaxed text-[#94a3b8]">
                   {p.description}
                 </p>
                 <div className="mt-2 flex items-center gap-2 text-[#d4af37]/80">

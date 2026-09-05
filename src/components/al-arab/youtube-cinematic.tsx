@@ -73,21 +73,21 @@ export function YouTubeCinematic({
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e5c] via-[#0a2e5c]/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a2e5c]/60 via-transparent to-[#0a2e5c]/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a194d] via-[#0a194d]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a194d]/60 via-transparent to-[#0a194d]/60" />
             <button
               type="button"
               onClick={handlePlay}
               aria-label={`Reproducir: ${title}`}
               className="group/btn absolute inset-0 flex items-center justify-center"
             >
-              <span className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#c9a85c]/60 bg-[#0a2e5c]/40 backdrop-blur-md transition-all duration-500 group-hover/btn:scale-110 group-hover/btn:border-[#d4af37]">
+              <span className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#c9a85c]/60 bg-[#0a194d]/40 backdrop-blur-md transition-all duration-500 group-hover/btn:scale-110 group-hover/btn:border-[#d4af37]">
                 <span className="absolute inset-0 rounded-full animate-pulse-gold" />
                 <Play className="ml-1 h-7 w-7 fill-[#d4af37] text-[#d4af37]" />
               </span>
             </button>
             <div className="absolute left-5 top-5 flex items-center gap-2">
-              <span className="rounded-full border border-[#c9a85c]/40 bg-[#0a2e5c]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+              <span className="rounded-full border border-[#c9a85c]/40 bg-[#0a194d]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
                 {officialBadge}
               </span>
             </div>
@@ -102,7 +102,7 @@ export function YouTubeCinematic({
             {title}
           </h3>
           {description && (
-            <p className="text-sm leading-relaxed text-[#a8b8c8]">{description}</p>
+            <p className="text-sm leading-relaxed text-[#94a3b8]">{description}</p>
           )}
         </div>
       )}
@@ -125,9 +125,9 @@ export function YouTubeCinematic({
           className="fixed inset-0 z-[80] flex items-center justify-center p-4 md:p-10"
           onClick={() => setExpanded(false)}
         >
-          <div className="absolute inset-0 bg-[#0a2e5c]/95 backdrop-blur-xl" />
+          <div className="absolute inset-0 bg-[#0a194d]/95 backdrop-blur-xl" />
           <button
-            className="absolute right-6 top-6 z-10 rounded-full border border-[#c9a85c]/40 bg-[#0a2e5c]/70 p-3 text-[#f4e9c9] transition hover:bg-[#c9a85c]/15"
+            className="absolute right-6 top-6 z-10 rounded-full border border-[#c9a85c]/40 bg-[#0a194d]/70 p-3 text-[#f4e9c9] transition hover:bg-[#c9a85c]/15"
             onClick={() => setExpanded(false)}
             aria-label="Cerrar video"
           >

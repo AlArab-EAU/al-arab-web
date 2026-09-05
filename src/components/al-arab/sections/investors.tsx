@@ -44,7 +44,7 @@ export function InvestorsSection() {
   }
 
   return (
-    <Section id="investors" dark>
+    <Section id="investors">
       <SectionHeading
         eyebrow={it.eyebrow}
         arabic={it.arabic}
@@ -87,7 +87,7 @@ export function InvestorsSection() {
                     {o.arabic}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#a8b8c8]">
+                <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">
                   {o.description}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export function InvestorsSection() {
             <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
               {it.formTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#a8b8c8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">
               {it.formDescription}
             </p>
             <div className="mt-6 flex flex-col gap-4">
@@ -118,7 +118,7 @@ export function InvestorsSection() {
                   <Mail className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a2e5c]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
                     {it.emailLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
@@ -129,7 +129,7 @@ export function InvestorsSection() {
                   <Phone className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a2e5c]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
                     {it.irLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
@@ -149,7 +149,7 @@ export function InvestorsSection() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="rounded-lg border border-[#c9a85c]/25 bg-[#0b3a6b]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                  className="rounded-lg border border-[#c9a85c]/25 bg-[#162e6e]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                   placeholder={it.fields.namePlaceholder}
                 />
               </label>
@@ -161,7 +161,7 @@ export function InvestorsSection() {
                   type="text"
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="rounded-lg border border-[#c9a85c]/25 bg-[#0b3a6b]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                  className="rounded-lg border border-[#c9a85c]/25 bg-[#162e6e]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                   placeholder={it.fields.companyPlaceholder}
                 />
               </label>
@@ -175,7 +175,7 @@ export function InvestorsSection() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="rounded-lg border border-[#c9a85c]/25 bg-[#0b3a6b]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="rounded-lg border border-[#c9a85c]/25 bg-[#162e6e]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                 placeholder={it.fields.emailPlaceholder}
               />
             </label>
@@ -186,7 +186,7 @@ export function InvestorsSection() {
               <select
                 value={form.interest}
                 onChange={(e) => setForm({ ...form, interest: e.target.value })}
-                className="rounded-lg border border-[#c9a85c]/25 bg-[#0b3a6b]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="rounded-lg border border-[#c9a85c]/25 bg-[#162e6e]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
               >
                 {it.interestOptions.map((opt) => (
                   <option key={opt}>{opt}</option>
@@ -202,13 +202,13 @@ export function InvestorsSection() {
                 required
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="resize-none rounded-lg border border-[#c9a85c]/25 bg-[#0b3a6b]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
+                className="resize-none rounded-lg border border-[#c9a85c]/25 bg-[#162e6e]/60 px-4 py-3 text-sm text-[#f4e9c9] outline-none transition-colors focus:border-[#d4af37]"
                 placeholder={it.fields.messagePlaceholder}
               />
             </label>
             <button
               type="submit"
-              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0a2e5c] transition-all hover:scale-[1.01]"
+              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0a194d] transition-all hover:scale-[1.01]"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
               <Send className="h-4 w-4" />

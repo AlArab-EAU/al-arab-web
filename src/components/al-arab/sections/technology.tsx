@@ -19,7 +19,7 @@ export function TechnologySection() {
   const tt = t.technology
 
   return (
-    <Section id="technology" dark>
+    <Section id="technology">
       <SectionHeading
         eyebrow={tt.eyebrow}
         arabic={tt.arabic}
@@ -62,7 +62,7 @@ export function TechnologySection() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-[#a8b8c8]">
+                <p className="mt-5 text-sm leading-relaxed text-[#94a3b8]">
                   {tech.description}
                 </p>
 
@@ -96,7 +96,7 @@ export function TechnologySection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
               {tt.architectureTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#a8b8c8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">
               {tt.architectureDescription}
             </p>
           </div>
@@ -108,12 +108,12 @@ export function TechnologySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#0b3a6b]/60 px-4 py-3"
+                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#162e6e]/60 px-4 py-3"
               >
                 <span className="font-display text-sm text-[#f4e9c9]">
                   {row.layer}
                 </span>
-                <span className="text-xs text-[#a8b8c8]">{row.tech}</span>
+                <span className="text-xs text-[#94a3b8]">{row.tech}</span>
               </motion.div>
             ))}
           </div>
