@@ -62,7 +62,7 @@ export function TechnologySection() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-[#a8c5e8]">
+                <p className="mt-5 text-sm leading-relaxed text-[#b8c5d6]">
                   {tech.description}
                 </p>
 
@@ -96,7 +96,7 @@ export function TechnologySection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
               {tt.architectureTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#a8c5e8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#b8c5d6]">
               {tt.architectureDescription}
             </p>
           </div>
@@ -108,12 +108,12 @@ export function TechnologySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#0d2657]/60 px-4 py-3"
+                className="flex items-center justify-between gap-3 rounded-lg border border-[#c9a85c]/15 bg-[#0b3a6b]/60 px-4 py-3"
               >
                 <span className="font-display text-sm text-[#f4e9c9]">
                   {row.layer}
                 </span>
-                <span className="text-xs text-[#a8c5e8]">{row.tech}</span>
+                <span className="text-xs text-[#b8c5d6]">{row.tech}</span>
               </motion.div>
             ))}
           </div>

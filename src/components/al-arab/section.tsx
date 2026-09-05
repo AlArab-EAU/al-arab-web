@@ -63,7 +63,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className={`max-w-2xl text-base leading-relaxed text-[#a8c5e8] md:text-lg ${
+          className={`max-w-2xl text-base leading-relaxed text-[#b8c5d6] md:text-lg ${
             align === 'center' ? 'mx-auto' : ''
           }`}
         >
