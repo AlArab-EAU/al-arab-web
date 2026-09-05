@@ -19,19 +19,16 @@ interface SpinningCoinProps {
 }
 
 /**
- * SpinningCoin — renders the AlArab coin as a 3D-rotating element.
+ * SpinningCoin — renders the AlArab coin rotating in a full 360° circle.
  *
- * The "rotation" effect is achieved by horizontally squishing the coin from
- * scaleX(1) → scaleX(0.05) → scaleX(-1) → scaleX(-0.05) → scaleX(1) over a
- * long duration. Combined with a subtle brightness modulation (simulating
- * light catching the rim), the result reads as a coin spinning on its
- * vertical axis — the classic Bitcoin/crypto coin animation.
+ * The coin rotates around its center axis (like a record/disc spinning),
+ * with a 3D perspective effect that gives it depth. A subtle brightness
+ * modulation simulates light catching the surface as it turns.
  *
- * Architecture: two nested divs:
- *   - Outer div: handles parallax/float (translateY)
- *   - Inner div: handles the spin (scaleX)
- * This separation is necessary because CSS animations can only animate a
- * given property once per element.
+ * Architecture: three nested layers:
+ *   - Outer div: parallax/float (translateY)
+ *   - Middle div: floating animation (translateY)
+ *   - Inner div: 360° rotation (rotate)
  */
 export function SpinningCoin({
   src,
@@ -59,24 +56,22 @@ export function SpinningCoin({
     return () => mq.removeEventListener('change', handler)
   }, [])
 
-  // CSS keyframes for spin (scaleX) and float (translateY).
-  // The two animations target DIFFERENT CSS properties so they can coexist
-  // on a single element via the `animation` shorthand multi-value syntax.
-  // BUT: `transform` itself can only be owned by one animation per element.
-  // So we split:
-  //   - .alarab-coin-float-layer animates translateY (outer)
-  //   - .alarab-coin-spin-layer animates scaleX (inner)
+  // CSS keyframes for circular rotation + float
   const keyframes = `
-    @keyframes alarab-coin-spin {
-      0%   { transform: scaleX(1);    filter: brightness(1); }
-      25%  { transform: scaleX(0.05); filter: brightness(0.55); }
-      50%  { transform: scaleX(-1);   filter: brightness(1); }
-      75%  { transform: scaleX(-0.05); filter: brightness(0.55); }
-      100% { transform: scaleX(1);    filter: brightness(1); }
+    @keyframes alarab-coin-rotate {
+      0%   { transform: rotate(0deg)   rotateY(0deg);  filter: brightness(1) drop-shadow(0 0 20px rgba(212,175,55,0.3)); }
+      25%  { transform: rotate(90deg)  rotateY(15deg); filter: brightness(1.15) drop-shadow(0 0 25px rgba(212,175,55,0.4)); }
+      50%  { transform: rotate(180deg) rotateY(0deg);  filter: brightness(1) drop-shadow(0 0 20px rgba(212,175,55,0.3)); }
+      75%  { transform: rotate(270deg) rotateY(15deg); filter: brightness(0.85) drop-shadow(0 0 15px rgba(212,175,55,0.2)); }
+      100% { transform: rotate(360deg) rotateY(0deg);  filter: brightness(1) drop-shadow(0 0 20px rgba(212,175,55,0.3)); }
     }
     @keyframes alarab-coin-float {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-10px); }
+    }
+    @keyframes alarab-coin-orbit {
+      0%   { transform: scale(1.08) rotate(0deg); }
+      100% { transform: scale(1.08) rotate(360deg); }
     }
   `
 
@@ -100,14 +95,13 @@ export function SpinningCoin({
           }}
         />
 
-        {/* Orbiting ring (also spins, opposite direction, slower) */}
+        {/* Orbiting ring (rotates in circle, opposite direction, slower) */}
         <div
           className="pointer-events-none absolute inset-0 rounded-full border border-[#c9a85c]/20"
           style={{
-            transform: 'scale(1.08)',
             animation: reduced
               ? 'none'
-              : `alarab-coin-spin ${spinDuration * 1.4}s linear infinite`,
+              : `alarab-coin-orbit ${spinDuration * 1.4}s linear infinite`,
           }}
         />
 
@@ -119,7 +113,7 @@ export function SpinningCoin({
               : `alarab-coin-float ${spinDuration * 0.7}s ease-in-out infinite`,
           }}
         >
-          {/* Inner spinning layer (scaleX only) — contains the coin image */}
+          {/* Inner rotating layer — 360° circular rotation with 3D perspective */}
           <div
             className="relative"
             style={{
@@ -127,9 +121,11 @@ export function SpinningCoin({
               height: size,
               maxWidth: '90vw',
               maxHeight: '90vw',
+              perspective: '800px',
+              transformStyle: 'preserve-3d',
               animation: reduced
                 ? 'none'
-                : `alarab-coin-spin ${spinDuration}s linear infinite`,
+                : `alarab-coin-rotate ${spinDuration}s linear infinite`,
             }}
           >
             <Image
