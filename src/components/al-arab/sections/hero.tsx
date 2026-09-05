@@ -32,7 +32,7 @@ function HeroFeaturedVideo() {
       initial={{ opacity: 0, y: 60, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 1.2, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mt-20 w-full max-w-6xl"
+      className="relative mt-8 w-full max-w-6xl"
     >
       {/* Glow halo behind video */}
       <div
@@ -152,7 +152,7 @@ export function HeroSection() {
     <section
       id="top"
       ref={ref}
-      className="relative min-h-[100svh] w-full overflow-hidden"
+      className="relative w-full overflow-hidden"
     >
       {/* Particle layer */}
       <ParticleField density={120} />
@@ -164,7 +164,7 @@ export function HeroSection() {
         <div className="absolute inset-32 rounded-full border border-[#c9a85c]/8" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col items-center justify-center px-5 pt-24 text-center md:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-5 pt-20 pb-8 text-center md:px-8">
         {/* H1 for SEO / sr-only */}
         <h1 className="sr-only">AL ARAB — The Digital Future of the Arab World</h1>
 
@@ -173,7 +173,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mb-8 flex items-center gap-3"
+          className="mb-5 flex items-center gap-3"
         >
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#c9a85c]" />
           <span className="font-arabic-serif text-base text-[#d4af37]">
@@ -183,7 +183,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Official Logo + Spinning Coin */}
-        <div className="relative flex flex-col items-center justify-center gap-6 md:flex-row md:gap-10">
+        <div className="relative flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -239,7 +239,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
-          className="mt-10 max-w-2xl text-base font-light leading-relaxed text-[#c9b88a] md:text-xl"
+          className="mt-5 max-w-2xl text-sm font-light leading-relaxed text-[#c9b88a] md:text-base"
         >
           <span className="font-display italic text-[#f4e9c9]">
             The Digital Future of the Arab World
@@ -252,7 +252,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.4 }}
-          className="mt-12 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-6 flex flex-col items-center gap-3 sm:flex-row"
         >
           <a
             href="#vision"
