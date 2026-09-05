@@ -190,6 +190,33 @@ export const translations = {
         planned: 'Planificada',
       },
     },
+    videoGallery: {
+      eyebrow: 'Presentaciones Multi-Idioma',
+      arabic: 'عروض متعددة اللغات',
+      title: 'AlArab en tu idioma',
+      titleHighlight: 'conectando culturas',
+      description: 'Explora el ecosistema AlArab a través de presentaciones oficiales en múltiples idiomas. Cada video ofrece una visión única del proyecto, adaptada a su región y comunidad.',
+      videos: [
+        {
+          title: 'AlArab — Versión Árabe',
+          language: 'العربية',
+          languageShort: 'AR',
+          description: 'Presentación oficial del ecosistema AlArab en árabe — una visión completa del metaverso, la economía digital y la cultura árabe fusionada con tecnología.',
+        },
+        {
+          title: 'AlArab — Versión Tailandesa',
+          language: 'ภาษาไทย',
+          languageShort: 'TH',
+          description: 'Presentación oficial de AlArab para la comunidad tailandesa — descubriendo el puente entre el mundo árabe y el sudeste asiático.',
+        },
+        {
+          title: 'AlArab — Versión Inglesa',
+          language: 'English',
+          languageShort: 'EN',
+          description: 'Presentación oficial de AlArab en inglés — la visión global del ecosistema digital para audiencias internacionales.',
+        },
+      ],
+    },
     investors: {
       eyebrow: 'Empresas & Inversores',
       arabic: 'الشركات والمستثمرون',
@@ -398,6 +425,33 @@ export const translations = {
         next: 'Next',
         planned: 'Planned',
       },
+    },
+    videoGallery: {
+      eyebrow: 'Multi-Language Presentations',
+      arabic: 'عروض متعددة اللغات',
+      title: 'AlArab in your language',
+      titleHighlight: 'connecting cultures',
+      description: 'Explore the AlArab ecosystem through official presentations in multiple languages. Each video offers a unique vision of the project, adapted to its region and community.',
+      videos: [
+        {
+          title: 'AlArab — Arabic Version',
+          language: 'العربية',
+          languageShort: 'AR',
+          description: 'Official presentation of the AlArab ecosystem in Arabic — a complete vision of the metaverse, digital economy and Arab culture fused with technology.',
+        },
+        {
+          title: 'AlArab — Thai Version',
+          language: 'ภาษาไทย',
+          languageShort: 'TH',
+          description: 'Official AlArab presentation for the Thai community — discovering the bridge between the Arab world and Southeast Asia.',
+        },
+        {
+          title: 'AlArab — English Version',
+          language: 'English',
+          languageShort: 'EN',
+          description: 'Official AlArab presentation in English — the global vision of the digital ecosystem for international audiences.',
+        },
+      ],
     },
     investors: {
       eyebrow: 'Companies & Investors',
@@ -608,6 +662,33 @@ export const translations = {
         planned: 'مخطّطة',
       },
     },
+    videoGallery: {
+      eyebrow: 'عروض متعددة اللغات',
+      arabic: 'عروض متعددة اللغات',
+      title: 'العرب بلغتك',
+      titleHighlight: 'يربط الثقافات',
+      description: 'استكشف منظومة العرب عبر عروض رسمية بلغات متعددة. كل عرض يقدم رؤية فريدة للمشروع، متكيّفاً مع منطقته ومجتمعه.',
+      videos: [
+        {
+          title: 'العرب — النسخة العربية',
+          language: 'العربية',
+          languageShort: 'AR',
+          description: 'العرض الرسمي لمنظومة العرب بالعربية — رؤية شاملة للميتافيرس والاقتصاد الرقمي والثقافة العربية مدمجة بالتكنولوجيا.',
+        },
+        {
+          title: 'العرب — النسخة التايلاندية',
+          language: 'ภาษาไทย',
+          languageShort: 'TH',
+          description: 'العرض الرسمي للعرب للمجتمع التايلاندي — اكتشاف الجسر بين العالم العربي وجنوب شرق آسيا.',
+        },
+        {
+          title: 'العرب — النسخة الإنجليزية',
+          language: 'English',
+          languageShort: 'EN',
+          description: 'العرض الرسمي للعرب بالإنجليزية — الرؤية العالمية للمنظومة الرقمية للجمهور الدولي.',
+        },
+      ],
+    },
     investors: {
       eyebrow: 'الشركات والمستثمرون',
       arabic: 'الشركات والمستثمرون',
@@ -816,6 +897,33 @@ export const translations = {
         next: 'Suivante',
         planned: 'Planifiée',
       },
+    },
+    videoGallery: {
+      eyebrow: 'Présentations Multilingues',
+      arabic: 'عروض متعددة اللغات',
+      title: 'AlArab dans votre langue',
+      titleHighlight: 'connecter les cultures',
+      description: 'Explorez l\'écosystème AlArab à travers des présentations officielles en plusieurs langues. Chaque vidéo offre une vision unique du projet, adaptée à sa région et à sa communauté.',
+      videos: [
+        {
+          title: 'AlArab — Version Arabe',
+          language: 'العربية',
+          languageShort: 'AR',
+          description: 'Présentation officielle de l\'écosystème AlArab en arabe — une vision complète du métavers, de l\'économie numérique et de la culture arabe fusionnée avec la technologie.',
+        },
+        {
+          title: 'AlArab — Version Thaïlandaise',
+          language: 'ภาษาไทย',
+          languageShort: 'TH',
+          description: 'Présentation officielle d\'AlArab pour la communauté thaïlandaise — découvrant le pont entre le monde arabe et l\'Asie du Sud-Est.',
+        },
+        {
+          title: 'AlArab — Version Anglaise',
+          language: 'English',
+          languageShort: 'EN',
+          description: 'Présentation officielle d\'AlArab en anglais — la vision globale de l\'écosystème numérique pour les audiences internationales.',
+        },
+      ],
     },
     investors: {
       eyebrow: 'Entreprises & Investisseurs',

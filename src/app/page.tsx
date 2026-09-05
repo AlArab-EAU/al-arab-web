@@ -9,6 +9,7 @@ import { EconomySection } from '@/components/al-arab/sections/economy'
 import { TechnologySection } from '@/components/al-arab/sections/technology'
 import { EcosystemSection } from '@/components/al-arab/sections/ecosystem'
 import { RoadmapSection } from '@/components/al-arab/sections/roadmap'
+import { VideoGallerySection } from '@/components/al-arab/sections/video-gallery'
 import { InvestorsSection } from '@/components/al-arab/sections/investors'
 import { Footer } from '@/components/al-arab/footer'
 
@@ -24,6 +25,7 @@ export default function Home() {
       <TechnologySection />
       <EcosystemSection />
       <RoadmapSection />
+      <VideoGallerySection />
       <InvestorsSection />
       <Footer />
     </main>

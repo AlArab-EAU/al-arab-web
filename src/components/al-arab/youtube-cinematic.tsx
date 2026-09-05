@@ -12,6 +12,10 @@ interface YouTubeCinematicProps {
   poster?: string
   /** Text shown in the "Official Video" badge — defaults to "Official Video" */
   officialBadge?: string
+  /** Optional start time in seconds (for YouTube embeds with &t=) */
+  start?: number
+  /** Optional language/region label shown as a badge */
+  languageLabel?: string
   variant?: 'full' | 'card'
 }
 
@@ -27,6 +31,8 @@ export function YouTubeCinematic({
   description,
   poster,
   officialBadge = 'Official Video',
+  start,
+  languageLabel,
   variant = 'card',
 }: YouTubeCinematicProps) {
   const [playing, setPlaying] = useState(false)
@@ -52,7 +58,7 @@ export function YouTubeCinematic({
 
   const embed = (autoplay = true) => (
     <iframe
-      src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1&playsinline=1`}
+      src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1&playsinline=1${start ? `&start=${start}` : ''}`}
       title={title}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
@@ -90,6 +96,11 @@ export function YouTubeCinematic({
               <span className="rounded-full border border-[#c9a85c]/40 bg-[#0a194d]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
                 {officialBadge}
               </span>
+              {languageLabel && (
+                <span className="rounded-full border border-[#94a3b8]/40 bg-[#0f172a]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#94a3b8]">
+                  {languageLabel}
+                </span>
+              )}
             </div>
           </>
         ) : (

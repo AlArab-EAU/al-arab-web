@@ -44,7 +44,7 @@ export function MetaverseSection() {
           className="lg:col-span-3"
         >
           <YouTubeCinematic
-            videoId="b6ffAuBYf8g"
+            videoId="KSSOPhAae4Q"
             title={mt.videoTitle}
             description={mt.videoDescription}
             officialBadge={t.hero.officialVideo}
