@@ -5,6 +5,7 @@ import { Globe2 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
 import { YouTubeCinematic } from '../youtube-cinematic'
 import { BinanceVideo } from '../binance-video'
+import { PartnersAlliances } from '../partners-alliances'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 interface VideoSpec {
@@ -73,6 +74,9 @@ export function VideoGallerySection() {
 
       {/* Special Binance partnership video — cinematic showcase */}
       <BinanceVideo />
+
+      {/* Strategic Alliances — GCRM + QFSPay */}
+      <PartnersAlliances />
 
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         {vg.videos.map((video, i) => {

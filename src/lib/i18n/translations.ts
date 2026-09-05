@@ -202,6 +202,30 @@ export const translations = {
       binanceTitle: 'AlArab en Binance',
       binanceSubtitle: 'Una colaboración estratégica que lleva el ecosistema digital árabe a la plataforma blockchain más grande del mundo',
       binanceBadge: 'Strategic Partnership',
+      alliances: {
+        eyebrow: 'Alianzas Estratégicas',
+        arabic: 'التحالفات الاستراتيجية',
+        title: 'Conectando el ecosistema',
+        titleHighlight: 'con líderes globales',
+        description: 'AlArab construye puentes con las plataformas blockchain y financieras más innovadoras del mundo, ampliando el alcance del ecosistema digital árabe.',
+        visitSite: 'Visitar sitio',
+        partners: [
+          {
+            name: 'GCRM',
+            tagline: 'Global Currency Reserve Master',
+            description: 'Plataforma blockchain pionera en reservas de valor digitales. Alianza estratégica para integrar el ecosistema AlArab con infraestructura financiera descentralizada de nivel institucional.',
+            url: 'https://gcrmaster.org/',
+            logo: '/partner-gcrm-opt.png',
+          },
+          {
+            name: 'QFSPay',
+            tagline: 'Quantum Financial System Pay',
+            description: 'Sistema de pagos cuántico de nueva generación. Integración que permite transacciones instantáneas, seguras y globales dentro del ecosistema AlArab y más allá.',
+            url: 'https://qfspay.org/',
+            logo: '/partner-qfs-opt.png',
+          },
+        ],
+      },
       videos: [
         {
           title: 'AlArab — Versión Árabe',
@@ -444,6 +468,30 @@ export const translations = {
       binanceTitle: 'AlArab on Binance',
       binanceSubtitle: 'A strategic collaboration bringing the Arab digital ecosystem to the world\'s largest blockchain platform',
       binanceBadge: 'Strategic Partnership',
+      alliances: {
+        eyebrow: 'Strategic Alliances',
+        arabic: 'التحالفات الاستراتيجية',
+        title: 'Connecting the ecosystem',
+        titleHighlight: 'with global leaders',
+        description: 'AlArab builds bridges with the world\'s most innovative blockchain and financial platforms, expanding the reach of the Arab digital ecosystem.',
+        visitSite: 'Visit site',
+        partners: [
+          {
+            name: 'GCRM',
+            tagline: 'Global Currency Reserve Master',
+            description: 'Pioneering blockchain platform for digital value reserves. Strategic alliance to integrate the AlArab ecosystem with institutional-grade decentralized financial infrastructure.',
+            url: 'https://gcrmaster.org/',
+            logo: '/partner-gcrm-opt.png',
+          },
+          {
+            name: 'QFSPay',
+            tagline: 'Quantum Financial System Pay',
+            description: 'Next-generation quantum payment system. Integration enabling instant, secure, and global transactions within the AlArab ecosystem and beyond.',
+            url: 'https://qfspay.org/',
+            logo: '/partner-qfs-opt.png',
+          },
+        ],
+      },
       videos: [
         {
           title: 'AlArab — Arabic Version',
@@ -686,6 +734,30 @@ export const translations = {
       binanceTitle: 'العرب على بينانس',
       binanceSubtitle: 'تعاون استراتيجي ينقل المنظومة الرقمية العربية إلى أكبر منصة بلوكتشين في العالم',
       binanceBadge: 'شراكة استراتيجية',
+      alliances: {
+        eyebrow: 'التحالفات الاستراتيجية',
+        arabic: 'التحالفات الاستراتيجية',
+        title: 'ربط المنظومة',
+        titleHighlight: 'بالقادة العالميين',
+        description: 'يبني العرب جسوراً مع أكثر منصات البلوكتشين والمالية ابتكاراً في العالم، موسّعاً وصول المنظومة الرقمية العربية.',
+        visitSite: 'زيارة الموقع',
+        partners: [
+          {
+            name: 'GCRM',
+            tagline: 'السيد احتياطي العملة العالمية',
+            description: 'منصة بلوكتشين رائدة في احتياطيات القيمة الرقمية. تحالف استراتيجي لدمج منظومة العرب مع بنية تحتية مالية لامركزية بمستوى مؤسسي.',
+            url: 'https://gcrmaster.org/',
+            logo: '/partner-gcrm-opt.png',
+          },
+          {
+            name: 'QFSPay',
+            tagline: 'نظام الدفع الكمي المالي',
+            description: 'نظام دفع كمي من الجيل الجديد. تكامل يتيح معاملات فورية وآمنة وعالمية داخل منظومة العرب وما بعدها.',
+            url: 'https://qfspay.org/',
+            logo: '/partner-qfs-opt.png',
+          },
+        ],
+      },
       videos: [
         {
           title: 'العرب — النسخة العربية',
@@ -928,6 +1000,30 @@ export const translations = {
       binanceTitle: 'AlArab sur Binance',
       binanceSubtitle: 'Une collaboration stratégique qui porte l\'écosystème numérique arabe sur la plus grande plateforme blockchain du monde',
       binanceBadge: 'Partenariat Stratégique',
+      alliances: {
+        eyebrow: 'Alliances Stratégiques',
+        arabic: 'التحالفات الاستراتيجية',
+        title: 'Connecter l\'écosystème',
+        titleHighlight: 'avec les leaders mondiaux',
+        description: 'AlArab construit des ponts avec les plateformes blockchain et financières les plus innovantes du monde, étendant la portée de l\'écosystème numérique arabe.',
+        visitSite: 'Visiter le site',
+        partners: [
+          {
+            name: 'GCRM',
+            tagline: 'Global Currency Reserve Master',
+            description: 'Plateforme blockchain pionnière des réserves de valeur numériques. Alliance stratégique pour intégrer l\'écosystème AlArab avec une infrastructure financière décentralisée de niveau institutionnel.',
+            url: 'https://gcrmaster.org/',
+            logo: '/partner-gcrm-opt.png',
+          },
+          {
+            name: 'QFSPay',
+            tagline: 'Quantum Financial System Pay',
+            description: 'Système de paiement quantique de nouvelle génération. Intégration permettant des transactions instantanées, sécurisées et mondiales au sein de l\'écosystème AlArab et au-delà.',
+            url: 'https://qfspay.org/',
+            logo: '/partner-qfs-opt.png',
+          },
+        ],
+      },
       videos: [
         {
           title: 'AlArab — Version Arabe',
