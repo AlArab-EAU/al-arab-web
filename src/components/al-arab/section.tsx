@@ -78,15 +78,23 @@ interface SectionProps {
   id: string
   children: ReactNode
   className?: string
+  /** When true, adds a dark blue background to this section */
+  dark?: boolean
 }
 
-export function Section({ id, children, className = '' }: SectionProps) {
+export function Section({ id, children, className = '', dark = false }: SectionProps) {
   return (
     <section
       id={id}
-      className={`relative mx-auto w-full max-w-7xl px-5 py-24 md:px-8 md:py-32 ${className}`}
+      className={`relative w-full ${
+        dark
+          ? 'bg-[#0a2e5c]/60 backdrop-blur-sm border-y border-[#d4af37]/15'
+          : ''
+      } ${className}`}
     >
-      {children}
+      <div className="mx-auto w-full max-w-7xl px-5 py-24 md:px-8 md:py-32">
+        {children}
+      </div>
     </section>
   )
 }

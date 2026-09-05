@@ -19,7 +19,7 @@ export function TechnologySection() {
   const tt = t.technology
 
   return (
-    <Section id="technology">
+    <Section id="technology" dark>
       <SectionHeading
         eyebrow={tt.eyebrow}
         arabic={tt.arabic}

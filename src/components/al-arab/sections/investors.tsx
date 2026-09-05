@@ -12,6 +12,7 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
+import { PartnersPhoto } from '../partners-photo'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 const OPPORTUNITY_ICONS = [Handshake, Map, Building2]
@@ -43,7 +44,7 @@ export function InvestorsSection() {
   }
 
   return (
-    <Section id="investors">
+    <Section id="investors" dark>
       <SectionHeading
         eyebrow={it.eyebrow}
         arabic={it.arabic}
@@ -56,6 +57,11 @@ export function InvestorsSection() {
         }
         description={it.description}
       />
+
+      {/* Partners photo — full width cinematic showcase */}
+      <div className="mt-12">
+        <PartnersPhoto />
+      </div>
 
       <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
         {it.opportunities.map((o, i) => {
