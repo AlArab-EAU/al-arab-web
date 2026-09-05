@@ -102,7 +102,7 @@ export function YouTubeCinematic({
             {title}
           </h3>
           {description && (
-            <p className="text-sm leading-relaxed text-[#8a96a8]">{description}</p>
+            <p className="text-sm leading-relaxed text-[#a8b8c8]">{description}</p>
           )}
         </div>
       )}

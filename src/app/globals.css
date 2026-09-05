@@ -47,40 +47,39 @@
 
 :root {
   --radius: 0.75rem;
-  /* AL ARAB cinematic palette — dark blue + gray only (no light blue)
-     Inspired by Islamic luxury: lapis lazuli night → cool slate gray
-     Gradient evokes depth from night sky to stone */
+  /* AL ARAB cinematic palette — dark blue throughout (no light gray)
+     Inspired by Islamic luxury: deep lapis lazuli navy */
   --background: #0a2e5c;
   --foreground: #f4e9c9;
-  --card: rgba(15, 58, 107, 0.55);
+  --card: rgba(11, 58, 107, 0.55);
   --card-foreground: #f4e9c9;
   --popover: #0b3a6b;
   --popover-foreground: #f4e9c9;
   --primary: #d4af37;
   --primary-foreground: #0a2e5c;
-  --secondary: rgba(26, 58, 92, 0.45);
+  --secondary: rgba(11, 58, 107, 0.5);
   --secondary-foreground: #f4e9c9;
-  --muted: rgba(58, 74, 92, 0.4);
-  --muted-foreground: #8a96a8;
+  --muted: rgba(11, 58, 107, 0.5);
+  --muted-foreground: #a8b8c8;
   --accent: #00d4ff;
   --accent-foreground: #021824;
   --destructive: #e5484d;
   --destructive-foreground: #f4e9c9;
   --border: rgba(212, 175, 55, 0.3);
-  --input: rgba(58, 74, 92, 0.5);
+  --input: rgba(11, 58, 107, 0.6);
   --ring: #d4af37;
   /* Chart palette */
   --chart-1: #d4af37;
   --chart-2: #e8c547;
   --chart-3: #00d4ff;
-  --chart-4: #3a4a5c;
-  --chart-5: #8a96a8;
+  --chart-4: #0b3a6b;
+  --chart-5: #a8b8c8;
   /* Sidebar */
   --sidebar: #0b3a6b;
   --sidebar-foreground: #f4e9c9;
   --sidebar-primary: #d4af37;
   --sidebar-primary-foreground: #0a2e5c;
-  --sidebar-accent: #1a3a5c;
+  --sidebar-accent: #0a2e5c;
   --sidebar-accent-foreground: #f4e9c9;
   --sidebar-border: rgba(212, 175, 55, 0.3);
   --sidebar-ring: #d4af37;
@@ -139,14 +138,14 @@ body {
   }
 
   .glass {
-    background: rgba(15, 58, 107, 0.55);
+    background: rgba(11, 58, 107, 0.55);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border: 1px solid rgba(212, 175, 55, 0.3);
   }
 
   .glass-strong {
-    background: rgba(15, 58, 107, 0.82);
+    background: rgba(11, 58, 107, 0.82);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
     border: 1px solid rgba(212, 175, 55, 0.38);

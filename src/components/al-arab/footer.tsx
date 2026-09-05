@@ -46,7 +46,7 @@ export function Footer() {
                 />
               </div>
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#8a96a8]">
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#a8b8c8]">
               {ft.tagline}
             </p>
             <div className="mt-6 flex gap-3">
@@ -80,7 +80,7 @@ export function Footer() {
                   <li key={item}>
                     <a
                       href={FOOTER_HREFS[i]?.[j] ?? '#'}
-                      className="group inline-flex items-center gap-2 text-sm text-[#8a96a8] transition-colors hover:text-[#f4e9c9]"
+                      className="group inline-flex items-center gap-2 text-sm text-[#a8b8c8] transition-colors hover:text-[#f4e9c9]"
                     >
                       <span className="h-px w-0 bg-[#d4af37] transition-all duration-300 group-hover:w-4" />
                       {item}
@@ -94,7 +94,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-[#c9a85c]/10 pt-8 md:flex-row">
-          <p className="text-center text-[11px] leading-relaxed text-[#1a3a5c] md:text-left">
+          <p className="text-center text-[11px] leading-relaxed text-[#0a2e5c] md:text-left">
             {ft.copyright}
           </p>
           <a

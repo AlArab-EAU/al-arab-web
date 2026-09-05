@@ -89,7 +89,7 @@ export function LanguageSwitcher() {
                         >
                           {lang.label}
                         </span>
-                        <span className="text-[10px] uppercase tracking-[0.22em] text-[#1a3a5c]">
+                        <span className="text-[10px] uppercase tracking-[0.22em] text-[#0a2e5c]">
                           {lang.shortLabel} · {lang.dir.toUpperCase()}
                         </span>
                       </span>

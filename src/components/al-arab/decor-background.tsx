@@ -19,12 +19,12 @@ export function DecorBackground() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* === 1. Base — vertical gradient: dark navy → gray (no light blue) === */}
+      {/* === 1. Base — solid dark blue with subtle gradient (no light gray at bottom) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, #0a2e5c 0%, #0b3a6b 30%, #1a3a5c 55%, #3a4a5c 80%, #5a6478 100%)',
+            'linear-gradient(180deg, #0a2e5c 0%, #0b3a6b 30%, #0a2e5c 60%, #082545 100%)',
         }}
       />
 
@@ -66,7 +66,7 @@ export function DecorBackground() {
         style={{ y: orbY }}
         className="absolute right-[10%] top-[55%] h-96 w-96 rounded-full blur-[140px]"
       >
-        <div className="h-full w-full rounded-full bg-[#8a96a8]/10 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#a8b8c8]/10 animate-float-medium" />
       </motion.div>
 
       {/* === 8. Subtle arabesque pattern === */}

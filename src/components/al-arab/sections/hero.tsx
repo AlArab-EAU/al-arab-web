@@ -171,7 +171,7 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#8a96a8]">
+          <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#a8b8c8]">
             {t.hero.scroll}
           </span>
           <ChevronDown className="h-4 w-4 text-[#c9a85c]" />

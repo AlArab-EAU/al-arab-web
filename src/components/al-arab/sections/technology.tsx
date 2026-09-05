@@ -62,7 +62,7 @@ export function TechnologySection() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-[#8a96a8]">
+                <p className="mt-5 text-sm leading-relaxed text-[#a8b8c8]">
                   {tech.description}
                 </p>
 
@@ -96,7 +96,7 @@ export function TechnologySection() {
             <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
               {tt.architectureTitle}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#8a96a8]">
+            <p className="mt-3 text-sm leading-relaxed text-[#a8b8c8]">
               {tt.architectureDescription}
             </p>
           </div>
@@ -113,7 +113,7 @@ export function TechnologySection() {
                 <span className="font-display text-sm text-[#f4e9c9]">
                   {row.layer}
                 </span>
-                <span className="text-xs text-[#8a96a8]">{row.tech}</span>
+                <span className="text-xs text-[#a8b8c8]">{row.tech}</span>
               </motion.div>
             ))}
           </div>

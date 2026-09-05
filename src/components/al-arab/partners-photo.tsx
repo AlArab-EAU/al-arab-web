@@ -58,7 +58,7 @@ export function PartnersPhoto() {
           <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl">
             Strategic alliances driving the ecosystem
           </h3>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#8a96a8]">
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#a8b8c8]">
             A unified network of leaders, investors, and cultural ambassadors
             shaping the digital future of the Arab world.
           </p>

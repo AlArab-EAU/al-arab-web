@@ -28,9 +28,9 @@ export function EconomySection() {
       return { color: '#d4af37', label }
     }
     if (rawStatus === 'Parcial') {
-      return { color: '#8a96a8', label }
+      return { color: '#a8b8c8', label }
     }
-    return { color: '#1a3a5c', label }
+    return { color: '#0a2e5c', label }
   }
 
   return (
@@ -85,7 +85,7 @@ export function EconomySection() {
                     {f.arabic}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#8a96a8]">
+                <p className="mt-3 text-sm leading-relaxed text-[#a8b8c8]">
                   {f.description}
                 </p>
               </div>
@@ -114,7 +114,7 @@ export function EconomySection() {
           {et.notes.map((note, i) => (
             <li key={i} className="flex items-start gap-3">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#c9a85c]" />
-              <span className="text-xs leading-relaxed text-[#8a96a8]">
+              <span className="text-xs leading-relaxed text-[#a8b8c8]">
                 {note}
               </span>
             </li>
