@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowUp, Github, Linkedin, Twitter, Youtube } from 'lucide-react'
+import { ArrowUp, Github, Linkedin, Twitter, Youtube, ExternalLink, Award } from 'lucide-react'
 import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
@@ -61,6 +61,42 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* GCRM Official Partner badge */}
+            <motion.a
+              href="https://gcrmaster.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="group mt-8 inline-flex items-center gap-3 rounded-xl border border-[#d4af37]/30 bg-gradient-to-r from-[#0f172a]/80 to-[#162e6e]/80 p-3 backdrop-blur-md transition-all hover:border-[#d4af37]/60 hover:shadow-gold"
+            >
+              <div className="relative h-14 w-14 shrink-0">
+                <Image
+                  src="/partner-gcrm-badge.png"
+                  alt="GCRM — Official Partner Logo"
+                  fill
+                  sizes="56px"
+                  className="object-contain"
+                  unoptimized
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="flex items-center gap-1.5 font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                  <Award className="h-3 w-3" />
+                  {ft.gcrmBadge}
+                </span>
+                <span className="mt-0.5 text-[10px] text-[#94a3b8]">
+                  {ft.gcrmTagline}
+                </span>
+                <span className="mt-0.5 flex items-center gap-1 font-display text-sm font-semibold text-[#f4e9c9] group-hover:text-[#d4af37]">
+                  GCRM
+                  <ExternalLink className="h-3 w-3 opacity-50 transition-opacity group-hover:opacity-100" />
+                </span>
+              </div>
+            </motion.a>
           </motion.div>
 
           {/* Link columns */}
@@ -94,7 +130,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-[#c9a85c]/10 pt-8 md:flex-row">
-          <p className="text-center text-[11px] leading-relaxed text-[#0a194d] md:text-left">
+          <p className="text-center text-[11px] leading-relaxed text-[#94a3b8] md:text-left">
             {ft.copyright}
           </p>
           <a

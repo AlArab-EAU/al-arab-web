@@ -38,6 +38,13 @@ export const translations = {
       contact: 'Contacto',
       openMenu: 'Abrir menú',
       closeMenu: 'Cerrar',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visitar sitio',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -289,6 +296,8 @@ export const translations = {
       backToTop: 'Volver arriba',
       copyright: '© 2026 AL ARAB. Proyecto conceptual — la información presentada describe características actualmente implementadas o en desarrollo dentro del ecosistema.',
       social: ['Twitter', 'LinkedIn', 'YouTube', 'GitHub'],
+      gcrmBadge: 'Aliado Oficial',
+      gcrmTagline: 'En alianza estratégica con',
     },
   },
 
@@ -304,6 +313,13 @@ export const translations = {
       contact: 'Contact',
       openMenu: 'Open menu',
       closeMenu: 'Close',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visit site',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -555,6 +571,8 @@ export const translations = {
       backToTop: 'Back to top',
       copyright: '© 2026 AL ARAB. Conceptual project — the information presented describes features currently implemented or in development within the ecosystem.',
       social: ['Twitter', 'LinkedIn', 'YouTube', 'GitHub'],
+      gcrmBadge: 'Official Partner',
+      gcrmTagline: 'In strategic alliance with',
     },
   },
 
@@ -570,6 +588,13 @@ export const translations = {
       contact: 'تواصل',
       openMenu: 'فتح القائمة',
       closeMenu: 'إغلاق',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'السيد احتياطي العملة العالمية',
+        qfs: 'QFSPay',
+        qfsDesc: 'نظام الدفع الكمي المالي',
+        visitSite: 'زيارة الموقع',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -821,6 +846,8 @@ export const translations = {
       backToTop: 'العودة للأعلى',
       copyright: '© 2026 العرب. مشروع تصوّري — المعلومات المقدّمة تصف ميزات مُنفّذة أو قيد التطوير داخل المنظومة.',
       social: ['تويتر', 'لينكدإن', 'يوتيوب', 'جيت هاب'],
+      gcrmBadge: 'الشريك الرسمي',
+      gcrmTagline: 'في تحالف استراتيجي مع',
     },
   },
 
@@ -836,6 +863,13 @@ export const translations = {
       contact: 'Contact',
       openMenu: 'Ouvrir le menu',
       closeMenu: 'Fermer',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visiter le site',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -1087,6 +1121,8 @@ export const translations = {
       backToTop: 'Retour en haut',
       copyright: "© 2026 AL ARAB. Projet conceptuel — les informations présentées décrivent des fonctionnalités actuellement implémentées ou en développement au sein de l'écosystème.",
       social: ['Twitter', 'LinkedIn', 'YouTube', 'GitHub'],
+      gcrmBadge: 'Partenaire Officiel',
+      gcrmTagline: 'En alliance stratégique avec',
     },
   },
 } as const
