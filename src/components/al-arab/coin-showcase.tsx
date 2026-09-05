@@ -21,28 +21,21 @@ interface CoinSpec {
 /**
  * Showcase of the official AlArab concept coins.
  *
- * Corrected design:
- *  - All 3 coins share consistent size and styling (equal visual weight)
- *  - Each coin has its own glow effect (not just the center)
- *  - Each coin has bilingual labels (English + Arabic)
- *  - Higher contrast card background (lighter, more distinct from page)
- *  - Better spacing (no top cutoff from previous section)
- *  - Feature badges connected visually to coins via a divider
- *  - Consistent 3D spinning effect across all coins
+ * Improved design — coins float directly on the section background
+ * WITHOUT individual card containers. This eliminates the "box" look
+ * and makes the coins appear as clean floating objects.
  */
 export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
   const { t } = useI18n()
   const cs = t.economy.coinShowcase
 
-  // All 3 coins now use the official Aramco/AlAmal/DEFI designs
-  // with equal visual weight and bilingual labels
   const COINS: CoinSpec[] = [
     {
       src: '/alarab-coin-aramco-clean.png',
       alt: 'ARAMCO — Saudi currency concept token',
       name: 'ARAMCO',
       arabicName: 'العملة السعودية',
-      caption: 'DEFI · Saudi Arabia · Binary code',
+      caption: 'DEFI · Saudi Arabia',
       spinDuration: 22,
     },
     {
@@ -58,7 +51,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       alt: 'AL AMAL — Decentralized blockchain concept token',
       name: 'AL AMAL',
       arabicName: 'الأمل',
-      caption: 'Peer-to-peer · Blockchain · 2020',
+      caption: 'Peer-to-peer · Blockchain',
       spinDuration: 20,
     },
   ]
@@ -69,11 +62,11 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#0b3a63]/85 via-[#061a2e]/85 to-[#0b3a63]/85 backdrop-blur-xl ${
+      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#0b3a63]/70 via-[#061a2e]/70 to-[#0b3a63]/70 backdrop-blur-xl ${
         variant === 'full' ? 'p-8 md:p-12' : 'p-6'
       }`}
     >
-      {/* Stronger gold top border accent for separation */}
+      {/* Gold top border accent */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
 
       {/* Decorative orbital rings */}
@@ -110,7 +103,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
             {cs.description}
           </p>
 
-          {/* Feature badges — connected with a divider line above */}
+          {/* Feature badges */}
           <div className="mt-2 flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <span className="h-px flex-1 bg-gradient-to-r from-[#d4af37]/40 to-transparent" />
@@ -132,15 +125,15 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           </div>
         </div>
 
-        {/* Coins column — all 3 with equal weight, each with its own glow */}
-        <div className="relative grid grid-cols-3 gap-3 sm:gap-5">
+        {/* Coins column — NO individual card backgrounds, coins float directly */}
+        <div className="relative grid grid-cols-3 gap-3 sm:gap-6">
           {COINS.map((coin, i) => (
-            <CoinCard key={coin.name} coin={coin} delay={0.1 + i * 0.1} />
+            <FloatingCoin key={coin.name} coin={coin} delay={0.1 + i * 0.1} />
           ))}
         </div>
       </div>
 
-      {/* Disclaimer — more prominent */}
+      {/* Disclaimer */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -157,40 +150,47 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
   )
 }
 
-interface CoinCardProps {
+interface FloatingCoinProps {
   coin: CoinSpec
   delay: number
 }
 
-function CoinCard({ coin, delay }: CoinCardProps) {
+/**
+ * FloatingCoin — renders a coin WITHOUT any card/background container.
+ * The coin floats directly on the section background with only a
+ * subtle radial glow behind it.
+ */
+function FloatingCoin({ coin, delay }: FloatingCoinProps) {
   return (
-    <motion.figure
+    <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.85 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative flex flex-col items-center gap-3 rounded-2xl border border-[#d4af37]/25 bg-[#020812]/40 p-4 backdrop-blur-md transition-all duration-500 hover:border-[#d4af37]/50 hover:bg-[#020812]/60"
+      className="group relative flex flex-col items-center gap-3"
     >
-      {/* Per-coin glow halo — now applied to ALL coins equally */}
+      {/* Per-coin glow halo — NO card background */}
       <div
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute left-1/2 top-[65px] h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
-            'radial-gradient(circle at 50% 40%, rgba(212,175,55,0.18) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%)',
         }}
       />
 
+      {/* The coin itself — no background, just the spinning image */}
       <div className="relative">
         <SpinningCoin
           src={coin.src}
           alt={coin.alt}
           size={130}
           spinDuration={coin.spinDuration}
-          glow={0.5}
+          glow={0.6}
         />
       </div>
 
-      <figcaption className="relative flex flex-col items-center gap-1 text-center">
+      {/* Labels — floating text, no background box */}
+      <div className="relative flex flex-col items-center gap-1 text-center">
         <span className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
           {coin.name}
         </span>
@@ -200,7 +200,7 @@ function CoinCard({ coin, delay }: CoinCardProps) {
         <span className="mt-1 text-[9px] uppercase tracking-[0.15em] text-[#7eb8e2]/70">
           {coin.caption}
         </span>
-      </figcaption>
-    </motion.figure>
+      </div>
+    </motion.div>
   )
 }
