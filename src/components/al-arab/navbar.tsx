@@ -102,7 +102,7 @@ export function Navbar() {
             className="fixed inset-0 z-[60] xl:hidden"
           >
             <div
-              className="absolute inset-0 bg-[#061a2e]/90 backdrop-blur-xl"
+              className="absolute inset-0 bg-[#0a1a3a]/90 backdrop-blur-xl"
               onClick={() => setOpen(false)}
             />
             <motion.nav
@@ -110,7 +110,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 240, damping: 30 }}
-              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#072138] px-6 py-8"
+              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#0d2657] px-6 py-8"
             >
               <div className="mb-6 flex items-center justify-between">
                 <div className="relative h-12 w-40">

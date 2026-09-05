@@ -36,7 +36,7 @@ export function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Cambiar idioma"
-        className="group flex items-center gap-2 rounded-full border border-[#c9a85c]/30 bg-[#072138]/60 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#c9b88a] backdrop-blur-md transition-all hover:border-[#d4af37] hover:text-[#f4e9c9] hover:shadow-gold"
+        className="group flex items-center gap-2 rounded-full border border-[#c9a85c]/30 bg-[#0d2657]/60 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#c9b88a] backdrop-blur-md transition-all hover:border-[#d4af37] hover:text-[#f4e9c9] hover:shadow-gold"
       >
         <Globe className="h-3.5 w-3.5 text-[#d4af37]" />
         <span className="text-base leading-none">{current.flag}</span>
@@ -54,7 +54,7 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="absolute end-0 mt-2 w-44 overflow-hidden rounded-xl border border-[#c9a85c]/30 bg-[#072138]/95 p-1.5 shadow-deep backdrop-blur-xl"
+            className="absolute end-0 mt-2 w-44 overflow-hidden rounded-xl border border-[#c9a85c]/30 bg-[#0d2657]/95 p-1.5 shadow-deep backdrop-blur-xl"
             style={{
               // Place dropdown on the right edge for LTR, left for RTL
               insetInlineEnd: 0,
@@ -89,7 +89,7 @@ export function LanguageSwitcher() {
                         >
                           {lang.label}
                         </span>
-                        <span className="text-[10px] uppercase tracking-[0.22em] text-[#1a6ba8]">
+                        <span className="text-[10px] uppercase tracking-[0.22em] text-[#4a7bc4]">
                           {lang.shortLabel} · {lang.dir.toUpperCase()}
                         </span>
                       </span>

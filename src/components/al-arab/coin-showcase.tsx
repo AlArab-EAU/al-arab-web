@@ -53,7 +53,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#0b3a63]/70 via-[#061a2e]/70 to-[#0b3a63]/70 backdrop-blur-xl ${
+      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#0d2657]/70 via-[#0a1a3a]/70 to-[#0d2657]/70 backdrop-blur-xl ${
         variant === 'full' ? 'p-8 md:p-12' : 'p-6'
       }`}
     >
@@ -90,7 +90,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           <span className="font-arabic-serif text-lg text-[#d4af37]/70" dir="rtl">
             {cs.arabic}
           </span>
-          <p className="text-sm leading-relaxed text-[#7eb8e2]">
+          <p className="text-sm leading-relaxed text-[#a8c5e8]">
             {cs.description}
           </p>
 
@@ -130,10 +130,10 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#020812]/70 p-4 backdrop-blur-md"
+        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#0a1a3a]/70 p-4 backdrop-blur-md"
       >
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
-        <p className="text-[11px] leading-relaxed text-[#7eb8e2]">
+        <p className="text-[11px] leading-relaxed text-[#a8c5e8]">
           {cs.disclaimer}
         </p>
       </motion.div>
@@ -185,10 +185,10 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
         <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
           {coin.name}
         </span>
-        <span className="font-arabic-serif text-sm text-[#7eb8e2]" dir="rtl">
+        <span className="font-arabic-serif text-sm text-[#a8c5e8]" dir="rtl">
           {coin.arabicName}
         </span>
-        <span className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#7eb8e2]/70">
+        <span className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#a8c5e8]/70">
           {coin.caption}
         </span>
       </div>
