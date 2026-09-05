@@ -1,16 +1,27 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown, ExternalLink, Building2 } from 'lucide-react'
 import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 import { LanguageSwitcher } from './language-switcher'
+
+interface SubMenuItem {
+  name: string
+  desc: string
+  url: string
+  logo: string
+}
 
 export function Navbar() {
   const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [submenuOpen, setSubmenuOpen] = useState(false)
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(false)
+  const submenuRef = useRef<HTMLDivElement | null>(null)
+  const submenuTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const NAV_ITEMS = [
     { href: '#vision', label: t.nav.vision },
@@ -19,7 +30,21 @@ export function Navbar() {
     { href: '#technology', label: t.nav.technology },
     { href: '#ecosystem', label: t.nav.ecosystem },
     { href: '#roadmap', label: t.nav.roadmap },
-    { href: '#investors', label: t.nav.investors },
+  ]
+
+  const SUBMENU_ITEMS: SubMenuItem[] = [
+    {
+      name: t.nav.investorsSubmenu.gcrm,
+      desc: t.nav.investorsSubmenu.gcrmDesc,
+      url: 'https://gcrmaster.org/',
+      logo: '/partner-gcrm-opt.png',
+    },
+    {
+      name: t.nav.investorsSubmenu.qfs,
+      desc: t.nav.investorsSubmenu.qfsDesc,
+      url: 'https://qfspay.org/',
+      logo: '/partner-qfs-opt.png',
+    },
   ]
 
   useEffect(() => {
@@ -28,6 +53,34 @@ export function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Close submenu when clicking outside
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (!submenuRef.current?.contains(e.target as Node)) setSubmenuOpen(false)
+    }
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSubmenuOpen(false)
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onDoc)
+    document.addEventListener('keydown', onEsc)
+    return () => {
+      document.removeEventListener('mousedown', onDoc)
+      document.removeEventListener('keydown', onEsc)
+    }
+  }, [])
+
+  // Hover handlers with delay
+  const handleEnter = () => {
+    if (submenuTimer.current) clearTimeout(submenuTimer.current)
+    setSubmenuOpen(true)
+  }
+  const handleLeave = () => {
+    submenuTimer.current = setTimeout(() => setSubmenuOpen(false), 200)
+  }
 
   return (
     <>
@@ -40,7 +93,7 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 md:px-8">
-          {/* Logo — bigger, dominant in navbar */}
+          {/* Logo */}
           <a href="#top" className="group flex shrink-0 items-center gap-3">
             <div className="relative flex h-14 w-40 items-center justify-start md:h-16 md:w-52">
               <Image
@@ -67,6 +120,96 @@ export function Navbar() {
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+
+            {/* Investors dropdown */}
+            <div
+              ref={submenuRef}
+              className="relative"
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setSubmenuOpen((v) => !v)}
+                className="group flex items-center gap-1.5 font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+              >
+                {t.nav.investors}
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-300 ${submenuOpen ? 'rotate-180' : ''}`}
+                />
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
+              </button>
+
+              <AnimatePresence>
+                {submenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
+                  >
+                    <div className="w-80 overflow-hidden rounded-xl border border-[#d4af37]/30 bg-[#0f172a]/95 backdrop-blur-xl shadow-deep">
+                      {/* Section header */}
+                      <div className="flex items-center gap-2 border-b border-[#d4af37]/15 px-4 py-3">
+                        <Building2 className="h-4 w-4 text-[#d4af37]" />
+                        <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                          {t.nav.investors}
+                        </span>
+                      </div>
+
+                      {/* Submenu items */}
+                      <div className="p-2">
+                        {SUBMENU_ITEMS.map((item) => (
+                          <a
+                            key={item.name}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setSubmenuOpen(false)}
+                            className="group flex items-center gap-3 rounded-lg p-3 transition-all hover:bg-[#d4af37]/10"
+                          >
+                            {/* Logo */}
+                            <div className="relative h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1.5">
+                              <Image
+                                src={item.logo}
+                                alt={`${item.name} logo`}
+                                fill
+                                sizes="48px"
+                                className="object-contain p-1"
+                                unoptimized
+                              />
+                            </div>
+
+                            {/* Text */}
+                            <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                              <div className="flex items-center gap-1.5">
+                                <span className="font-display text-sm font-semibold text-[#f4e9c9] group-hover:text-[#d4af37]">
+                                  {item.name}
+                                </span>
+                                <ExternalLink className="h-3 w-3 text-[#94a3b8] opacity-0 transition-opacity group-hover:opacity-100" />
+                              </div>
+                              <span className="truncate text-[11px] text-[#94a3b8]">
+                                {item.desc}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+
+                      {/* Footer link to investors section */}
+                      <a
+                        href="#investors"
+                        onClick={() => setSubmenuOpen(false)}
+                        className="block border-t border-[#d4af37]/15 bg-[#d4af37]/5 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[#d4af37] transition-colors hover:bg-[#d4af37]/15"
+                      >
+                        {t.nav.investors} →
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
           {/* Right-side controls */}
@@ -110,7 +253,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 240, damping: 30 }}
-              className="absolute right-0 top-0 flex h-full w-72 flex-col gap-2 border-l border-[#c9a85c]/25 bg-[#162e6e] px-6 py-8"
+              className="absolute right-0 top-0 flex h-full w-80 flex-col gap-2 overflow-y-auto border-l border-[#c9a85c]/25 bg-[#162e6e] px-6 py-8"
             >
               <div className="mb-6 flex items-center justify-between">
                 <div className="relative h-12 w-40">
@@ -130,6 +273,8 @@ export function Navbar() {
                   <X className="h-5 w-5" />
                 </button>
               </div>
+
+              {/* Mobile nav items */}
               {NAV_ITEMS.map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -143,6 +288,78 @@ export function Navbar() {
                   {item.label}
                 </motion.a>
               ))}
+
+              {/* Investors with expandable submenu */}
+              <motion.div
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.05 + NAV_ITEMS.length * 0.04 }}
+              >
+                <button
+                  onClick={() => setMobileSubmenuOpen((v) => !v)}
+                  className="flex w-full items-center justify-between border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+                >
+                  {t.nav.investors}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-300 ${mobileSubmenuOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {mobileSubmenuOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="flex flex-col gap-2 py-3 pl-4">
+                        {SUBMENU_ITEMS.map((item) => (
+                          <a
+                            key={item.name}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setOpen(false)}
+                            className="flex items-center gap-3 rounded-lg border border-[#c9a85c]/20 bg-[#0a194d]/40 p-3 transition-all hover:border-[#c9a85c]/40"
+                          >
+                            <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
+                              <Image
+                                src={item.logo}
+                                alt={`${item.name} logo`}
+                                fill
+                                sizes="40px"
+                                className="object-contain p-1"
+                                unoptimized
+                              />
+                            </div>
+                            <div className="flex min-w-0 flex-1 flex-col">
+                              <div className="flex items-center gap-1.5">
+                                <span className="font-display text-sm font-semibold text-[#d4af37]">
+                                  {item.name}
+                                </span>
+                                <ExternalLink className="h-3 w-3 text-[#94a3b8]" />
+                              </div>
+                              <span className="truncate text-[10px] text-[#94a3b8]">
+                                {item.desc}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                        <a
+                          href="#investors"
+                          onClick={() => setOpen(false)}
+                          className="mt-1 rounded-lg border border-[#c9a85c]/50 bg-[#c9a85c]/15 px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-[#f4e9c9]"
+                        >
+                          {t.nav.investors} →
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
               <div className="mt-4">
                 <LanguageSwitcher />
               </div>

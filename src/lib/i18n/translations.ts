@@ -38,6 +38,13 @@ export const translations = {
       contact: 'Contacto',
       openMenu: 'Abrir menú',
       closeMenu: 'Cerrar',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visitar sitio',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -304,6 +311,13 @@ export const translations = {
       contact: 'Contact',
       openMenu: 'Open menu',
       closeMenu: 'Close',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visit site',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -570,6 +584,13 @@ export const translations = {
       contact: 'تواصل',
       openMenu: 'فتح القائمة',
       closeMenu: 'إغلاق',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'السيد احتياطي العملة العالمية',
+        qfs: 'QFSPay',
+        qfsDesc: 'نظام الدفع الكمي المالي',
+        visitSite: 'زيارة الموقع',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
@@ -836,6 +857,13 @@ export const translations = {
       contact: 'Contact',
       openMenu: 'Ouvrir le menu',
       closeMenu: 'Fermer',
+      investorsSubmenu: {
+        gcrm: 'GCRM',
+        gcrmDesc: 'Global Currency Reserve Master',
+        qfs: 'QFSPay',
+        qfsDesc: 'Quantum Financial System',
+        visitSite: 'Visiter le site',
+      },
     },
     hero: {
       arabicEyebrow: 'المستقبل الرقمي للعالم العربي',
