@@ -199,6 +199,9 @@ export const translations = {
       title: 'AlArab en tu idioma',
       titleHighlight: 'conectando culturas',
       description: 'Explora el ecosistema AlArab a través de presentaciones oficiales en múltiples idiomas. Cada video ofrece una visión única del proyecto, adaptada a su región y comunidad.',
+      binanceTitle: 'AlArab en Binance',
+      binanceSubtitle: 'Una colaboración estratégica que lleva el ecosistema digital árabe a la plataforma blockchain más grande del mundo',
+      binanceBadge: 'Strategic Partnership',
       videos: [
         {
           title: 'AlArab — Versión Árabe',
@@ -438,6 +441,9 @@ export const translations = {
       title: 'AlArab in your language',
       titleHighlight: 'connecting cultures',
       description: 'Explore the AlArab ecosystem through official presentations in multiple languages. Each video offers a unique vision of the project, adapted to its region and community.',
+      binanceTitle: 'AlArab on Binance',
+      binanceSubtitle: 'A strategic collaboration bringing the Arab digital ecosystem to the world\'s largest blockchain platform',
+      binanceBadge: 'Strategic Partnership',
       videos: [
         {
           title: 'AlArab — Arabic Version',
@@ -677,6 +683,9 @@ export const translations = {
       title: 'العرب بلغتك',
       titleHighlight: 'يربط الثقافات',
       description: 'استكشف منظومة العرب عبر عروض رسمية بلغات متعددة. كل عرض يقدم رؤية فريدة للمشروع، متكيّفاً مع منطقته ومجتمعه.',
+      binanceTitle: 'العرب على بينانس',
+      binanceSubtitle: 'تعاون استراتيجي ينقل المنظومة الرقمية العربية إلى أكبر منصة بلوكتشين في العالم',
+      binanceBadge: 'شراكة استراتيجية',
       videos: [
         {
           title: 'العرب — النسخة العربية',
@@ -916,6 +925,9 @@ export const translations = {
       title: 'AlArab dans votre langue',
       titleHighlight: 'connecter les cultures',
       description: 'Explorez l\'écosystème AlArab à travers des présentations officielles en plusieurs langues. Chaque vidéo offre une vision unique du projet, adaptée à sa région et à sa communauté.',
+      binanceTitle: 'AlArab sur Binance',
+      binanceSubtitle: 'Une collaboration stratégique qui porte l\'écosystème numérique arabe sur la plus grande plateforme blockchain du monde',
+      binanceBadge: 'Partenariat Stratégique',
       videos: [
         {
           title: 'AlArab — Version Arabe',

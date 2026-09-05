@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Globe2 } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
 import { YouTubeCinematic } from '../youtube-cinematic'
+import { BinanceVideo } from '../binance-video'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 interface VideoSpec {
@@ -69,6 +70,9 @@ export function VideoGallerySection() {
         }
         description={vg.description}
       />
+
+      {/* Special Binance partnership video — cinematic showcase */}
+      <BinanceVideo />
 
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         {vg.videos.map((video, i) => {
