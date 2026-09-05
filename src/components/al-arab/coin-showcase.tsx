@@ -21,23 +21,14 @@ interface CoinSpec {
 /**
  * Showcase of the official AlArab concept coins.
  *
- * Improved design — coins float directly on the section background
- * WITHOUT individual card containers. This eliminates the "box" look
- * and makes the coins appear as clean floating objects.
+ * Simplified to show only 2 coins, larger and more prominent.
+ * Coins float directly on the section background without card containers.
  */
 export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
   const { t } = useI18n()
   const cs = t.economy.coinShowcase
 
   const COINS: CoinSpec[] = [
-    {
-      src: '/alarab-coin-aramco-clean.png',
-      alt: 'ARAMCO — Saudi currency concept token',
-      name: 'ARAMCO',
-      arabicName: 'العملة السعودية',
-      caption: 'DEFI · Saudi Arabia',
-      spinDuration: 22,
-    },
     {
       src: '/alarab-coin-defi-clean.png',
       alt: 'AL ARAB — DEFI concept token',
@@ -51,7 +42,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       alt: 'AL AMAL — Decentralized blockchain concept token',
       name: 'AL AMAL',
       arabicName: 'الأمل',
-      caption: 'Peer-to-peer · Blockchain',
+      caption: 'Peer-to-peer · Blockchain · 2020',
       spinDuration: 20,
     },
   ]
@@ -125,10 +116,10 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
           </div>
         </div>
 
-        {/* Coins column — NO individual card backgrounds, coins float directly */}
-        <div className="relative grid grid-cols-3 gap-3 sm:gap-6">
+        {/* Coins column — only 2 coins, larger */}
+        <div className="relative grid grid-cols-2 gap-6 sm:gap-10">
           {COINS.map((coin, i) => (
-            <FloatingCoin key={coin.name} coin={coin} delay={0.1 + i * 0.1} />
+            <FloatingCoin key={coin.name} coin={coin} delay={0.1 + i * 0.15} />
           ))}
         </div>
       </div>
@@ -158,7 +149,7 @@ interface FloatingCoinProps {
 /**
  * FloatingCoin — renders a coin WITHOUT any card/background container.
  * The coin floats directly on the section background with only a
- * subtle radial glow behind it.
+ * subtle radial glow behind it. Larger size for 2-coin layout.
  */
 function FloatingCoin({ coin, delay }: FloatingCoinProps) {
   return (
@@ -167,11 +158,11 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative flex flex-col items-center gap-3"
+      className="group relative flex flex-col items-center gap-4"
     >
       {/* Per-coin glow halo — NO card background */}
       <div
-        className="pointer-events-none absolute left-1/2 top-[65px] h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute left-1/2 top-[90px] h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
             'radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%)',
@@ -183,7 +174,7 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
         <SpinningCoin
           src={coin.src}
           alt={coin.alt}
-          size={130}
+          size={180}
           spinDuration={coin.spinDuration}
           glow={0.6}
         />
@@ -191,13 +182,13 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
 
       {/* Labels — floating text, no background box */}
       <div className="relative flex flex-col items-center gap-1 text-center">
-        <span className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
+        <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
           {coin.name}
         </span>
-        <span className="font-arabic-serif text-xs text-[#7eb8e2]" dir="rtl">
+        <span className="font-arabic-serif text-sm text-[#7eb8e2]" dir="rtl">
           {coin.arabicName}
         </span>
-        <span className="mt-1 text-[9px] uppercase tracking-[0.15em] text-[#7eb8e2]/70">
+        <span className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#7eb8e2]/70">
           {coin.caption}
         </span>
       </div>

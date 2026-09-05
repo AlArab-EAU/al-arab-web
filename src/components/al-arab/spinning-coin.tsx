@@ -144,6 +144,7 @@ export function SpinningCoin({
               }}
               priority={size > 200}
               loading={size > 200 ? 'eager' : 'lazy'}
+              unoptimized
             />
           </div>
         </div>
