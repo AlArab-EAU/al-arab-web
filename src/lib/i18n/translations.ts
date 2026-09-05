@@ -50,6 +50,9 @@ export const translations = {
       video1Title: 'AL ARAB — Official Teaser',
       video1Description: 'Una mirada cinematográfica al universo digital que está redefiniendo la presencia árabe en el mundo tecnológico global.',
       officialVideo: 'Official Video',
+      featuredVideoTitle: 'Experience the AlArab Universe',
+      featuredVideoSubtitle: 'Sumérgete en un viaje cinematográfico a través del metaverso, la cultura y la innovación árabe',
+      featuredBadge: 'Featured Presentation',
     },
     vision: {
       eyebrow: 'La Visión',
@@ -286,6 +289,9 @@ export const translations = {
       video1Title: 'AL ARAB — Official Teaser',
       video1Description: 'A cinematic glimpse into the digital universe redefining the Arab presence in the global technology landscape.',
       officialVideo: 'Official Video',
+      featuredVideoTitle: 'Experience the AlArab Universe',
+      featuredVideoSubtitle: 'Immerse yourself in a cinematic journey through the metaverse, culture and Arab innovation',
+      featuredBadge: 'Featured Presentation',
     },
     vision: {
       eyebrow: 'The Vision',
@@ -522,6 +528,9 @@ export const translations = {
       video1Title: 'AL ARAB — العرض الرسمي',
       video1Description: 'نظرة سينمائية على الكون الرقمي الذي يعيد تعريف الحضور العربي في المشهد التقني العالمي.',
       officialVideo: 'فيديو رسمي',
+      featuredVideoTitle: 'عش تجربة كون العرب',
+      featuredVideoSubtitle: 'انغمس في رحلة سينمائية عبر الميتافيرس والثقافة والابتكار العربي',
+      featuredBadge: 'العرض المميّز',
     },
     vision: {
       eyebrow: 'الرؤية',
@@ -758,6 +767,9 @@ export const translations = {
       video1Title: 'AL ARAB — Teaser officiel',
       video1Description: "Un regard cinématographique sur l'univers numérique qui redéfinit la présence arabe dans le paysage technologique mondial.",
       officialVideo: 'Vidéo officielle',
+      featuredVideoTitle: "Vivez l'univers AlArab",
+      featuredVideoSubtitle: 'Plongez dans un voyage cinématographique à travers le métavers, la culture et l\'innovation arabe',
+      featuredBadge: 'Présentation Vedette',
     },
     vision: {
       eyebrow: 'La Vision',

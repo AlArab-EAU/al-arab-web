@@ -1,13 +1,141 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ChevronDown, Sparkles } from 'lucide-react'
-import { useRef } from 'react'
+import { ChevronDown, Sparkles, Play, Star } from 'lucide-react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { ParticleField } from '../particle-field'
 import { YouTubeCinematic } from '../youtube-cinematic'
 import { SpinningCoin } from '../spinning-coin'
 import { useI18n } from '@/lib/i18n/i18n-provider'
+
+/**
+ * HeroFeaturedVideo — special cinematic presentation of the main featured video.
+ *
+ * Displays the video b6ffAuBYf8g with:
+ *  - Full-width cinematic showcase (max-w-6xl)
+ *  - Decorative gold corner accents (4 corners)
+ *  - Glow halo behind the video
+ *  - "Featured Presentation" badge with star icon
+ *  - Title overlay "Experience the AlArab Universe"
+ *  - Subtitle below
+ *  - Larger play button with pulse animation
+ */
+function HeroFeaturedVideo() {
+  const { t } = useI18n()
+  const [playing, setPlaying] = useState(false)
+  const videoId = 'b6ffAuBYf8g'
+  const thumb = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 1.2, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
+      className="relative mt-20 w-full max-w-6xl"
+    >
+      {/* Glow halo behind video */}
+      <div
+        className="pointer-events-none absolute -inset-8 rounded-3xl blur-3xl"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(212,175,55,0.25) 0%, rgba(37,99,235,0.10) 50%, transparent 70%)',
+        }}
+      />
+
+      {/* Decorative gold corner accents */}
+      <div className="pointer-events-none absolute -left-3 -top-3 h-12 w-12 border-l-2 border-t-2 border-[#d4af37]/60 rounded-tl-xl" />
+      <div className="pointer-events-none absolute -right-3 -top-3 h-12 w-12 border-r-2 border-t-2 border-[#d4af37]/60 rounded-tr-xl" />
+      <div className="pointer-events-none absolute -left-3 -bottom-3 h-12 w-12 border-l-2 border-b-2 border-[#d4af37]/60 rounded-bl-xl" />
+      <div className="pointer-events-none absolute -right-3 -bottom-3 h-12 w-12 border-r-2 border-b-2 border-[#d4af37]/60 rounded-br-xl" />
+
+      {/* Featured badge */}
+      <div className="absolute -top-4 left-1/2 z-20 -translate-x-1/2">
+        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-gradient-to-r from-[#0a194d] to-[#162e6e] px-5 py-2 shadow-gold">
+          <Star className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
+          <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+            {t.hero.featuredBadge}
+          </span>
+          <Star className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
+        </div>
+      </div>
+
+      {/* Video container with cinematic treatment */}
+      <div className="relative overflow-hidden rounded-2xl border border-[#d4af37]/40 shadow-deep">
+        <div className="relative aspect-video overflow-hidden">
+          {!playing ? (
+            <>
+              {/* Thumbnail */}
+              <img
+                src={thumb}
+                alt={t.hero.featuredVideoTitle}
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="eager"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  target.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+                }}
+              />
+
+              {/* Cinematic gradient overlays — stronger for title readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a194d] via-[#0a194d]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a194d]/60 via-transparent to-[#0a194d]/60" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a194d] via-[#0a194d]/70 to-transparent" />
+
+              {/* Center play button — larger and more prominent */}
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                aria-label={`Play: ${t.hero.featuredVideoTitle}`}
+                className="group absolute inset-0 flex items-center justify-center"
+              >
+                <span className="relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#d4af37]/60 bg-[#0a194d]/50 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]">
+                  <span className="absolute inset-0 rounded-full animate-pulse-gold" />
+                  <Play className="ml-1.5 h-9 w-9 fill-[#d4af37] text-[#d4af37]" />
+                </span>
+              </button>
+
+              {/* Title overlay at bottom */}
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 2 }}
+                >
+                  <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl text-glow-soft">
+                    {t.hero.featuredVideoTitle}
+                  </h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#94a3b8]">
+                    {t.hero.featuredVideoSubtitle}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Top-right official badge */}
+              <div className="absolute right-5 top-5 flex items-center gap-2">
+                <span className="rounded-full border border-[#d4af37]/40 bg-[#0a194d]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37] backdrop-blur-md">
+                  {t.hero.officialVideo}
+                </span>
+              </div>
+            </>
+          ) : (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+              title={t.hero.featuredVideoTitle}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+              className="h-full w-full border-0"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Bottom accent line */}
+      <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
+    </motion.div>
+  )
+}
 
 export function HeroSection() {
   const { t } = useI18n()
@@ -54,7 +182,7 @@ export function HeroSection() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
 
-        {/* Official Logo + Spinning Coin — logo is now MUCH BIGGER (90% viewport width on mobile, 800px on desktop) */}
+        {/* Official Logo + Spinning Coin */}
         <div className="relative flex flex-col items-center justify-center gap-6 md:flex-row md:gap-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -142,20 +270,8 @@ export function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Hero video */}
-        <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-16 w-full max-w-4xl"
-        >
-          <YouTubeCinematic
-            videoId="5L6tvrXrUWM"
-            title={t.hero.video1Title}
-            description={t.hero.video1Description}
-            officialBadge={t.hero.officialVideo}
-          />
-        </motion.div>
+        {/* SPECIAL FEATURED VIDEO — b6ffAuBYf8g with cinematic treatment */}
+        <HeroFeaturedVideo />
       </div>
 
       {/* Scroll hint */}
