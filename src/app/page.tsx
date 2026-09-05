@@ -12,6 +12,7 @@ import { RoadmapSection } from '@/components/al-arab/sections/roadmap'
 import { VideoGallerySection } from '@/components/al-arab/sections/video-gallery'
 import { InvestorsSection } from '@/components/al-arab/sections/investors'
 import { Footer } from '@/components/al-arab/footer'
+import { GcrmFloatingBadge } from '@/components/al-arab/gcrm-floating-badge'
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <VideoGallerySection />
       <InvestorsSection />
       <Footer />
+      <GcrmFloatingBadge />
     </main>
   )
 }
