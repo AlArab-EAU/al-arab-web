@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 
 /**
  * Contact API endpoint — receives form submissions and sends:
- * 1. A notification email to contact@Alarab-Defi.com
+ * 1. A notification email to the AlArab team
  * 2. An auto-reply email to the submitter
  *
- * Uses Resend (or similar) if API key is available,
- * otherwise falls back to a simple log + success response.
+ * Uses Resend API. The from email must use a verified domain.
+ * Until alarab-defi.com is verified in Resend, uses onboarding@resend.dev
+ * as the from address, and sends notifications to alarab.gcr@gmail.com
+ * (the account owner email).
  */
 
 interface ContactBody {
@@ -38,48 +40,68 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const TO_EMAIL = 'contact@Alarab-Defi.com'
-    const FROM_EMAIL = 'noreply@alarab-defi.com'
-
-    // Try to send via Resend if API key is available
     const resendApiKey = process.env.RESEND_API_KEY
 
-    if (resendApiKey) {
-      // Send notification email to contact@Alarab-Defi.com
-      const notificationResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${resendApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: FROM_EMAIL,
-          to: TO_EMAIL,
-          subject: `[AlArab Contact] ${body.interest} — ${body.name}`,
-          html: `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #d4af37;">Nuevo mensaje de contacto — AlArab</h2>
-              <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 8px 0; font-weight: bold; color: #333;">Nombre:</td><td style="padding: 8px 0;">${body.name}</td></tr>
-                <tr><td style="padding: 8px 0; font-weight: bold; color: #333;">Empresa:</td><td style="padding: 8px 0;">${body.company || 'N/A'}</td></tr>
-                <tr><td style="padding: 8px 0; font-weight: bold; color: #333;">Email:</td><td style="padding: 8px 0;">${body.email}</td></tr>
-                <tr><td style="padding: 8px 0; font-weight: bold; color: #333;">Interés:</td><td style="padding: 8px 0;">${body.interest}</td></tr>
-              </table>
-              <h3 style="color: #333; margin-top: 20px;">Mensaje:</h3>
-              <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${body.message}</p>
-              <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
-              <p style="color: #999; font-size: 12px;">Este mensaje fue enviado desde el formulario de contacto de alarab-defi.com</p>
-            </div>
-          `,
-        }),
+    if (!resendApiKey) {
+      console.log('📧 Contact form (no RESEND_API_KEY):', body)
+      return NextResponse.json({
+        success: true,
+        message: 'Your message has been received. We will contact you soon.',
       })
+    }
 
-      if (!notificationResponse.ok) {
-        console.error('Failed to send notification email:', await notificationResponse.text())
-      }
+    // Until alarab-defi.com domain is verified in Resend,
+    // we use onboarding@resend.dev as from address
+    // and send to the account owner email (alarab.gcr@gmail.com)
+    const FROM_EMAIL = 'onboarding@resend.dev'
+    const TEAM_EMAIL = 'alarab.gcr@gmail.com' // Resend account owner
 
-      // Send auto-reply to the submitter
-      const autoReplyResponse = await fetch('https://api.resend.com/emails', {
+    // 1. Send notification email to the team
+    const notificationResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: TEAM_EMAIL,
+        replyTo: body.email, // Reply to the submitter
+        subject: `[AlArab Contact] ${body.interest} — ${body.name}`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0f0f1a;">
+            <h2 style="color: #d4af37; text-align: center; letter-spacing: 3px;">AL ARAB</h2>
+            <p style="color: #94a3b8; text-align: center; margin-top: 0;">New contact form submission</p>
+            <div style="background: #1a1a2e; padding: 25px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2); margin-top: 20px;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #d4af37; width: 100px;">Name:</td><td style="padding: 8px 0; color: #f4e9c9;">${body.name}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #d4af37;">Company:</td><td style="padding: 8px 0; color: #f4e9c9;">${body.company || 'N/A'}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #d4af37;">Email:</td><td style="padding: 8px 0; color: #f4e9c9;">${body.email}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #d4af37;">Interest:</td><td style="padding: 8px 0; color: #f4e9c9;">${body.interest}</td></tr>
+              </table>
+              <h3 style="color: #d4af37; margin-top: 20px;">Message:</h3>
+              <p style="background: rgba(212,175,55,0.08); padding: 15px; border-radius: 8px; color: #f4e9c9; white-space: pre-wrap; border: 1px solid rgba(212,175,55,0.1);">${body.message}</p>
+            </div>
+            <p style="color: #5d7ba8; font-size: 12px; text-align: center; margin-top: 20px;">
+              Reply directly to this email to respond to ${body.name} at ${body.email}
+            </p>
+          </div>
+        `,
+      }),
+    })
+
+    const notifData = await notificationResponse.json()
+
+    if (!notificationResponse.ok) {
+      console.error('Notification email failed:', notifData)
+      // Still return success to the user — we don't want to expose email errors
+    }
+
+    // 2. Try to send auto-reply to the submitter
+    // Note: This will work once alarab-defi.com is verified in Resend
+    // For now, it may fail for non-owner emails, which is OK
+    try {
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${resendApiKey}`,
@@ -106,8 +128,8 @@ export async function POST(request: NextRequest) {
                   Your inquiry is important to us. In the meantime, feel free to explore our ecosystem
                   at <a href="https://alarab-defi.com" style="color: #d4af37;">alarab-defi.com</a>.
                 </p>
-                <div style="margin-top: 25px; padding: 15px; background: rgba(212,175,55,0.08); border-radius: 8px; border: 1px solid rgba(212,175,55,0.15);">
-                  <p style="color: #8b5cf6; margin: 0; font-size: 13px; font-weight: bold;">📋 Your message summary:</p>
+                <div style="margin-top: 25px; padding: 15px; background: rgba(139,92,246,0.08); border-radius: 8px; border: 1px solid rgba(139,92,246,0.15);">
+                  <p style="color: #8b5cf6; margin: 0; font-size: 13px;">Your message summary:</p>
                   <p style="color: #94a3b8; margin-top: 8px; font-size: 13px;">${body.message.substring(0, 200)}${body.message.length > 200 ? '...' : ''}</p>
                 </div>
                 <hr style="border: none; border-top: 1px solid rgba(212,175,55,0.1); margin: 20px 0;" />
@@ -121,19 +143,9 @@ export async function POST(request: NextRequest) {
           `,
         }),
       })
-
-      if (!autoReplyResponse.ok) {
-        console.error('Failed to send auto-reply:', await autoReplyResponse.text())
-      }
-    } else {
-      // No API key — log the message for development
-      console.log('📧 Contact form submission (no email service configured):')
-      console.log('  To:', TO_EMAIL)
-      console.log('  From:', body.email)
-      console.log('  Name:', body.name)
-      console.log('  Company:', body.company || 'N/A')
-      console.log('  Interest:', body.interest)
-      console.log('  Message:', body.message)
+    } catch (autoReplyError) {
+      // Auto-reply may fail if domain not verified yet — that's OK
+      console.log('Auto-reply skipped (domain not verified yet)')
     }
 
     return NextResponse.json({
