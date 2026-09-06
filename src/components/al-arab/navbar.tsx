@@ -7,43 +7,53 @@ import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 import { LanguageSwitcher } from './language-switcher'
 
-interface SubMenuItem {
+interface SubLinkItem {
   name: string
-  desc: string
-  url: string
-  logo: string
+  desc?: string
+  url?: string
+  href?: string
+  logo?: string
+}
+
+interface NavGroup {
+  label: string
+  items: SubLinkItem[]
+  isExternal?: boolean
 }
 
 export function Navbar() {
   const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [submenuOpen, setSubmenuOpen] = useState(false)
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(false)
-  const submenuRef = useRef<HTMLDivElement | null>(null)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const submenuTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const submenuRef = useRef<HTMLDivElement | null>(null)
 
-  const NAV_ITEMS = [
-    { href: '#vision', label: t.nav.vision },
-    { href: '#metaverse', label: t.nav.metaverse },
-    { href: '#economy', label: t.nav.economy },
-    { href: '#technology', label: t.nav.technology },
-    { href: '#ecosystem', label: t.nav.ecosystem },
-    { href: '#roadmap', label: t.nav.roadmap },
-  ]
-
-  const SUBMENU_ITEMS: SubMenuItem[] = [
+  // Simplified nav: 3 main items with submenus instead of 6+ separate links
+  const NAV_GROUPS: NavGroup[] = [
     {
-      name: t.nav.investorsSubmenu.gcrm,
-      desc: t.nav.investorsSubmenu.gcrmDesc,
-      url: 'https://gcrmaster.org/',
-      logo: '/partner-gcrm-opt.png',
+      label: t.nav.vision, // "Ecosistema" label — reused as umbrella
+      items: [
+        { name: t.nav.vision, href: '#vision' },
+        { name: t.nav.metaverse, href: '#metaverse' },
+        { name: t.nav.economy, href: '#economy' },
+        { name: t.nav.technology, href: '#technology' },
+      ],
     },
     {
-      name: t.nav.investorsSubmenu.qfs,
-      desc: t.nav.investorsSubmenu.qfsDesc,
-      url: 'https://qfspay.org/',
-      logo: '/partner-qfs-opt.png',
+      label: t.nav.ecosystem, // "Ecosistema" label — reused as umbrella
+      items: [
+        { name: t.nav.ecosystem, href: '#ecosystem' },
+        { name: t.nav.roadmap, href: '#roadmap' },
+      ],
+    },
+    {
+      label: t.nav.investors,
+      items: [
+        { name: t.nav.investorsSubmenu.gcrm, desc: t.nav.investorsSubmenu.gcrmDesc, url: 'https://gcrmaster.org/', logo: '/partner-gcrm-opt.png' },
+        { name: t.nav.investorsSubmenu.qfs, desc: t.nav.investorsSubmenu.qfsDesc, url: 'https://qfspay.org/', logo: '/partner-qfs-opt.png' },
+      ],
+      isExternal: true,
     },
   ]
 
@@ -54,14 +64,13 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close submenu when clicking outside
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
-      if (!submenuRef.current?.contains(e.target as Node)) setSubmenuOpen(false)
+      if (!submenuRef.current?.contains(e.target as Node)) setOpenSubmenu(null)
     }
     const onEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setSubmenuOpen(false)
+        setOpenSubmenu(null)
         setOpen(false)
       }
     }
@@ -73,13 +82,12 @@ export function Navbar() {
     }
   }, [])
 
-  // Hover handlers with delay
-  const handleEnter = () => {
+  const handleEnter = (label: string) => {
     if (submenuTimer.current) clearTimeout(submenuTimer.current)
-    setSubmenuOpen(true)
+    setOpenSubmenu(label)
   }
   const handleLeave = () => {
-    submenuTimer.current = setTimeout(() => setSubmenuOpen(false), 200)
+    submenuTimer.current = setTimeout(() => setOpenSubmenu(null), 200)
   }
 
   return (
@@ -108,108 +116,116 @@ export function Navbar() {
             <span className="sr-only">AL ARAB — العرب</span>
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-7 xl:flex">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="group relative font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+          {/* Desktop nav — simplified with submenus */}
+          <nav className="hidden items-center gap-6 xl:flex" ref={submenuRef}>
+            {NAV_GROUPS.map((group) => (
+              <div
+                key={group.label}
+                className="relative"
+                onMouseEnter={() => handleEnter(group.label)}
+                onMouseLeave={handleLeave}
               >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenSubmenu(openSubmenu === group.label ? null : group.label)
+                  }
+                  className="group flex items-center gap-1.5 font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+                >
+                  {group.label}
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                      openSubmenu === group.label ? 'rotate-180' : ''
+                    }`}
+                  />
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
+                </button>
 
-            {/* Investors dropdown */}
-            <div
-              ref={submenuRef}
-              className="relative"
-              onMouseEnter={handleEnter}
-              onMouseLeave={handleLeave}
-            >
-              <button
-                type="button"
-                onClick={() => setSubmenuOpen((v) => !v)}
-                className="group flex items-center gap-1.5 font-sans text-[13px] uppercase tracking-[0.18em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
-              >
-                {t.nav.investors}
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-300 ${submenuOpen ? 'rotate-180' : ''}`}
-                />
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#d4af37] to-[#c9a85c] transition-all duration-300 group-hover:w-full" />
-              </button>
-
-              <AnimatePresence>
-                {submenuOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
-                  >
-                    <div className="w-80 overflow-hidden rounded-xl border border-[#d4af37]/30 bg-[#0f172a]/95 backdrop-blur-xl shadow-deep">
-                      {/* Section header */}
-                      <div className="flex items-center gap-2 border-b border-[#d4af37]/15 px-4 py-3">
-                        <Building2 className="h-4 w-4 text-[#d4af37]" />
-                        <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
-                          {t.nav.investors}
-                        </span>
-                      </div>
-
-                      {/* Submenu items */}
-                      <div className="p-2">
-                        {SUBMENU_ITEMS.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setSubmenuOpen(false)}
-                            className="group flex items-center gap-3 rounded-lg p-3 transition-all hover:bg-[#d4af37]/10"
-                          >
-                            {/* Logo */}
-                            <div className="relative h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1.5">
-                              <Image
-                                src={item.logo}
-                                alt={`${item.name} logo`}
-                                fill
-                                sizes="48px"
-                                className="object-contain p-1"
-                                unoptimized
-                              />
-                            </div>
-
-                            {/* Text */}
-                            <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                              <div className="flex items-center gap-1.5">
-                                <span className="font-display text-sm font-semibold text-[#f4e9c9] group-hover:text-[#d4af37]">
-                                  {item.name}
-                                </span>
-                                <ExternalLink className="h-3 w-3 text-[#94a3b8] opacity-0 transition-opacity group-hover:opacity-100" />
-                              </div>
-                              <span className="truncate text-[11px] text-[#94a3b8]">
-                                {item.desc}
-                              </span>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-
-                      {/* Footer link to investors section */}
-                      <a
-                        href="#investors"
-                        onClick={() => setSubmenuOpen(false)}
-                        className="block border-t border-[#d4af37]/15 bg-[#d4af37]/5 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[#d4af37] transition-colors hover:bg-[#d4af37]/15"
+                <AnimatePresence>
+                  {openSubmenu === group.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: 'easeOut' }}
+                      className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
+                    >
+                      <div
+                        className={`overflow-hidden rounded-xl border border-[#d4af37]/30 bg-[#0f172a]/95 backdrop-blur-xl shadow-deep ${
+                          group.isExternal ? 'w-80' : 'w-56'
+                        }`}
                       >
-                        {t.nav.investors} →
-                      </a>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                        {/* Section header */}
+                        <div className="flex items-center gap-2 border-b border-[#d4af37]/15 px-4 py-2.5">
+                          {group.isExternal ? (
+                            <Building2 className="h-3.5 w-3.5 text-[#d4af37]" />
+                          ) : null}
+                          <span className="font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+                            {group.label}
+                          </span>
+                        </div>
+
+                        {/* Items */}
+                        <div className="p-2">
+                          {group.items.map((item) => {
+                            const isLink = !!item.href
+                            return (
+                              <a
+                                key={item.name}
+                                href={isLink ? item.href : item.url}
+                                target={isLink ? undefined : '_blank'}
+                                rel={isLink ? undefined : 'noopener noreferrer'}
+                                onClick={() => setOpenSubmenu(null)}
+                                className="group flex items-center gap-3 rounded-lg p-2.5 transition-all hover:bg-[#d4af37]/10"
+                              >
+                                {item.logo && (
+                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
+                                    <Image
+                                      src={item.logo}
+                                      alt={`${item.name} logo`}
+                                      fill
+                                      sizes="40px"
+                                      className="object-contain p-1"
+                                      unoptimized
+                                    />
+                                  </div>
+                                )}
+                                <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="font-display text-sm font-medium text-[#f4e9c9] group-hover:text-[#d4af37]">
+                                      {item.name}
+                                    </span>
+                                    {!isLink && (
+                                      <ExternalLink className="h-3 w-3 text-[#94a3b8] opacity-0 transition-opacity group-hover:opacity-100" />
+                                    )}
+                                  </div>
+                                  {item.desc && (
+                                    <span className="truncate text-[11px] text-[#94a3b8]">
+                                      {item.desc}
+                                    </span>
+                                  )}
+                                </div>
+                              </a>
+                            )
+                          })}
+                        </div>
+
+                        {/* Footer link for investors group */}
+                        {group.isExternal && (
+                          <a
+                            href="#investors"
+                            onClick={() => setOpenSubmenu(null)}
+                            className="block border-t border-[#d4af37]/15 bg-[#d4af37]/5 px-4 py-2.5 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d4af37] transition-colors hover:bg-[#d4af37]/15"
+                          >
+                            {t.nav.investors} →
+                          </a>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </nav>
 
           {/* Right-side controls */}
@@ -222,7 +238,6 @@ export function Navbar() {
               {t.nav.contact}
             </a>
 
-            {/* Mobile toggle */}
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -274,91 +289,92 @@ export function Navbar() {
                 </button>
               </div>
 
-              {/* Mobile nav items */}
-              {NAV_ITEMS.map((item, i) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
+              {/* Mobile nav groups */}
+              {NAV_GROUPS.map((group, gi) => (
+                <motion.div
+                  key={group.label}
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.05 + i * 0.04 }}
-                  className="border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+                  transition={{ delay: 0.05 + gi * 0.04 }}
                 >
-                  {item.label}
-                </motion.a>
+                  <button
+                    onClick={() =>
+                      setOpenSubmenu(openSubmenu === group.label ? null : group.label)
+                    }
+                    className="flex w-full items-center justify-between border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
+                  >
+                    {group.label}
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-300 ${
+                        openSubmenu === group.label ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {openSubmenu === group.label && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-col gap-2 py-3 pl-4">
+                          {group.items.map((item) => {
+                            const isLink = !!item.href
+                            return (
+                              <a
+                                key={item.name}
+                                href={isLink ? item.href : item.url}
+                                target={isLink ? undefined : '_blank'}
+                                rel={isLink ? undefined : 'noopener noreferrer'}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center gap-3 rounded-lg border border-[#c9a85c]/20 bg-[#0a194d]/40 p-3 transition-all hover:border-[#c9a85c]/40"
+                              >
+                                {item.logo && (
+                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
+                                    <Image
+                                      src={item.logo}
+                                      alt={`${item.name} logo`}
+                                      fill
+                                      sizes="40px"
+                                      className="object-contain p-1"
+                                      unoptimized
+                                    />
+                                  </div>
+                                )}
+                                <div className="flex min-w-0 flex-1 flex-col">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="font-display text-sm font-semibold text-[#d4af37]">
+                                      {item.name}
+                                    </span>
+                                    {!isLink && <ExternalLink className="h-3 w-3 text-[#94a3b8]" />}
+                                  </div>
+                                  {item.desc && (
+                                    <span className="truncate text-[10px] text-[#94a3b8]">
+                                      {item.desc}
+                                    </span>
+                                  )}
+                                </div>
+                              </a>
+                            )
+                          })}
+                          {group.isExternal && (
+                            <a
+                              href="#investors"
+                              onClick={() => setOpen(false)}
+                              className="mt-1 rounded-lg border border-[#c9a85c]/50 bg-[#c9a85c]/15 px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-[#f4e9c9]"
+                            >
+                              {t.nav.investors} →
+                            </a>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               ))}
-
-              {/* Investors with expandable submenu */}
-              <motion.div
-                initial={{ x: 30, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.05 + NAV_ITEMS.length * 0.04 }}
-              >
-                <button
-                  onClick={() => setMobileSubmenuOpen((v) => !v)}
-                  className="flex w-full items-center justify-between border-b border-[#c9a85c]/12 py-3 font-sans text-sm uppercase tracking-[0.22em] text-[#c9b88a] transition-colors hover:text-[#f4e9c9]"
-                >
-                  {t.nav.investors}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-300 ${mobileSubmenuOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-
-                <AnimatePresence>
-                  {mobileSubmenuOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="overflow-hidden"
-                    >
-                      <div className="flex flex-col gap-2 py-3 pl-4">
-                        {SUBMENU_ITEMS.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setOpen(false)}
-                            className="flex items-center gap-3 rounded-lg border border-[#c9a85c]/20 bg-[#0a194d]/40 p-3 transition-all hover:border-[#c9a85c]/40"
-                          >
-                            <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
-                              <Image
-                                src={item.logo}
-                                alt={`${item.name} logo`}
-                                fill
-                                sizes="40px"
-                                className="object-contain p-1"
-                                unoptimized
-                              />
-                            </div>
-                            <div className="flex min-w-0 flex-1 flex-col">
-                              <div className="flex items-center gap-1.5">
-                                <span className="font-display text-sm font-semibold text-[#d4af37]">
-                                  {item.name}
-                                </span>
-                                <ExternalLink className="h-3 w-3 text-[#94a3b8]" />
-                              </div>
-                              <span className="truncate text-[10px] text-[#94a3b8]">
-                                {item.desc}
-                              </span>
-                            </div>
-                          </a>
-                        ))}
-                        <a
-                          href="#investors"
-                          onClick={() => setOpen(false)}
-                          className="mt-1 rounded-lg border border-[#c9a85c]/50 bg-[#c9a85c]/15 px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-[#f4e9c9]"
-                        >
-                          {t.nav.investors} →
-                        </a>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
 
               <div className="mt-4">
                 <LanguageSwitcher />
