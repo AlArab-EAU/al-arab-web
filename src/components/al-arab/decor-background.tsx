@@ -4,14 +4,16 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { QuantumField } from './quantum-field'
 
 /**
- * Layered cinematic background — Islamic luxury with dark blue → light blue → gray.
+ * Layered cinematic background — dark futuristic vault edition.
  *
- * Inspired by reference image:
- *  - Vertical gradient: dark navy (top) → royal blue (mid) → sky blue (bottom)
- *  - PROMINENT Islamic geometric pattern with embossed/debossed effect (drop shadows)
- *  - Glowing cyan star bursts arranged in rows (like decorative lanterns)
- *  - Subtle quantum particle field
- *  - Soft vignette
+ * Inspired by the reference image:
+ *  - Very dark base (almost black with slight purple tint #0f0f13)
+ *  - Purple/violet radial glows (#8b5cf6) creating spotlight effects
+ *  - Blurred bokeh orbs in purple and blue
+ *  - Subtle grid/matrix pattern overlay
+ *  - Glowing geometric network lines (hexagonal nodes)
+ *  - Noise/grain texture for premium feel
+ *  - Vignette for depth
  */
 export function DecorBackground() {
   const { scrollYProgress } = useScroll()
@@ -19,70 +21,101 @@ export function DecorBackground() {
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" style={{ minHeight: '100%' }}>
-      {/* === 1. Base — gradient: dark navy (top) → slate gray (bottom)
-         Covers full page height so gradient is visible across all sections === */}
+      {/* === 1. Base — very dark with slight purple tint (like a digital vault) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(180deg, #0a194d 0%, #162e6e 15%, #1e3a5f 30%, #334155 50%, #475569 70%, #94a3b8 100%)',
+            'radial-gradient(ellipse 90% 80% at 50% 20%, #1a1a2e 0%, #0f0f1a 30%, #0a0a0f 60%, #050508 100%)',
           minHeight: '100%',
         }}
       />
 
-      {/* === 2. Radial glow top-center (light source on dark blue) === */}
+      {/* === 2. Purple radial spotlight (top center) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 40% at 50% 0%, rgba(37, 99, 235, 0.25) 0%, transparent 60%)',
+            'radial-gradient(ellipse 60% 40% at 50% 15%, rgba(139, 92, 246, 0.20) 0%, transparent 60%)',
         }}
       />
 
-      {/* === 3. PROMINENT Islamic geometric pattern with embossed effect === */}
-      <IslamicStarPattern />
-
-      {/* === 4. Glowing star bursts — DISABLED to keep only dark blue + gray === */}
-      {/* <StarBursts /> */}
-
-      {/* === 5. Quantum particle field (subtle stardust) === */}
-      <QuantumField density={100} />
-
-      {/* === 6. Radial bokeh glows — gold + subtle blue === */}
+      {/* === 3. Blue secondary glow (left center) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 40% 30% at 75% 30%, rgba(212, 175, 55, 0.14) 0%, transparent 55%), radial-gradient(ellipse 35% 25% at 25% 70%, rgba(37, 99, 235, 0.10) 0%, transparent 60%)',
+            'radial-gradient(ellipse 40% 30% at 25% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%)',
         }}
       />
 
-      {/* === 7. Floating orbs — gold + slate gray === */}
+      {/* === 4. Purple glow (right center) === */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 35% 25% at 75% 60%, rgba(139, 92, 246, 0.15) 0%, transparent 60%)',
+        }}
+      />
+
+      {/* === 5. Subtle grid/matrix pattern overlay === */}
+      <div
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(139, 92, 246, 0.5) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      {/* === 6. Glowing geometric network nodes (fixed for full page visibility) === */}
+      <div className="pointer-events-none fixed inset-0 opacity-[0.4]">
+        <NetworkNodes />
+      </div>
+
+      {/* === 7. Quantum particle field (subtle stardust) === */}
+      <QuantumField density={80} />
+
+      {/* === 8. Floating bokeh orbs (heavy blur, purple + blue) === */}
       <motion.div
         style={{ y: orbY }}
-        className="absolute left-[8%] top-[20%] h-80 w-80 rounded-full blur-[120px]"
+        className="absolute left-[12%] top-[15%] h-72 w-72 rounded-full blur-[100px]"
       >
-        <div className="h-full w-full rounded-full bg-[#d4af37]/10 animate-float-slow" />
+        <div className="h-full w-full rounded-full bg-[#8b5cf6]/12 animate-float-slow" />
       </motion.div>
       <motion.div
         style={{ y: orbY }}
-        className="absolute right-[10%] top-[55%] h-96 w-96 rounded-full blur-[140px]"
+        className="absolute right-[10%] top-[40%] h-96 w-96 rounded-full blur-[120px]"
       >
-        <div className="h-full w-full rounded-full bg-[#94a3b8]/12 animate-float-medium" />
+        <div className="h-full w-full rounded-full bg-[#3b82f6]/10 animate-float-medium" />
+      </motion.div>
+      <motion.div
+        style={{ y: orbY }}
+        className="absolute left-[40%] top-[75%] h-80 w-80 rounded-full blur-[110px]"
+      >
+        <div className="h-full w-full rounded-full bg-[#8b5cf6]/8 animate-float-slow" />
+      </motion.div>
+      <motion.div
+        style={{ y: orbY }}
+        className="absolute right-[30%] top-[85%] h-64 w-64 rounded-full blur-[90px]"
+      >
+        <div className="h-full w-full rounded-full bg-[#3b82f6]/8 animate-float-medium" />
       </motion.div>
 
-      {/* === 8. Subtle arabesque pattern === */}
-      <div className="absolute inset-0 arab-pattern opacity-[0.05]" />
+      {/* === 9. Subtle arabesque pattern (very faint, for Arab identity) === */}
+      <div className="absolute inset-0 arab-pattern opacity-[0.03]" />
 
-      {/* === 9. Noise/grain overlay === */}
+      {/* === 10. Noise/grain overlay for premium texture === */}
       <div className="absolute inset-0 bg-noise opacity-[0.04]" />
 
-      {/* === 10. Soft vignette === */}
+      {/* === 11. Vignette (darken edges, focus center) === */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 90% 80% at 50% 50%, transparent 50%, rgba(10, 46, 92, 0.4) 100%)',
+            'radial-gradient(ellipse 90% 80% at 50% 40%, transparent 40%, rgba(5, 5, 8, 0.6) 100%)',
         }}
       />
     </div>
@@ -90,162 +123,56 @@ export function DecorBackground() {
 }
 
 /**
- * Islamic geometric star pattern — PROMINENT with embossed effect.
- * Uses SVG filters to create drop shadows that simulate carved/cut paper.
- * Colors: lighter blue lines on darker blue base, with subtle shadows.
+ * NetworkNodes — glowing hexagonal/geometric nodes connected by faint lines,
+ * evoking a network topology / blockchain aesthetic.
  */
-function IslamicStarPattern() {
-  return (
-    <svg
-      className="absolute inset-0 h-full w-full opacity-[0.35]"
-      preserveAspectRatio="xMidYMid slice"
-      fill="none"
-    >
-      <defs>
-        {/* Drop shadow filter for embossed effect */}
-        <filter id="emboss" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" />
-          <feOffset dx="1" dy="1" result="offsetBlur" />
-          <feFlood floodColor="#0a194d" floodOpacity="0.6" />
-          <feComposite in2="offsetBlur" operator="in" />
-          <feMerge>
-            <feMergeNode />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
+function NetworkNodes() {
+  const nodes = [
+    { x: 15, y: 25 }, { x: 35, y: 15 }, { x: 60, y: 20 }, { x: 85, y: 30 },
+    { x: 20, y: 55 }, { x: 50, y: 45 }, { x: 75, y: 55 }, { x: 40, y: 75 },
+    { x: 65, y: 80 }, { x: 90, y: 70 }, { x: 10, y: 80 }, { x: 30, y: 40 },
+  ]
 
-        <pattern
-          id="islamicStarEmbossed"
-          x="0"
-          y="0"
-          width="200"
-          height="200"
-          patternUnits="userSpaceOnUse"
-        >
-          <g
-            transform="translate(100,100)"
-            stroke="#64748b"
-            strokeWidth="1.2"
-            fill="none"
-            opacity="0.5"
-            filter="url(#emboss)"
-          >
-            {/* 8-pointed star = two overlapping squares */}
-            <rect x="-45" y="-45" width="90" height="90" />
-            <rect
-              x="-45"
-              y="-45"
-              width="90"
-              height="90"
-              transform="rotate(45)"
-            />
-            <circle cx="0" cy="0" r="28" strokeOpacity="0.5" />
-            {/* Inner small star — gold accent */}
-            <rect x="-20" y="-20" width="40" height="40" stroke="#d4af37" strokeOpacity="0.4" strokeWidth="0.8" />
-            {/* Outer connecting lines */}
-            <line x1="0" y1="-100" x2="0" y2="-50" strokeOpacity="0.3" />
-            <line x1="0" y1="50" x2="0" y2="100" strokeOpacity="0.3" />
-            <line x1="-100" y1="0" x2="-50" y2="0" strokeOpacity="0.3" />
-            <line x1="50" y1="0" x2="100" y2="0" strokeOpacity="0.3" />
-          </g>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#islamicStarEmbossed)" />
-    </svg>
-  )
-}
-
-/**
- * StarBursts — glowing cyan 8-pointed stars arranged in rows,
- * like decorative lanterns in the reference image.
- * Each star has a soft radial glow that simulates a light source.
- */
-function StarBursts() {
-  // Arrange stars in 2 rows
-  const topRow = [15, 35, 55, 75, 95]
-  const midRow = [25, 50, 75]
+  const connections = [
+    [0, 1], [1, 2], [2, 3], [0, 4], [1, 5], [2, 6], [3, 7],
+    [4, 5], [5, 6], [6, 9], [4, 11], [5, 7], [7, 8], [8, 9], [10, 4],
+  ]
 
   return (
-    <div className="absolute inset-0">
-      {/* Top row of star bursts */}
-      {topRow.map((x, i) => (
-        <div
-          key={`top-${i}`}
-          className="absolute"
-          style={{
-            left: `${x}%`,
-            top: '15%',
-            transform: 'translate(-50%, -50%)',
-          }}
-        >
-          <StarBurst delay={i * 0.5} />
-        </div>
-      ))}
-
-      {/* Middle row of star bursts */}
-      {midRow.map((x, i) => (
-        <div
-          key={`mid-${i}`}
-          className="absolute"
-          style={{
-            left: `${x}%`,
-            top: '45%',
-            transform: 'translate(-50%, -50%)',
-          }}
-        >
-          <StarBurst delay={i * 0.7 + 1} size={60} />
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function StarBurst({ delay = 0, size = 40 }: { delay?: number; size?: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: [0.5, 1, 0.5], scale: [0.9, 1.15, 0.9] }}
-      transition={{
-        duration: 4,
-        delay,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
-      className="relative"
-      style={{ width: size, height: size }}
-    >
-      {/* Outer glow */}
-      <div
-        className="absolute inset-0 rounded-full blur-lg"
-        style={{
-          background:
-            'radial-gradient(circle, rgba(0, 212, 255, 0.6) 0%, transparent 70%)',
-        }}
-      />
-      {/* 8-pointed star SVG */}
+    <div className="absolute inset-0 opacity-[0.4]">
       <svg
-        viewBox="0 0 100 100"
-        className="relative h-full w-full"
+        className="absolute inset-0 h-screen w-full"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 0 1000 700"
         fill="none"
       >
-        <g
-          transform="translate(50,50)"
-          stroke="#2563eb"
-          strokeWidth="1.5"
-          opacity="0.8"
-        >
-          <rect x="-30" y="-30" width="60" height="60" />
-          <rect
-            x="-30"
-            y="-30"
-            width="60"
-            height="60"
-            transform="rotate(45)"
+        <defs>
+          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="1" />
+            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {connections.map(([a, b], i) => (
+          <line
+            key={`line-${i}`}
+            x1={nodes[a].x * 10}
+            y1={nodes[a].y * 7}
+            x2={nodes[b].x * 10}
+            y2={nodes[b].y * 7}
+            stroke="#8b5cf6"
+            strokeWidth="1.5"
+            opacity="0.6"
           />
-        </g>
-        {/* Center bright dot */}
-        <circle cx="50" cy="50" r="3" fill="#2563eb" opacity="0.9" />
+        ))}
+
+        {nodes.map((node, i) => (
+          <g key={`node-${i}`}>
+            <circle cx={node.x * 10} cy={node.y * 7} r="20" fill="url(#nodeGlow)" />
+            <circle cx={node.x * 10} cy={node.y * 7} r="4" fill="#a78bfa" opacity="1" />
+          </g>
+        ))}
       </svg>
-    </motion.div>
+    </div>
   )
 }
