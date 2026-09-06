@@ -157,6 +157,64 @@ export function HeroSection() {
       {/* Particle layer */}
       <ParticleField density={120} />
 
+      {/* Sheikh Zayed portrait — foreground element on the right side */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute right-0 top-16 z-20 hidden md:block lg:right-[3%]"
+      >
+        {/* Purple glow behind the Sheikh */}
+        <div
+          className="absolute inset-0 -z-10 blur-[80px]"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 60% at 50% 40%, rgba(139,92,246,0.25) 0%, transparent 70%)',
+          }}
+        />
+        <div className="relative h-[500px] w-[400px] lg:h-[600px] lg:w-[480px]">
+          <Image
+            src="/sheikh-zayed-clean.png"
+            alt="Sheikh Zayed — Visionary Leader"
+            fill
+            priority
+            loading="eager"
+            sizes="(max-width: 1024px) 400px, 480px"
+            className="object-contain object-top"
+            unoptimized
+          />
+          {/* Gradient blend on left edge */}
+          <div
+            className="absolute inset-y-0 left-0 w-20"
+            style={{
+              background:
+                'linear-gradient(to right, rgba(10,10,15,0.8) 0%, transparent 100%)',
+            }}
+          />
+        </div>
+      </motion.div>
+
+      {/* Mobile version — smaller, centered bottom */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 1 }}
+        className="pointer-events-none absolute bottom-0 left-1/2 z-10 -translate-x-1/2 md:hidden"
+      >
+        <div className="relative h-[280px] w-[200px]">
+          <Image
+            src="/sheikh-zayed-clean.png"
+            alt="Sheikh Zayed — Visionary Leader"
+            fill
+            priority
+            loading="eager"
+            sizes="200px"
+            className="object-contain object-bottom"
+            unoptimized
+          />
+        </div>
+      </motion.div>
+
       {/* Decorative ring */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 hidden -translate-x-1/2 -translate-y-1/2 md:block">
         <div className="h-[520px] w-[520px] rounded-full border border-[#c9a85c]/15 animate-spin-slower" />
