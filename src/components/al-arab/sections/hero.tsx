@@ -240,41 +240,23 @@ export function HeroSection() {
           <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#c9a85c]" />
         </motion.div>
 
-        {/* Official Logo + Spinning Coin */}
-        <div className="relative flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.3, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[10vh] w-[78vw] max-w-[680px] md:h-[14vh]"
-          >
-            <Image
-              src="/alarab-logo-new-clean.png"
-              alt="AL ARAB — Official Logo"
-              fill
-              priority
-              loading="eager"
-              sizes="(max-width: 768px) 78vw, 680px"
-              className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.55)]"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.4, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative shrink-0"
-          >
-            <SpinningCoin
-              src="/alarab-coin-4-clean.png"
-              alt="AL ARAB — Concept token (3D spinning)"
-              size={260}
-              spinDuration={20}
-              glow={0.75}
-              parallax
-            />
-          </motion.div>
-        </div>
+        {/* Official Logo only — coin moved to separate position */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.3, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="relative h-[10vh] w-[78vw] max-w-[620px] md:h-[14vh]"
+        >
+          <Image
+            src="/alarab-logo-new-clean.png"
+            alt="AL ARAB — Official Logo"
+            fill
+            priority
+            loading="eager"
+            sizes="(max-width: 768px) 78vw, 620px"
+            className="object-contain drop-shadow-[0_8px_40px_rgba(212,175,55,0.55)]"
+          />
+        </motion.div>
 
         {/* Title (subtle Arabic display under official logo) */}
         <motion.div
@@ -331,6 +313,30 @@ export function HeroSection() {
         {/* SPECIAL FEATURED VIDEO — b6ffAuBYf8g with cinematic treatment */}
         <HeroFeaturedVideo />
       </div>
+
+      {/* Spinning coin — positioned in bottom-left corner, separated from content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 1.4, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute bottom-8 left-4 z-15 hidden md:block lg:left-8"
+      >
+        {/* Purple glow behind coin */}
+        <div
+          className="absolute inset-0 -z-10 blur-[60px]"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(139,92,246,0.15) 50%, transparent 70%)',
+          }}
+        />
+        <SpinningCoin
+          src="/alarab-coin-4-clean.png"
+          alt="AL ARAB — Concept token (3D spinning)"
+          size={140}
+          spinDuration={18}
+          glow={0.6}
+        />
+      </motion.div>
 
       {/* Scroll hint */}
       <motion.div
