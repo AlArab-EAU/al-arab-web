@@ -268,7 +268,7 @@ export const translations = {
       formTitle: 'Hablemos',
       formDescription: 'Cuéntanos sobre tu organización y los objetivos que persigues dentro del ecosistema AlArab. Un miembro del equipo de partnerships se pondrá en contacto para evaluar el encaje.',
       emailLabel: 'Email',
-      emailValue: 'partners@alarab.ecosystem',
+      emailValue: 'contact@Alarab-Defi.com',
       irLabel: 'Investor relations',
       irValue: 'Disponible bajo solicitud',
       fields: {
@@ -543,7 +543,7 @@ export const translations = {
       formTitle: "Let's talk",
       formDescription: 'Tell us about your organization and the goals you pursue within the AlArab ecosystem. A partnerships team member will reach out to evaluate the fit.',
       emailLabel: 'Email',
-      emailValue: 'partners@alarab.ecosystem',
+      emailValue: 'contact@Alarab-Defi.com',
       irLabel: 'Investor relations',
       irValue: 'Available upon request',
       fields: {
@@ -818,7 +818,7 @@ export const translations = {
       formTitle: 'لنتحدّث',
       formDescription: 'أخبرنا عن مؤسّستك وأهدافك داخل منظومة العرب. سيتواصل معك عضو من فريق الشراكات لتقييم الملاءمة.',
       emailLabel: 'البريد',
-      emailValue: 'partners@alarab.ecosystem',
+      emailValue: 'contact@Alarab-Defi.com',
       irLabel: 'علاقات المستثمرين',
       irValue: 'متاح عند الطلب',
       fields: {
@@ -1093,7 +1093,7 @@ export const translations = {
       formTitle: 'Discutons',
       formDescription: "Parlez-nous de votre organisation et des objectifs que vous poursuivez au sein de l'écosystème AlArab. Un membre de l'équipe partenariats vous contactera pour évaluer l'adéquation.",
       emailLabel: 'Email',
-      emailValue: 'partners@alarab.ecosystem',
+      emailValue: 'contact@Alarab-Defi.com',
       irLabel: 'Relations investisseurs',
       irValue: 'Disponible sur demande',
       fields: {
