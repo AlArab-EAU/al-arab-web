@@ -40,7 +40,7 @@ export function PartnersPhoto() {
         />
 
         {/* Top-right badge */}
-        <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#0a194d]/70 px-4 py-2 backdrop-blur-md">
+        <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#0f0f1a]/70 px-4 py-2 backdrop-blur-md">
           <Handshake className="h-4 w-4 text-[#d4af37]" />
           <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
             Official Partners

@@ -118,7 +118,7 @@ export function InvestorsSection() {
                   <Mail className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0f0f1a]">
                     {it.emailLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
@@ -129,7 +129,7 @@ export function InvestorsSection() {
                   <Phone className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0f0f1a]">
                     {it.irLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
@@ -208,7 +208,7 @@ export function InvestorsSection() {
             </label>
             <button
               type="submit"
-              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0a194d] transition-all hover:scale-[1.01]"
+              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0f0f1a] transition-all hover:scale-[1.01]"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
               <Send className="h-4 w-4" />

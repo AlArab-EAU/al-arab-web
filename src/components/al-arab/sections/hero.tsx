@@ -51,7 +51,7 @@ function HeroFeaturedVideo() {
 
       {/* Featured badge */}
       <div className="absolute -top-4 left-1/2 z-20 -translate-x-1/2">
-        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-gradient-to-r from-[#0a194d] to-[#162e6e] px-5 py-2 shadow-gold">
+        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-gradient-to-r from-[#0f0f1a] to-[#162e6e] px-5 py-2 shadow-gold">
           <Star className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
           <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             {t.hero.featuredBadge}
@@ -78,9 +78,9 @@ function HeroFeaturedVideo() {
               />
 
               {/* Cinematic gradient overlays — stronger for title readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a194d] via-[#0a194d]/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a194d]/60 via-transparent to-[#0a194d]/60" />
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a194d] via-[#0a194d]/70 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] via-[#0f0f1a]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f1a]/60 via-transparent to-[#0f0f1a]/60" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0f0f1a] via-[#0f0f1a]/70 to-transparent" />
 
               {/* Center play button — larger and more prominent */}
               <button
@@ -89,7 +89,7 @@ function HeroFeaturedVideo() {
                 aria-label={`Play: ${t.hero.featuredVideoTitle}`}
                 className="group absolute inset-0 flex items-center justify-center"
               >
-                <span className="relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#d4af37]/60 bg-[#0a194d]/50 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]">
+                <span className="relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#d4af37]/60 bg-[#0f0f1a]/50 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]">
                   <span className="absolute inset-0 rounded-full animate-pulse-gold" />
                   <Play className="ml-1.5 h-9 w-9 fill-[#d4af37] text-[#d4af37]" />
                 </span>
@@ -113,7 +113,7 @@ function HeroFeaturedVideo() {
 
               {/* Top-right official badge */}
               <div className="absolute right-5 top-5 flex items-center gap-2">
-                <span className="rounded-full border border-[#d4af37]/40 bg-[#0a194d]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37] backdrop-blur-md">
+                <span className="rounded-full border border-[#d4af37]/40 bg-[#0f0f1a]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#d4af37] backdrop-blur-md">
                   {t.hero.officialVideo}
                 </span>
               </div>
@@ -296,7 +296,7 @@ export function HeroSection() {
         >
           <a
             href="#vision"
-            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#0a194d] shadow-gold transition-all hover:scale-[1.02]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#0f0f1a] shadow-gold transition-all hover:scale-[1.02]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
             <Sparkles className="h-4 w-4" />
@@ -304,7 +304,7 @@ export function HeroSection() {
           </a>
           <a
             href="#metaverse"
-            className="rounded-full border border-[#c9a85c]/40 bg-[#0a194d]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
+            className="rounded-full border border-[#c9a85c]/40 bg-[#0f0f1a]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#f4e9c9] backdrop-blur-md transition-all hover:border-[#d4af37] hover:bg-[#c9a85c]/10"
           >
             {t.hero.ctaSecondary}
           </a>

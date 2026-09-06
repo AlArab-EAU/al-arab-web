@@ -179,7 +179,7 @@ export function Navbar() {
                                 className="group flex items-center gap-3 rounded-lg p-2.5 transition-all hover:bg-[#d4af37]/10"
                               >
                                 {item.logo && (
-                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
+                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0f0f1a]/60 p-1">
                                     <Image
                                       src={item.logo}
                                       alt={`${item.name} logo`}
@@ -260,7 +260,7 @@ export function Navbar() {
             className="fixed inset-0 z-[60] xl:hidden"
           >
             <div
-              className="absolute inset-0 bg-[#0a194d]/90 backdrop-blur-xl"
+              className="absolute inset-0 bg-[#0f0f1a]/90 backdrop-blur-xl"
               onClick={() => setOpen(false)}
             />
             <motion.nav
@@ -330,10 +330,10 @@ export function Navbar() {
                                 target={isLink ? undefined : '_blank'}
                                 rel={isLink ? undefined : 'noopener noreferrer'}
                                 onClick={() => setOpen(false)}
-                                className="flex items-center gap-3 rounded-lg border border-[#c9a85c]/20 bg-[#0a194d]/40 p-3 transition-all hover:border-[#c9a85c]/40"
+                                className="flex items-center gap-3 rounded-lg border border-[#c9a85c]/20 bg-[#0f0f1a]/40 p-3 transition-all hover:border-[#c9a85c]/40"
                               >
                                 {item.logo && (
-                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0a194d]/60 p-1">
+                                  <div className="relative h-10 w-10 shrink-0 rounded-lg border border-[#d4af37]/25 bg-[#0f0f1a]/60 p-1">
                                     <Image
                                       src={item.logo}
                                       alt={`${item.name} logo`}

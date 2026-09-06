@@ -90,7 +90,7 @@ export function BinanceVideo() {
 
       {/* Strategic Partnership badge */}
       <div className="absolute -top-4 left-1/2 z-20 -translate-x-1/2">
-        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-gradient-to-r from-[#0a194d] via-[#162e6e] to-[#0a194d] px-6 py-2 shadow-gold">
+        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-gradient-to-r from-[#0f0f1a] via-[#162e6e] to-[#0f0f1a] px-6 py-2 shadow-gold">
           <Star className="h-4 w-4 fill-[#d4af37] text-[#d4af37]" />
           <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             {vg.binanceBadge}
@@ -115,7 +115,7 @@ export function BinanceVideo() {
         </div>
 
         {/* Video element */}
-        <div className="relative aspect-video overflow-hidden bg-[#0a194d]">
+        <div className="relative aspect-video overflow-hidden bg-[#0f0f1a]">
           <video
             ref={videoRef}
             className="h-full w-full object-cover"
@@ -129,7 +129,7 @@ export function BinanceVideo() {
           </video>
 
           {/* Gradient overlay for readability */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a194d] via-transparent to-[#0a194d]/40" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f0f1a] via-transparent to-[#0f0f1a]/40" />
 
           {/* Center play button (shows until user clicks) */}
           {!playing && (
@@ -139,7 +139,7 @@ export function BinanceVideo() {
               aria-label="Play AlArab Binance video with sound"
               className="group absolute inset-0 flex items-center justify-center"
             >
-              <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#d4af37]/60 bg-[#0a194d]/50 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]">
+              <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#d4af37]/60 bg-[#0f0f1a]/50 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:border-[#d4af37]">
                 <span className="absolute inset-0 rounded-full animate-pulse-gold" />
                 <Play className="ml-1.5 h-8 w-8 fill-[#d4af37] text-[#d4af37]" />
               </span>
@@ -151,7 +151,7 @@ export function BinanceVideo() {
             type="button"
             onClick={toggleMute}
             aria-label={muted ? 'Unmute' : 'Mute'}
-            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/30 bg-[#0a194d]/70 backdrop-blur-md transition-all hover:border-[#d4af37]/60"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/30 bg-[#0f0f1a]/70 backdrop-blur-md transition-all hover:border-[#d4af37]/60"
           >
             {muted ? (
               <VolumeX className="h-4 w-4 text-[#94a3b8]" />
