@@ -157,38 +157,69 @@ export function HeroSection() {
       {/* Particle layer */}
       <ParticleField density={120} />
 
-      {/* Sheikh Zayed portrait — foreground element on the right side */}
+      {/* Sheikh Zayed MBZ portrait — elegant foreground on the right */}
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute right-0 top-16 z-20 hidden md:block lg:right-[3%]"
+        initial={{ opacity: 0, x: 80, scale: 0.9 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          y: [0, -6, 0],
+        }}
+        transition={{
+          opacity: { duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
+          x: { duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
+          scale: { duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
+          y: { duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 },
+        }}
+        className="pointer-events-none absolute right-0 top-12 z-20 hidden md:block lg:right-[2%]"
       >
-        {/* Purple glow behind the Sheikh */}
+        {/* Dual glow: purple + gold behind the Sheikh */}
         <div
-          className="absolute inset-0 -z-10 blur-[80px]"
+          className="absolute inset-0 -z-10 blur-[100px]"
           style={{
             background:
-              'radial-gradient(ellipse 60% 60% at 50% 40%, rgba(139,92,246,0.25) 0%, transparent 70%)',
+              'radial-gradient(ellipse 50% 60% at 50% 35%, rgba(139,92,246,0.30) 0%, rgba(212,175,55,0.10) 40%, transparent 70%)',
           }}
         />
-        <div className="relative h-[500px] w-[400px] lg:h-[600px] lg:w-[480px]">
+
+        {/* Subtle gold rim light on left edge */}
+        <div
+          className="absolute inset-y-0 left-0 w-32 -z-5"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(212,175,55,0.06) 0%, transparent 100%)',
+          }}
+        />
+
+        {/* Image container — elegant proportions */}
+        <div className="relative h-[460px] w-[360px] lg:h-[560px] lg:w-[440px]">
           <Image
             src="/sheikh-zayed-clean.png"
-            alt="Sheikh Zayed — Visionary Leader"
+            alt="Sheikh Mohamed bin Zayed Al Nahyan — Visionary Leader"
             fill
             priority
             loading="eager"
-            sizes="(max-width: 1024px) 400px, 480px"
-            className="object-contain object-top"
+            sizes="(max-width: 1024px) 360px, 440px"
+            className="object-contain object-top drop-shadow-[0_0_40px_rgba(139,92,246,0.25)]"
             unoptimized
           />
-          {/* Gradient blend on left edge */}
+
+          {/* Gradient blend — left edge merges with dark background */}
           <div
-            className="absolute inset-y-0 left-0 w-20"
+            className="absolute inset-y-0 left-0 w-16"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,10,15,0.8) 0%, transparent 100%)',
+                'linear-gradient(to right, rgba(10,10,15,0.7) 0%, transparent 100%)',
+            }}
+          />
+
+          {/* Bottom fade for elegant ground effect */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-20"
+            style={{
+              background:
+                'linear-gradient(to top, rgba(10,10,15,0.6) 0%, transparent 100%)',
             }}
           />
         </div>
