@@ -6,6 +6,7 @@ import { HeroSection } from '@/components/al-arab/sections/hero'
 import { VisionSection } from '@/components/al-arab/sections/vision'
 import { MetaverseSection } from '@/components/al-arab/sections/metaverse'
 import { EconomySection } from '@/components/al-arab/sections/economy'
+import { SmartContracts } from '@/components/al-arab/smart-contracts'
 import { TechnologySection } from '@/components/al-arab/sections/technology'
 import { EcosystemSection } from '@/components/al-arab/sections/ecosystem'
 import { RoadmapSection } from '@/components/al-arab/sections/roadmap'
@@ -23,6 +24,7 @@ export default function Home() {
       <VisionSection />
       <MetaverseSection />
       <EconomySection />
+      <SmartContracts />
       <TechnologySection />
       <EcosystemSection />
       <RoadmapSection />
