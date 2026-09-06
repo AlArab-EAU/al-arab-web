@@ -157,9 +157,9 @@ export function HeroSection() {
       {/* Particle layer */}
       <ParticleField density={120} />
 
-      {/* Sheikh Zayed MBZ portrait — elegant foreground on the right */}
+      {/* Sheikh Zayed MBZ portrait — elegant on the LEFT side, behind content */}
       <motion.div
-        initial={{ opacity: 0, x: 80, scale: 0.9 }}
+        initial={{ opacity: 0, x: -80, scale: 0.9 }}
         animate={{
           opacity: 1,
           x: 0,
@@ -172,45 +172,36 @@ export function HeroSection() {
           scale: { duration: 1.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
           y: { duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 },
         }}
-        className="pointer-events-none absolute right-0 top-12 z-20 hidden md:block lg:right-[2%]"
+        className="pointer-events-none absolute left-0 top-8 z-5 hidden md:block lg:left-[2%]"
       >
         {/* Dual glow: purple + gold behind the Sheikh */}
         <div
           className="absolute inset-0 -z-10 blur-[100px]"
           style={{
             background:
-              'radial-gradient(ellipse 50% 60% at 50% 35%, rgba(139,92,246,0.30) 0%, rgba(212,175,55,0.10) 40%, transparent 70%)',
-          }}
-        />
-
-        {/* Subtle gold rim light on left edge */}
-        <div
-          className="absolute inset-y-0 left-0 w-32 -z-5"
-          style={{
-            background:
-              'linear-gradient(to right, rgba(212,175,55,0.06) 0%, transparent 100%)',
+              'radial-gradient(ellipse 50% 60% at 50% 35%, rgba(139,92,246,0.25) 0%, rgba(212,175,55,0.08) 40%, transparent 70%)',
           }}
         />
 
         {/* Image container — elegant proportions */}
-        <div className="relative h-[460px] w-[360px] lg:h-[560px] lg:w-[440px]">
+        <div className="relative h-[440px] w-[340px] lg:h-[520px] lg:w-[400px]">
           <Image
             src="/sheikh-zayed-clean.png"
             alt="Sheikh Mohamed bin Zayed Al Nahyan — Visionary Leader"
             fill
             priority
             loading="eager"
-            sizes="(max-width: 1024px) 360px, 440px"
-            className="object-contain object-top drop-shadow-[0_0_40px_rgba(139,92,246,0.25)]"
+            sizes="(max-width: 1024px) 340px, 400px"
+            className="object-contain object-top drop-shadow-[0_0_40px_rgba(139,92,246,0.20)]"
             unoptimized
           />
 
-          {/* Gradient blend — left edge merges with dark background */}
+          {/* Gradient blend — right edge merges with dark background */}
           <div
-            className="absolute inset-y-0 left-0 w-16"
+            className="absolute inset-y-0 right-0 w-24"
             style={{
               background:
-                'linear-gradient(to right, rgba(10,10,15,0.7) 0%, transparent 100%)',
+                'linear-gradient(to left, rgba(10,10,15,0.6) 0%, transparent 100%)',
             }}
           />
 
@@ -219,7 +210,7 @@ export function HeroSection() {
             className="absolute inset-x-0 bottom-0 h-20"
             style={{
               background:
-                'linear-gradient(to top, rgba(10,10,15,0.6) 0%, transparent 100%)',
+                'linear-gradient(to top, rgba(10,10,15,0.5) 0%, transparent 100%)',
             }}
           />
         </div>
