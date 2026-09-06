@@ -157,65 +157,6 @@ export function HeroSection() {
       {/* Particle layer */}
       <ParticleField density={120} />
 
-      {/* Sheikh Zayed MBZ portrait — LEFT side, no glow box, natural blend */}
-      <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          y: [0, -5, 0],
-        }}
-        transition={{
-          opacity: { duration: 2, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
-          x: { duration: 2, delay: 0.6, ease: [0.22, 1, 0.36, 1] },
-          y: { duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 },
-        }}
-        className="pointer-events-none absolute left-0 bottom-0 z-5 hidden md:block lg:left-[1%]"
-      >
-        <div className="relative h-[420px] w-[320px] lg:h-[500px] lg:w-[380px]">
-          <Image
-            src="/sheikh-zayed-clean.png"
-            alt="Sheikh Mohamed bin Zayed Al Nahyan — Visionary Leader"
-            fill
-            priority
-            loading="eager"
-            sizes="(max-width: 1024px) 320px, 380px"
-            className="object-contain object-bottom"
-            unoptimized
-          />
-
-          {/* Soft right-edge blend only — no glow box */}
-          <div
-            className="absolute inset-y-0 right-0 w-20"
-            style={{
-              background:
-                'linear-gradient(to left, rgba(10,10,15,0.5) 0%, transparent 100%)',
-            }}
-          />
-        </div>
-      </motion.div>
-
-      {/* Mobile version — smaller, centered bottom */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 1 }}
-        className="pointer-events-none absolute bottom-0 left-1/2 z-10 -translate-x-1/2 md:hidden"
-      >
-        <div className="relative h-[280px] w-[200px]">
-          <Image
-            src="/sheikh-zayed-clean.png"
-            alt="Sheikh Zayed — Visionary Leader"
-            fill
-            priority
-            loading="eager"
-            sizes="200px"
-            className="object-contain object-bottom"
-            unoptimized
-          />
-        </div>
-      </motion.div>
-
       {/* Decorative ring */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 hidden -translate-x-1/2 -translate-y-1/2 md:block">
         <div className="h-[520px] w-[520px] rounded-full border border-[#c9a85c]/15 animate-spin-slower" />

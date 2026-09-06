@@ -254,6 +254,15 @@ export const translations = {
         },
       ],
     },
+    alliances: {
+      eyebrow: 'Alianzas Internacionales',
+      arabic: 'التحالفات الدولية',
+      title: 'Alianzas globales',
+      titleHighlight: 'entre continentes',
+      description: 'AlArab construye alianzas estratégicas con naciones y organizaciones de todo el mundo, extendiendo el ecosistema digital árabe más allá de las fronteras.',
+      photoLabel: ['Reunión estratégica', 'Alianza diplomática', 'Firma de partnership', 'Ecosistema AlArab'],
+      footerText: 'Conectando naciones · Construyendo el futuro',
+    },
     contracts: {
       eyebrow: 'Contratos Oficiales',
       arabic: 'العقود الرسمية',
@@ -567,6 +576,15 @@ export const translations = {
           description: 'Official AlArab presentation in English — the global vision of the digital ecosystem for international audiences.',
         },
       ],
+    },
+    alliances: {
+      eyebrow: 'International Alliances',
+      arabic: 'التحالفات الدولية',
+      title: 'Global partnerships',
+      titleHighlight: 'across continents',
+      description: 'AlArab builds strategic alliances with nations and organizations worldwide, extending the Arab digital ecosystem across borders.',
+      photoLabel: ['Strategic meeting', 'Diplomatic alliance', 'Partnership signing', 'AlArab ecosystem'],
+      footerText: 'Connecting nations · Building the future',
     },
     contracts: {
       eyebrow: 'Official Contracts',
@@ -882,6 +900,15 @@ export const translations = {
         },
       ],
     },
+    alliances: {
+      eyebrow: 'التحالفات الدولية',
+      arabic: 'التحالفات الدولية',
+      title: 'شراكات عالمية',
+      titleHighlight: 'بين القارات',
+      description: 'يبني العرب تحالفات استراتيجية مع الدول والمنظمات حول العالم، موسعاً المنظومة الرقمية العربية عبر الحدود.',
+      photoLabel: ['اجتماع استراتيجي', 'تحالف دبلوماسي', 'توقيع شراكة', 'منظومة العرب'],
+      footerText: 'ربط الأمم · بناء المستقبل',
+    },
     contracts: {
       eyebrow: 'العقود الرسمية',
       arabic: 'العقود الرسمية',
@@ -1195,6 +1222,15 @@ export const translations = {
           description: 'Présentation officielle d\'AlArab en anglais — la vision globale de l\'écosystème numérique pour les audiences internationales.',
         },
       ],
+    },
+    alliances: {
+      eyebrow: 'Alliances Internationales',
+      arabic: 'التحالفات الدولية',
+      title: 'Partenariats mondiaux',
+      titleHighlight: 'à travers les continents',
+      description: 'AlArab construit des alliances stratategiques avec des nations et organisations du monde entier, etendant l\'ecosysteme numerique arabe au-dela des frontieres.',
+      photoLabel: ['Reunion strategique', 'Alliance diplomatique', 'Signature de partenariat', 'Ecosysteme AlArab'],
+      footerText: 'Connecter les nations · Batir l\'avenir',
     },
     contracts: {
       eyebrow: 'Contrats Officiels',
