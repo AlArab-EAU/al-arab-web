@@ -7,26 +7,21 @@ import { Section, SectionHeading } from '../section'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 
 const PHOTOS = [
-  { src: '/partners-photos/partner-1.jpg', alt: 'International partnership meeting' },
-  { src: '/partners-photos/partner-2.jpg', alt: 'Diplomatic alliance — Russia' },
-  { src: '/partners-photos/partner-3.jpg', alt: 'Strategic partnership signing' },
-  { src: '/partners-photos/partner-4.jpg', alt: 'AlArab ecosystem showcase' },
-  { src: '/partners-photos/partner-5.jpg', alt: 'Global diplomatic summit' },
-  { src: '/partners-photos/partner-6.jpg', alt: 'International cooperation meeting' },
+  { src: '/partners-photos/partner-1.jpg', alt: 'China — UAE diplomatic alliance', country: 'China', flag: '🇨🇳' },
+  { src: '/partners-photos/partner-2.jpg', alt: 'Russia — UAE diplomatic alliance', country: 'Russia', flag: '🇷🇺' },
+  { src: '/partners-photos/partner-3.jpg', alt: 'Arab alliance — Saudi Arabia & UAE', country: 'Arab World', flag: '🇦🇪' },
+  { src: '/partners-photos/partner-4.jpg', alt: 'United States — UAE diplomatic alliance', country: 'USA', flag: '🇺🇸' },
+]
+
+const DEFAULT_LABELS = [
+  'China Alliance',
+  'Russia Alliance',
+  'Arab Alliance',
+  'USA Alliance',
 ]
 
 export function InternationalAlliancesSection() {
   const { t } = useI18n()
-
-  // Default labels if translations don't have them
-  const defaultLabels = [
-    'Strategic meeting',
-    'Diplomatic alliance',
-    'Partnership signing',
-    'AlArab ecosystem',
-    'United States alliance',
-    'International cooperation',
-  ]
 
   return (
     <Section id="alliances">
@@ -43,15 +38,15 @@ export function InternationalAlliancesSection() {
         description={t.alliances?.description ?? 'AlArab builds strategic alliances with nations and organizations worldwide, extending the Arab digital ecosystem across borders.'}
       />
 
-      {/* Photo gallery — 6 photos now, 3 columns on desktop */}
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Photo gallery — 4 photos, 4 columns on desktop */}
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {PHOTOS.map((photo, i) => (
           <motion.figure
             key={i}
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="group relative overflow-hidden rounded-2xl border border-[#d4af37]/25 glass shadow-deep"
           >
             {/* Image */}
@@ -60,7 +55,7 @@ export function InternationalAlliancesSection() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 unoptimized
@@ -70,12 +65,13 @@ export function InternationalAlliancesSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f1a]/40 via-transparent to-[#0f0f1a]/40" />
             </div>
 
-            {/* Bottom label */}
+            {/* Bottom label with country + flag */}
             <figcaption className="absolute bottom-0 inset-x-0 p-4">
               <div className="flex items-center gap-2">
                 <Handshake className="h-3.5 w-3.5 text-[#d4af37]" />
+                <span className="text-base">{photo.flag}</span>
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
-                  {t.alliances?.photoLabel?.[i] ?? defaultLabels[i]}
+                  {t.alliances?.photoLabel?.[i] ?? DEFAULT_LABELS[i]}
                 </span>
               </div>
             </figcaption>

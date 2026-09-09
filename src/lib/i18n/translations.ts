@@ -261,7 +261,7 @@ export const translations = {
       title: 'Alianzas globales',
       titleHighlight: 'entre continentes',
       description: 'AlArab construye alianzas estratégicas con naciones y organizaciones de todo el mundo, extendiendo el ecosistema digital árabe más allá de las fronteras.',
-      photoLabel: ['Reunión estratégica', 'Alianza diplomática', 'Firma de partnership', 'Ecosistema AlArab', 'Alianza Estados Unidos', 'Cumbre internacional'],
+      photoLabel: ['Alianza China', 'Alianza Rusia', 'Alianza Árabe', 'Alianza Estados Unidos'],
       footerText: 'Conectando naciones · Construyendo el futuro',
     },
     contracts: {
@@ -586,7 +586,7 @@ export const translations = {
       title: 'Global partnerships',
       titleHighlight: 'across continents',
       description: 'AlArab builds strategic alliances with nations and organizations worldwide, extending the Arab digital ecosystem across borders.',
-      photoLabel: ['Strategic meeting', 'Diplomatic alliance', 'Partnership signing', 'AlArab ecosystem', 'United States alliance', 'International summit'],
+      photoLabel: ['China Alliance', 'Russia Alliance', 'Arab Alliance', 'USA Alliance'],
       footerText: 'Connecting nations · Building the future',
     },
     contracts: {
@@ -910,7 +910,7 @@ export const translations = {
       title: 'شراكات عالمية',
       titleHighlight: 'بين القارات',
       description: 'يبني العرب تحالفات استراتيجية مع الدول والمنظمات حول العالم، موسعاً المنظومة الرقمية العربية عبر الحدود.',
-      photoLabel: ['اجتماع استراتيجي', 'تحالف دبلوماسي', 'توقيم شراكة', 'منظومة العرب', 'تحالف الولايات المتحدة', 'قمة دولية'],
+      photoLabel: ['تحالف الصين', 'تحالف روسيا', 'تحالف عربي', 'تحالف الولايات المتحدة'],
       footerText: 'ربط الأمم · بناء المستقبل',
     },
     contracts: {
@@ -1235,7 +1235,7 @@ export const translations = {
       title: 'Partenariats mondiaux',
       titleHighlight: 'à travers les continents',
       description: 'AlArab construit des alliances stratategiques avec des nations et organisations du monde entier, etendant l\'ecosysteme numerique arabe au-dela des frontieres.',
-      photoLabel: ['Reunion strategique', 'Alliance diplomatique', 'Signature de partenariat', 'Ecosysteme AlArab', 'Alliance Etats-Unis', 'Sommet international'],
+      photoLabel: ['Alliance Chine', 'Alliance Russie', 'Alliance Arabe', 'Alliance Etats-Unis'],
       footerText: 'Connecter les nations · Batir l\'avenir',
     },
     contracts: {
