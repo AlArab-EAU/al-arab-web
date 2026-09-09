@@ -11,10 +11,22 @@ const PHOTOS = [
   { src: '/partners-photos/partner-2.jpg', alt: 'Diplomatic alliance — Russia' },
   { src: '/partners-photos/partner-3.jpg', alt: 'Strategic partnership signing' },
   { src: '/partners-photos/partner-4.jpg', alt: 'AlArab ecosystem showcase' },
+  { src: '/partners-photos/partner-5.jpg', alt: 'United States alliance — US diplomacy' },
+  { src: '/partners-photos/partner-6.jpg', alt: 'International cooperation summit' },
 ]
 
 export function InternationalAlliancesSection() {
   const { t } = useI18n()
+
+  // Default labels if translations don't have them
+  const defaultLabels = [
+    'Strategic meeting',
+    'Diplomatic alliance',
+    'Partnership signing',
+    'AlArab ecosystem',
+    'United States alliance',
+    'International cooperation',
+  ]
 
   return (
     <Section id="alliances">
@@ -31,15 +43,15 @@ export function InternationalAlliancesSection() {
         description={t.alliances?.description ?? 'AlArab builds strategic alliances with nations and organizations worldwide, extending the Arab digital ecosystem across borders.'}
       />
 
-      {/* Photo gallery */}
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Photo gallery — 6 photos now, 3 columns on desktop */}
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {PHOTOS.map((photo, i) => (
           <motion.figure
             key={i}
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="group relative overflow-hidden rounded-2xl border border-[#d4af37]/25 glass shadow-deep"
           >
             {/* Image */}
@@ -48,7 +60,7 @@ export function InternationalAlliancesSection() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 unoptimized
@@ -63,7 +75,7 @@ export function InternationalAlliancesSection() {
               <div className="flex items-center gap-2">
                 <Handshake className="h-3.5 w-3.5 text-[#d4af37]" />
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
-                  {t.alliances?.photoLabel?.[i] ?? `Alliance ${i + 1}`}
+                  {t.alliances?.photoLabel?.[i] ?? defaultLabels[i]}
                 </span>
               </div>
             </figcaption>
