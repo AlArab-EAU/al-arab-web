@@ -22,6 +22,8 @@ export function InvestorsSection() {
   const it = t.investors
 
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -30,17 +32,37 @@ export function InvestorsSection() {
     message: '',
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
-    setForm({
-      name: '',
-      company: '',
-      email: '',
-      interest: it.interestOptions[0],
-      message: '',
-    })
+    setLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (!response.ok) {
+        const data = await response.json()
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 6000)
+      setForm({
+        name: '',
+        company: '',
+        email: '',
+        interest: it.interestOptions[0],
+        message: '',
+      })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -118,7 +140,7 @@ export function InvestorsSection() {
                   <Mail className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0f0f1a]">
                     {it.emailLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.emailValue}</p>
@@ -129,7 +151,7 @@ export function InvestorsSection() {
                   <Phone className="h-4 w-4 text-[#d4af37]" />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0a194d]">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#0f0f1a]">
                     {it.irLabel}
                   </p>
                   <p className="text-sm text-[#f4e9c9]">{it.irValue}</p>
@@ -208,12 +230,22 @@ export function InvestorsSection() {
             </label>
             <button
               type="submit"
-              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0a194d] transition-all hover:scale-[1.01]"
+              disabled={loading}
+              className="group relative mt-2 flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-[#d4af37] via-[#c9a85c] to-[#8a6f2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#0f0f1a] transition-all hover:scale-[1.01] disabled:opacity-50 disabled:hover:scale-100"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-full" />
               <Send className="h-4 w-4" />
-              {it.submit}
+              {loading ? 'Sending...' : it.submit}
             </button>
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-2 rounded-lg border border-red-400/40 bg-red-400/10 px-4 py-3 text-xs text-red-400"
+              >
+                {error}
+              </motion.div>
+            )}
             {submitted && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}

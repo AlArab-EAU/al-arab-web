@@ -33,7 +33,7 @@ export function VisionSection() {
         description={t.vision.description}
       />
 
-      <div className="mt-20 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {pillars.map((p, i) => {
           const Icon = ICONS[i] ?? Cpu
           return (

@@ -88,7 +88,7 @@ export function Section({ id, children, className = '', dark = false }: SectionP
       id={id}
       className={`relative w-full ${
         dark
-          ? 'bg-[#0a194d]/60 backdrop-blur-sm border-y border-[#d4af37]/15'
+          ? 'bg-[#0f0f1a]/60 backdrop-blur-sm border-y border-[#d4af37]/15'
           : ''
       } ${className}`}
     >

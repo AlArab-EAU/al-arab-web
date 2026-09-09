@@ -30,7 +30,7 @@ export function EconomySection() {
     if (rawStatus === 'Parcial') {
       return { color: '#94a3b8', label }
     }
-    return { color: '#0a194d', label }
+    return { color: '#0f0f1a', label }
   }
 
   return (

@@ -63,7 +63,7 @@ export function GcrmFloatingBadge() {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.5, y: 50 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="group fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-2xl border border-[#d4af37]/40 bg-gradient-to-r from-[#0a194d]/95 to-[#162e6e]/95 p-3 backdrop-blur-xl shadow-deep transition-all hover:border-[#d4af37]/70 hover:shadow-gold"
+        className="group fixed bottom-6 right-6 z-40 flex items-center gap-3 rounded-2xl border border-[#d4af37]/40 bg-gradient-to-r from-[#0f0f1a]/95 to-[#162e6e]/95 p-3 backdrop-blur-xl shadow-deep transition-all hover:border-[#d4af37]/70 hover:shadow-gold"
         aria-label="GCRM — Official Partner. Visit website."
       >
         {/* Pulsing glow halo */}
@@ -110,7 +110,7 @@ export function GcrmFloatingBadge() {
         <button
           type="button"
           onClick={handleDismiss}
-          className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-[#d4af37]/40 bg-[#0a194d] text-[#94a3b8] transition-colors hover:border-[#d4af37] hover:text-[#d4af37]"
+          className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-[#d4af37]/40 bg-[#0f0f1a] text-[#94a3b8] transition-colors hover:border-[#d4af37] hover:text-[#d4af37]"
           aria-label="Dismiss GCRM badge"
         >
           <X className="h-3 w-3" />

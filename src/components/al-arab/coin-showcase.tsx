@@ -53,7 +53,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#162e6e]/70 via-[#0a194d]/70 to-[#162e6e]/70 backdrop-blur-xl ${
+      className={`relative mt-16 overflow-hidden rounded-3xl border border-[#d4af37]/40 bg-gradient-to-br from-[#162e6e]/70 via-[#0f0f1a]/70 to-[#162e6e]/70 backdrop-blur-xl ${
         variant === 'full' ? 'p-8 md:p-12' : 'p-6'
       }`}
     >
@@ -130,7 +130,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#0a194d]/70 p-4 backdrop-blur-md"
+        className="relative mt-8 flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#0f0f1a]/70 p-4 backdrop-blur-md"
       >
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" />
         <p className="text-[11px] leading-relaxed text-[#94a3b8]">

@@ -21,7 +21,7 @@ export function Footer() {
   const ft = t.footer
 
   return (
-    <footer className="relative mt-32 border-t border-[#c9a85c]/15 bg-[#0a194d]">
+    <footer className="relative mt-32 border-t border-[#c9a85c]/15 bg-[#0f0f1a]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c9a85c]/60 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-radial-gold opacity-30" />
 
