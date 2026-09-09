@@ -36,6 +36,7 @@ export const translations = {
       roadmap: 'Roadmap',
       investors: 'Inversores',
       contact: 'Contacto',
+      whitepaper: 'Libro Blanco',
       openMenu: 'Abrir menú',
       closeMenu: 'Cerrar',
       investorsSubmenu: {
@@ -311,6 +312,8 @@ export const translations = {
       roadmap: 'Roadmap',
       investors: 'Investors',
       contact: 'Contact',
+      whitepaper: 'Livre Blanc',
+      whitepaper: 'Whitepaper',
       openMenu: 'Open menu',
       closeMenu: 'Close',
       investorsSubmenu: {
@@ -586,6 +589,7 @@ export const translations = {
       roadmap: 'خريطة الطريق',
       investors: 'المستثمرون',
       contact: 'تواصل',
+      whitepaper: 'الكتاب الأبيض',
       openMenu: 'فتح القائمة',
       closeMenu: 'إغلاق',
       investorsSubmenu: {
@@ -861,6 +865,8 @@ export const translations = {
       roadmap: 'Feuille de route',
       investors: 'Investisseurs',
       contact: 'Contact',
+      whitepaper: 'Livre Blanc',
+      whitepaper: 'Whitepaper',
       openMenu: 'Ouvrir le menu',
       closeMenu: 'Fermer',
       investorsSubmenu: {
