@@ -11,8 +11,6 @@ const PHOTOS = [
   { src: '/partners-photos/partner-2.jpg', alt: 'Diplomatic alliance — Russia' },
   { src: '/partners-photos/partner-3.jpg', alt: 'Strategic partnership signing' },
   { src: '/partners-photos/partner-4.jpg', alt: 'AlArab ecosystem showcase' },
-  { src: '/partners-photos/partner-5.jpg', alt: 'United States alliance — US diplomacy' },
-  { src: '/partners-photos/partner-6.jpg', alt: 'International cooperation summit' },
 ]
 
 export function InternationalAlliancesSection() {
@@ -44,7 +42,7 @@ export function InternationalAlliancesSection() {
       />
 
       {/* Photo gallery — 6 photos now, 3 columns on desktop */}
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {PHOTOS.map((photo, i) => (
           <motion.figure
             key={i}
