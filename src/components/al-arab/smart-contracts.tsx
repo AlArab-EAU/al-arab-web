@@ -33,8 +33,8 @@ const NETWORKS: NetworkStatus[] = [
     color: '#8247E5',
     icon: '⬣',
     explorer: 'PolygonScan',
-    url: 'https://polygonscan.com/token/0xf5c068f28ebf91b22e52c2ecd230621879e914b8',
-    status: 'available',
+    url: '#',
+    status: 'restructuring',
     order: 1,
   },
   {
