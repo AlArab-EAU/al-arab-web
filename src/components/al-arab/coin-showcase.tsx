@@ -31,18 +31,18 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
   const COINS: CoinSpec[] = [
     {
       src: '/alarab-coin-defi-clean.png',
-      alt: 'AL ARAB — DEFI concept token',
-      name: 'AL ARAB',
+      alt: 'AlArab Defi — DeFi concept token',
+      name: 'ALARAB DEFI',
       arabicName: 'العربية اللامركزية',
       caption: 'DEFI · Kingdom of Saudi Arabia',
       spinDuration: 24,
     },
     {
-      src: '/alarab-coin-alamal-clean.png',
-      alt: 'AL AMAL — Decentralized blockchain concept token',
-      name: 'AL AMAL',
-      arabicName: 'الأمل',
-      caption: 'Peer-to-peer · Blockchain · 2020',
+      src: '/alarab-coin-new-clean.png',
+      alt: 'AlArab — Official commemorative concept coin',
+      name: 'ALARAB',
+      arabicName: 'العرب',
+      caption: 'Official · Mecca · Dubai · Abu Dhabi',
       spinDuration: 20,
     },
   ]
