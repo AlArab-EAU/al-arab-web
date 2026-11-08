@@ -140,23 +140,44 @@ export function SmartContracts() {
       />
 
       {/* Header */}
-      <div className="relative mb-8 flex flex-col items-center gap-3 text-center">
+      <div className="relative mb-8 flex flex-col items-center gap-4 text-center">
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-[#d4af37]" />
           <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             {ct?.eyebrow ?? 'Token Status'}
           </span>
         </div>
-        <h3 className="font-display text-3xl font-medium text-[#f4e9c9] md:text-4xl">
-          {ct?.title ?? 'AlArab Red'}
+        {/* Title in GOLD (text-gradient-gold) */}
+        <h3 className="font-display text-3xl font-medium md:text-4xl text-gradient-gold">
+          {ct?.title ?? 'Global Expansion and Multichain Integration'}
         </h3>
-        <div className="text-gradient-gold font-display text-xl font-semibold md:text-2xl">
-          {ct?.titleHighlight ?? 'Multi-chain Deployment'}
-        </div>
-        <p className="max-w-2xl text-sm leading-relaxed text-[#94a3b8] md:text-[15px]">
+        {/* Optional titleHighlight (currently empty) */}
+        {ct?.titleHighlight ? (
+          <div className="text-gradient-gold font-display text-xl font-semibold md:text-2xl">
+            {ct.titleHighlight}
+          </div>
+        ) : null}
+        {/* Description in WHITE (text-[#f4e9c9] cream-white) */}
+        <p className="max-w-3xl text-sm leading-relaxed text-[#f4e9c9] md:text-[15px]">
           {ct?.description ??
-            'The AlArab Red token advances its multi-chain deployment strategy. Each network is at a different stage of development, listing, and exchange negotiations.'}
+            'A digital ecosystem expanding across multiple blockchain networks.'}
         </p>
+        {/* Additional narrative paragraphs in WHITE */}
+        {ct?.paragraph2 && (
+          <p className="max-w-3xl text-[13.5px] leading-relaxed text-[#cbd5e1] md:text-sm">
+            {ct.paragraph2}
+          </p>
+        )}
+        {ct?.paragraph3 && (
+          <p className="max-w-3xl text-[13.5px] leading-relaxed text-[#cbd5e1] md:text-sm">
+            {ct.paragraph3}
+          </p>
+        )}
+        {ct?.paragraph4 && (
+          <p className="max-w-3xl text-[13.5px] leading-relaxed text-[#cbd5e1] md:text-sm">
+            {ct.paragraph4}
+          </p>
+        )}
       </div>
 
       {/* Network status cards */}
