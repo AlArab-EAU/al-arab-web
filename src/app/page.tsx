@@ -13,6 +13,7 @@ import { RoadmapSection } from '@/components/al-arab/sections/roadmap'
 import { VideoGallerySection } from '@/components/al-arab/sections/video-gallery'
 import { InternationalAlliancesSection } from '@/components/al-arab/sections/international-alliances'
 import { InvestorsSection } from '@/components/al-arab/sections/investors'
+import { XProfileCard } from '@/components/al-arab/x-profile-card'
 import { Footer } from '@/components/al-arab/footer'
 import { GcrmFloatingBadge } from '@/components/al-arab/gcrm-floating-badge'
 
@@ -32,6 +33,7 @@ export default function Home() {
       <VideoGallerySection />
       <InternationalAlliancesSection />
       <InvestorsSection />
+      <XProfileCard />
       <Footer />
       <GcrmFloatingBadge />
     </main>
