@@ -27,8 +27,8 @@ interface NetworkStatus {
 
 const NETWORKS: NetworkStatus[] = [
   {
-    name: 'AlArab Red Polygon',
-    nameArabic: 'العرب الأحمر بوليجون',
+    name: 'AlArab Polygon',
+    nameArabic: 'العرب بوليجون',
     token: 'Polygon PoS',
     color: '#8247E5',
     icon: '⬣',
@@ -38,8 +38,8 @@ const NETWORKS: NetworkStatus[] = [
     order: 1,
   },
   {
-    name: 'AlArab Red Ethereum',
-    nameArabic: 'العرب الأحمر إيثيريوم',
+    name: 'AlArab Ethereum',
+    nameArabic: 'العرب إيثيريوم',
     token: 'ERC-20',
     color: '#627EEA',
     icon: 'Ξ',
@@ -49,8 +49,8 @@ const NETWORKS: NetworkStatus[] = [
     order: 2,
   },
   {
-    name: 'AlArab Red BNB',
-    nameArabic: 'العرب الأحمر بNB',
+    name: 'AlArab BNB',
+    nameArabic: 'العرب BNB',
     token: 'BEP-20',
     color: '#F3BA2F',
     icon: '◆',

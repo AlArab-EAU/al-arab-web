@@ -74,7 +74,7 @@ export function XProfileCard() {
             <div className="relative h-24 w-24 overflow-hidden rounded-2xl border-4 border-[#0f0f1a] bg-[#0f0f1a] shadow-gold md:h-28 md:w-28">
               <Image
                 src="/alarab-coin-profile-400x400.png"
-                alt="AlArab Red commemorative coin"
+                alt="AlArab commemorative coin"
                 fill
                 sizes="(max-width: 768px) 96px, 112px"
                 className="object-cover"
