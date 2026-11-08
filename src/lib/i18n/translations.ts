@@ -65,9 +65,12 @@ export const translations = {
     vision: {
       eyebrow: 'La Visión',
       arabic: 'الرؤية',
-      title: 'Un ecosistema digital,',
-      titleHighlight: 'no solo una plataforma',
-      description: 'AlArab se concibe como un entorno integrado donde convergen seis dominios estratégicos. No es un producto, es una capa de civilización digital: cada pilar fortalece a los demás, formando una infraestructura cultural y económica para el mundo árabe del futuro.',
+      title: 'AlArab: Un nuevo universo digital',
+      titleHighlight: 'para el mundo árabe',
+      subtitle: 'Ocho pilares estratégicos. Una moneda digital. Un ecosistema conectado al futuro global.',
+      description: 'AlArab es un ecosistema digital integral que reúne ocho pilares estratégicos en un mismo entorno de innovación, tecnología, cultura y desarrollo económico.',
+      paragraph2: 'En el centro de este universo se encuentra AlArab (ALA), la moneda digital del ecosistema, concebida como instrumento de intercambio y conexión entre sus diferentes plataformas y servicios.',
+      paragraph3: 'Cada pilar cumple una función complementaria, formando una estructura interconectada que busca impulsar nuevas oportunidades en el Metaverso, las finanzas descentralizadas, la inteligencia artificial y la economía digital.',
       pillars: [
         { title: 'Tecnología', arabic: 'التكنولوجيا', description: 'Infraestructura digital de última generación: inteligencia artificial, blockchain y computación en la nube diseñadas para escalar el patrimonio árabe al mundo digital del mañana.' },
         { title: 'Entretenimiento', arabic: 'الترفيه', description: 'Experiencias inmersivas que combinan cine, música y narrativas árabes llevadas al metaverso, abriendo nuevas formas de conectar con audiencias globales.' },
@@ -378,9 +381,12 @@ export const translations = {
     vision: {
       eyebrow: 'The Vision',
       arabic: 'الرؤية',
-      title: 'A digital ecosystem,',
-      titleHighlight: 'not just a platform',
-      description: 'AlArab is conceived as an integrated environment where six strategic domains converge. It is not a product, it is a layer of digital civilization: each pillar strengthens the others, forming a cultural and economic infrastructure for the Arab world of the future.',
+      title: 'AlArab: A new digital universe',
+      titleHighlight: 'for the Arab world',
+      subtitle: 'Eight strategic pillars. One digital currency. An ecosystem connected to the global future.',
+      description: 'AlArab is a comprehensive digital ecosystem bringing together eight strategic pillars within a single environment of innovation, technology, culture and economic development.',
+      paragraph2: 'At the center of this universe lies AlArab (ALA), the ecosystem’s digital currency, conceived as an instrument of exchange and connection between its different platforms and services.',
+      paragraph3: 'Each pillar fulfills a complementary function, forming an interconnected structure that seeks to drive new opportunities in the Metaverse, decentralized finance, artificial intelligence and the digital economy.',
       pillars: [
         { title: 'Technology', arabic: 'التكنولوجيا', description: 'State-of-the-art digital infrastructure: artificial intelligence, blockchain and cloud computing designed to scale Arab heritage into the digital world of tomorrow.' },
         { title: 'Entertainment', arabic: 'الترفيه', description: 'Immersive experiences combining cinema, music and Arab narratives brought to the metaverse, opening new ways to connect with global audiences.' },
@@ -691,9 +697,12 @@ export const translations = {
     vision: {
       eyebrow: 'الرؤية',
       arabic: 'الرؤية',
-      title: 'منظومة رقمية،',
-      titleHighlight: 'وليست مجرد منصة',
-      description: 'يُتصوَّر العرب كبيئة متكاملة تلتقي فيها ستة مجالات استراتيجية. ليست منتجاً، بل طبقة من الحضارة الرقمية: كل ركيزة تعزز الأخرى، مشكّلة بنية تحتية ثقافية واقتصادية للعالم العربي في المستقبل.',
+      title: 'العرب: عالم رقمي جديد',
+      titleHighlight: 'للعالم العربي',
+      subtitle: 'ثمانية أركان استراتيجية. عملة رقمية واحدة. منظومة متصلة بالمستقبل العالمي.',
+      description: 'العرب منظومة رقمية شاملة تجمع ثمانية أركان استراتيجية في بيئة واحدة من الابتكار والتكنولوجيا والثقافة والتنمية الاقتصادية.',
+      paragraph2: 'في مركز هذا العالم يقع العرب (ALA)، العملة الرقمية للمنظومة، التي صُمّمت كأداة للتبادل والاتصال بين منصاتها وخدماتها المختلفة.',
+      paragraph3: 'كل ركيزة تؤدي وظيفة تكميلية، مشكّلة بنية مترابطة تسعى لدفع فرص جديدة في الميتافيرس والتمويل اللامركزي والذكاء الاصطناعي والاقتصاد الرقمي.',
       pillars: [
         { title: 'التكنولوجيا', arabic: 'التكنولوجيا', description: 'بنية تحتية رقمية من الجيل الأخير: ذكاء اصطناعي، بلوكتشين وحوسبة سحابية مصمّمة لنقل التراث العربي إلى العالم الرقمي في الغد.' },
         { title: 'الترفيه', arabic: 'الترفيه', description: 'تجارب غامرة تجمع بين السينما والموسيقى والسرد العربي المنقول إلى الميتافيرس، تفتح طرقاً جديدة للتواصل مع الجمهور العالمي.' },
@@ -1004,9 +1013,12 @@ export const translations = {
     vision: {
       eyebrow: 'La Vision',
       arabic: 'الرؤية',
-      title: 'Un écosystème numérique,',
-      titleHighlight: 'pas seulement une plateforme',
-      description: "AlArab se conçoit comme un environnement intégré où convergent six domaines stratégiques. Ce n'est pas un produit, c'est une couche de civilisation numérique : chaque pilier renforce les autres, formant une infrastructure culturelle et économique pour le monde arabe de demain.",
+      title: 'AlArab: Un nouvel univers numérique',
+      titleHighlight: 'pour le monde arabe',
+      subtitle: "Huit piliers stratégiques. Une monnaie numérique. Un écosystème connecté à l'avenir mondial.",
+      description: "AlArab est un écosystème numérique global réunissant huit piliers stratégiques au sein d'un même environnement d'innovation, de technologie, de culture et de développement économique.",
+      paragraph2: "Au cœur de cet univers se trouve AlArab (ALA), la monnaie numérique de l'écosystème, conçue comme un instrument d'échange et de connexion entre ses différentes plateformes et services.",
+      paragraph3: "Chaque pilier remplit une fonction complémentaire, formant une structure interconnectée qui vise à stimuler de nouvelles opportunités dans le Métavers, la finance décentralisée, l'intelligence artificielle et l'économie numérique.",
       pillars: [
         { title: 'Technologie', arabic: 'التكنولوجيا', description: "Infrastructure numérique de pointe : intelligence artificielle, blockchain et informatique en nuage conçues pour porter l'héritage arabe dans le monde numérique de demain." },
         { title: 'Divertissement', arabic: 'الترفيه', description: "Des expériences immersives combinant cinéma, musique et récits arabes portés au métavers, ouvrant de nouvelles façons de connecter avec des audiences mondiales." },
