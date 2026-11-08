@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { AlertCircle, Sparkles } from 'lucide-react'
+import { AlertCircle, Boxes, Link2, Blocks, MoonStar, Users } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 import { SpinningCoin } from './spinning-coin'
 
@@ -18,11 +18,19 @@ interface CoinSpec {
   spinDuration: number
 }
 
+interface TechTag {
+  label: string
+  description: string
+}
+
 /**
  * Showcase of the official AlArab concept coins.
  *
- * Simplified to show only 2 coins, larger and more prominent.
- * Coins float directly on the section background without card containers.
+ * Now displays 2 coins of the SAME visual size (700x700 source images),
+ * with a richer narrative structure including:
+ *  - eyebrow + title + subtitle
+ *  - 4 narrative paragraphs
+ *  - "Identidad y Tecnología" subsection with 5 tech tags (label + description)
  */
 export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
   const { t } = useI18n()
@@ -30,7 +38,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
 
   const COINS: CoinSpec[] = [
     {
-      src: '/alarab-coin-defi-clean.png',
+      src: '/alarab-coin-defi-700.png',
       alt: 'AlArab Defi — DeFi concept token',
       name: 'ALARAB DEFI',
       arabicName: 'العربية اللامركزية',
@@ -46,6 +54,17 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
       spinDuration: 20,
     },
   ]
+
+  // Tech identity tags with descriptions
+  const TECH_TAGS: TechTag[] = [
+    { label: 'BLOCKCHAIN', description: cs.techBlockchain },
+    { label: 'DEFI', description: cs.techDefi },
+    { label: 'ON-CHAIN', description: cs.techOnChain },
+    { label: cs.techArabicLabel, description: cs.techArabicIdentity },
+    { label: 'PEER-TO-PEER', description: cs.techPeerToPeer },
+  ]
+
+  const TECH_ICONS = [Blocks, Link2, Boxes, MoonStar, Users]
 
   return (
     <motion.div
@@ -74,55 +93,112 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
         }}
       />
 
+      {/* === SECTION 1: Identity narrative + 2 coins === */}
       <div className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         {/* Text column */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#d4af37]" />
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.32em] text-[#d4af37]">
               {cs.eyebrow}
             </span>
-            <Sparkles className="h-3.5 w-3.5 text-[#d4af37]" />
           </div>
+
           <h3 className="font-display text-3xl font-medium leading-tight text-[#f4e9c9] md:text-4xl">
             {cs.title}
           </h3>
           <span className="font-arabic-serif text-lg text-[#d4af37]/70" dir="rtl">
             {cs.arabic}
           </span>
-          <p className="text-sm leading-relaxed text-[#94a3b8]">
-            {cs.description}
-          </p>
 
-          {/* Feature badges */}
-          <div className="mt-2 flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <span className="h-px flex-1 bg-gradient-to-r from-[#d4af37]/40 to-transparent" />
-              <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#d4af37]/70">
-                {t.economy.coinShowcase.eyebrow}
-              </span>
-              <span className="h-px flex-1 bg-gradient-to-l from-[#d4af37]/40 to-transparent" />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {['Blockchain', 'DeFi', 'On-chain', 'Saudi Arabia', 'Peer-to-peer'].map((badge) => (
-                <span
-                  key={badge}
-                  className="rounded-full border border-[#d4af37]/35 bg-[#d4af37]/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#d4af37]"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
+          {/* Subtitle — tagline */}
+          {cs.subtitle && (
+            <p className="text-[15px] font-medium leading-relaxed text-[#d4af37] md:text-base">
+              {cs.subtitle}
+            </p>
+          )}
+
+          {/* Narrative paragraphs */}
+          <div className="mt-2 flex flex-col gap-3.5">
+            {cs.paragraph1 && (
+              <p className="text-sm leading-relaxed text-[#cbd5e1]">
+                {cs.paragraph1}
+              </p>
+            )}
+            {cs.paragraph2 && (
+              <p className="text-sm leading-relaxed text-[#94a3b8]">
+                {cs.paragraph2}
+              </p>
+            )}
+            {cs.paragraph3 && (
+              <p className="text-sm leading-relaxed text-[#cbd5e1]">
+                {cs.paragraph3}
+              </p>
+            )}
+            {cs.paragraph4 && (
+              <p className="text-sm font-medium leading-relaxed text-[#d4af37]/90">
+                {cs.paragraph4}
+              </p>
+            )}
           </div>
         </div>
 
-        {/* Coins column — only 2 coins, larger */}
-        <div className="relative grid grid-cols-2 gap-6 sm:gap-10">
+        {/* Coins column — both coins at SAME visual size */}
+        <div className="relative grid grid-cols-2 gap-6 sm:gap-8">
           {COINS.map((coin, i) => (
             <FloatingCoin key={coin.name} coin={coin} delay={0.1 + i * 0.15} />
           ))}
         </div>
       </div>
+
+      {/* === SECTION 2: Identidad y Tecnología — 5 tech tags with descriptions === */}
+      {cs.techSectionTitle && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative mt-10 border-t border-[#d4af37]/15 pt-8"
+        >
+          {/* Tech section header */}
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#d4af37]" />
+            <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.32em] text-[#d4af37]">
+              {cs.techSectionTitle}
+            </span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#d4af37]" />
+          </div>
+
+          {/* 5 tech tags grid */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {TECH_TAGS.map((tag, i) => {
+              const Icon = TECH_ICONS[i] ?? Boxes
+              return (
+                <motion.div
+                  key={tag.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: 0.05 * i }}
+                  className="group relative flex items-start gap-3 rounded-xl border border-[#d4af37]/25 bg-[#0f0f1a]/60 p-4 backdrop-blur-md transition-all hover:border-[#d4af37]/50 hover:bg-[#0f0f1a]/80"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#d4af37]/35 bg-[#d4af37]/8">
+                    <Icon className="h-4 w-4 text-[#d4af37]" />
+                  </div>
+                  <div className="flex min-w-0 flex-col gap-1">
+                    <span className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-[#d4af37]">
+                      {tag.label}
+                    </span>
+                    <span className="text-[12px] leading-relaxed text-[#94a3b8]">
+                      {tag.description}
+                    </span>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+      )}
 
       {/* Disclaimer */}
       <motion.div
@@ -148,8 +224,7 @@ interface FloatingCoinProps {
 
 /**
  * FloatingCoin — renders a coin WITHOUT any card/background container.
- * The coin floats directly on the section background with only a
- * subtle radial glow behind it. Larger size for 2-coin layout.
+ * Both coins use the SAME size prop (180px) so they appear identical in size.
  */
 function FloatingCoin({ coin, delay }: FloatingCoinProps) {
   return (
@@ -158,9 +233,9 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative flex flex-col items-center gap-4"
+      className="group flex flex-col items-center gap-4"
     >
-      {/* Per-coin glow halo — NO card background */}
+      {/* Per-coin glow halo */}
       <div
         className="pointer-events-none absolute left-1/2 top-[90px] h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
         style={{
@@ -169,7 +244,7 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
         }}
       />
 
-      {/* The coin itself — no background, just the spinning image */}
+      {/* The coin itself — same size for both coins */}
       <div className="relative">
         <SpinningCoin
           src={coin.src}
@@ -180,7 +255,7 @@ function FloatingCoin({ coin, delay }: FloatingCoinProps) {
         />
       </div>
 
-      {/* Labels — floating text, no background box */}
+      {/* Labels */}
       <div className="relative flex flex-col items-center gap-1 text-center">
         <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37] text-glow-soft">
           {coin.name}
