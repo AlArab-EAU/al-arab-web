@@ -1,13 +1,132 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ChevronDown, Sparkles, Play, Star } from 'lucide-react'
+import { ChevronDown, Sparkles, Play, Star, Crown, ShieldCheck } from 'lucide-react'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { ParticleField } from '../particle-field'
 import { YouTubeCinematic } from '../youtube-cinematic'
 import { SpinningCoin } from '../spinning-coin'
 import { useI18n } from '@/lib/i18n/i18n-provider'
+
+/**
+ * VisionPoster — Official "THE VISION" cinematic poster banner.
+ *
+ * Displays the AlArab vision promotional poster with:
+ *  - "A World Without Banks" headline already embedded in the image
+ *  - Cinematic gold corner accents (4 corners)
+ *  - Animated golden glow halo
+ *  - "Vision Statement" eyebrow badge with crown icon
+ *  - Subtitle below: "Backed by Arab Wealth · Oil · AI · Gold"
+ *  - "Digital Sovereignty for the Arab World" footer label
+ */
+function VisionPoster() {
+  const { t } = useI18n()
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 1.2, delay: 1.55, ease: [0.22, 1, 0.36, 1] }}
+      className="relative mt-10 w-full max-w-5xl"
+    >
+      {/* Animated glow halo */}
+      <motion.div
+        animate={{
+          opacity: [0.4, 0.7, 0.4],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="pointer-events-none absolute -inset-10 rounded-3xl blur-3xl"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(212,175,55,0.30) 0%, rgba(139,92,246,0.12) 45%, transparent 70%)',
+        }}
+      />
+
+      {/* Decorative gold corner accents */}
+      <div className="pointer-events-none absolute -left-3 -top-3 z-20 h-14 w-14 border-l-2 border-t-2 border-[#d4af37]/70 rounded-tl-xl" />
+      <div className="pointer-events-none absolute -right-3 -top-3 z-20 h-14 w-14 border-r-2 border-t-2 border-[#d4af37]/70 rounded-tr-xl" />
+      <div className="pointer-events-none absolute -left-3 -bottom-3 z-20 h-14 w-14 border-l-2 border-b-2 border-[#d4af37]/70 rounded-bl-xl" />
+      <div className="pointer-events-none absolute -right-3 -bottom-3 z-20 h-14 w-14 border-r-2 border-b-2 border-[#d4af37]/70 rounded-br-xl" />
+
+      {/* Vision badge */}
+      <div className="absolute -top-4 left-1/2 z-30 -translate-x-1/2">
+        <div className="flex items-center gap-2 rounded-full border border-[#d4af37]/60 bg-gradient-to-r from-[#0f0f1a] via-[#162e6e] to-[#0f0f1a] px-5 py-2 shadow-gold">
+          <Crown className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
+          <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.4em] text-[#d4af37]">
+            {t.hero?.visionBadge ?? 'The Vision'}
+          </span>
+          <Crown className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
+        </div>
+      </div>
+
+      {/* Poster container */}
+      <div className="relative overflow-hidden rounded-2xl border border-[#d4af37]/50 shadow-deep">
+        <div className="relative aspect-[16/9] w-full">
+          {!loaded && (
+            <div className="absolute inset-0 animate-pulse bg-[#0f0f1a]" />
+          )}
+          <Image
+            src="/alarab-vision-poster-1600x900.png"
+            alt="AlArab — The Vision: A World Without Banks"
+            fill
+            priority
+            loading="eager"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className={`object-cover transition-opacity duration-700 ${
+              loaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setLoaded(true)}
+          />
+
+          {/* Top-left verified badge */}
+          <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-[#d4af37]/50 bg-[#0f0f1a]/80 px-3 py-1.5 backdrop-blur-md">
+            <ShieldCheck className="h-3 w-3 text-[#10b981]" />
+            <span className="font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+              Official Vision
+            </span>
+          </div>
+
+          {/* Bottom gradient for footer label readability */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0f0f1a] via-[#0f0f1a]/60 to-transparent" />
+
+          {/* Footer tagline below poster */}
+          <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-7">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 2.2 }}
+              className="flex flex-col gap-2 text-center md:flex-row md:items-center md:justify-between"
+            >
+              <div className="flex items-center justify-center gap-2 md:justify-start">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#10b981] animate-pulse" />
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-[#10b981]">
+                  Backed by Arab Wealth
+                </span>
+                <span className="text-[#d4af37]/40">·</span>
+                <span className="font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                  Oil · AI · Gold
+                </span>
+              </div>
+              <span className="font-display text-[11px] font-medium italic tracking-wider text-[#f4e9c9]/80 md:text-[12px]">
+                A Digital Sovereignty for the Arab World
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom accent line */}
+      <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
+    </motion.div>
+  )
+}
 
 /**
  * HeroFeaturedVideo — special cinematic presentation of the main featured video.
@@ -262,6 +381,9 @@ export function HeroSection() {
             {t.nav.whitepaper}
           </a>
         </motion.div>
+
+        {/* THE VISION — Official cinematic poster banner */}
+        <VisionPoster />
 
         {/* SPECIAL FEATURED VIDEO — b6ffAuBYf8g with cinematic treatment */}
         <HeroFeaturedVideo />
