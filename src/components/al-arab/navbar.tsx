@@ -7,6 +7,22 @@ import Image from 'next/image'
 import { useI18n } from '@/lib/i18n/i18n-provider'
 import { LanguageSwitcher } from './language-switcher'
 
+const X_PROFILE_URL = 'https://x.com/Alarab_official'
+
+/** Official X (formerly Twitter) brand logo */
+function XLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
+
 interface SubLinkItem {
   name: string
   desc?: string
@@ -232,6 +248,17 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
 
+            {/* X (Twitter) social link */}
+            <a
+              href={X_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AlArab Official on X"
+              className="hidden items-center justify-center rounded-full border border-[#c9a85c]/40 bg-[#c9a85c]/8 h-10 w-10 text-[#c9b88a] transition-all hover:border-[#d4af37] hover:bg-[#0f0f1a] hover:text-[#d4af37] hover:shadow-gold md:inline-flex"
+            >
+              <XLogo className="h-4 w-4" />
+            </a>
+
             {/* Whitepaper button */}
             <a
               href="https://whitepaper.alarab-defi.com/"
@@ -393,6 +420,18 @@ export function Navbar() {
               <div className="mt-4">
                 <LanguageSwitcher />
               </div>
+
+              {/* X (Twitter) social link — mobile */}
+              <a
+                href={X_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-4 flex items-center justify-center gap-2 rounded-full border border-[#c9a85c]/40 bg-[#c9a85c]/8 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.25em] text-[#c9b88a] transition-all hover:border-[#d4af37] hover:text-[#d4af37]"
+              >
+                <XLogo className="h-4 w-4" />
+                @Alarab_official
+              </a>
 
               {/* Whitepaper button (mobile) */}
               <a
