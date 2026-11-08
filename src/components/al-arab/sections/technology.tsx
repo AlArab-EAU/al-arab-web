@@ -24,14 +24,31 @@ export function TechnologySection() {
         eyebrow={tt.eyebrow}
         arabic={tt.arabic}
         title={
-          <>
-            {tt.title}
-            <br />
-            <span className="text-gradient-gold">{tt.titleHighlight}</span>
-          </>
+          tt.titleHighlight ? (
+            <>
+              {tt.title}
+              <br />
+              <span className="text-gradient-gold">{tt.titleHighlight}</span>
+            </>
+          ) : (
+            <span className="text-gradient-gold">{tt.title}</span>
+          )
         }
         description={tt.description}
       />
+
+      {/* Second narrative paragraph (paragraph2) */}
+      {tt.paragraph2 && (
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mx-auto mt-6 max-w-3xl text-center text-[14.5px] leading-relaxed text-[#cbd5e1] md:text-[15px]"
+        >
+          {tt.paragraph2}
+        </motion.p>
+      )}
 
       <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {tt.stack.map((tech, i) => {

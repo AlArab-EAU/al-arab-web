@@ -154,9 +154,10 @@ export const translations = {
     technology: {
       eyebrow: 'Tecnología',
       arabic: 'التكنولوجيا',
-      title: 'Una infraestructura',
-      titleHighlight: 'diseñada para perdurar',
-      description: 'AlArab combina seis pilares tecnológicos que operan en conjunto: inteligencia artificial, blockchain, realidad virtual, infraestructura cloud, seguridad multicapa y computación avanzada. Cada pilar se construye con estándares abiertos y auditables, listo para escalar a millones de usuarios.',
+      title: 'La Arquitectura del Futuro Digital Global',
+      titleHighlight: '',
+      description: 'AlArab integra pilares estratégicos que convergen en un mismo ecosistema tecnológico: Inteligencia Artificial, Blockchain, Realidad Virtual, Infraestructura Digital, Seguridad y Computación Avanzada.',
+      paragraph2: 'Esta integración impulsa una arquitectura diseñada para conectar tecnologías, desarrollar nuevas oportunidades económicas y expandir un ecosistema digital seguro, inteligente y escalable a nivel global.',
       stack: [
         { title: 'Inteligencia Artificial', arabic: 'الذكاء الاصطناعي', description: 'Modelos de IA generativa y análisis inteligente potencian la creación de contenidos, la moderación, la personalización de experiencias y los asistentes virtuales dentro del ecosistema.', points: ['Generación de contenido', 'Moderación automática', 'Asistentes virtuales', 'Personalización'] },
         { title: 'Blockchain', arabic: 'البلوكتشين', description: 'Registro distribuido para autenticidad, trazabilidad de activos digitales y verificación de identidad. Cada activo del ecosistema es referenciable on-chain.', points: ['Trazabilidad de activos', 'Identidad verificable', 'Contratos programables', 'Auditoría pública'] },
@@ -484,9 +485,10 @@ export const translations = {
     technology: {
       eyebrow: 'Technology',
       arabic: 'التكنولوجيا',
-      title: 'An infrastructure',
-      titleHighlight: 'built to endure',
-      description: 'AlArab combines six technological pillars operating in unison: artificial intelligence, blockchain, virtual reality, cloud infrastructure, multi-layer security and advanced computing. Each pillar is built with open and auditable standards, ready to scale to millions of users.',
+      title: 'The Architecture of the Global Digital Future',
+      titleHighlight: '',
+      description: 'AlArab integrates strategic pillars that converge in a single technological ecosystem: Artificial Intelligence, Blockchain, Virtual Reality, Digital Infrastructure, Security and Advanced Computing.',
+      paragraph2: 'This integration drives an architecture designed to connect technologies, develop new economic opportunities and expand a secure, intelligent and globally scalable digital ecosystem.',
       stack: [
         { title: 'Artificial Intelligence', arabic: 'الذكاء الاصطناعي', description: 'Generative AI models and intelligent analytics power content creation, moderation, experience personalization and virtual assistants within the ecosystem.', points: ['Content generation', 'Automatic moderation', 'Virtual assistants', 'Personalization'] },
         { title: 'Blockchain', arabic: 'البلوكتشين', description: 'Distributed ledger for authenticity, digital asset traceability and identity verification. Every ecosystem asset is on-chain referenceable.', points: ['Asset traceability', 'Verifiable identity', 'Programmable contracts', 'Public audit'] },
@@ -814,9 +816,10 @@ export const translations = {
     technology: {
       eyebrow: 'التكنولوجيا',
       arabic: 'التكنولوجيا',
-      title: 'بنية تحتية',
-      titleHighlight: 'مصمّمة لتبقى',
-      description: 'يجمع العرب ست ركائز تقنية تعمل معاً: الذكاء الاصطناعي، البلوكتشين، الواقع الافتراضي، البنية السحابية، الأمان متعدد الطبقات والحوسبة المتقدمة. كل ركيزة تُبنى بمعايير مفتوحة وقابلة للتدقيق، جاهزة للتوسّع لملايين المستخدمين.',
+      title: 'عمارة المستقبل الرقمي العالمي',
+      titleHighlight: '',
+      description: 'يدمج العرب أركاناً استراتيجية تلتقي في منظومة تكنولوجية واحدة: الذكاء الاصطناعي، البلوكتشين، الواقع الافتراضي، البنية التحتية الرقمية، الأمن والحوسبة المتقدمة.',
+      paragraph2: 'يدفع هذا التكامل عمارةً مصمّمة لربط التقنيات وتطوير فرص اقتصادية جديدة وتوسيع منظومة رقمية آمنة وذكية وقابلة للتوسّع على المستوى العالمي.',
       stack: [
         { title: 'الذكاء الاصطناعي', arabic: 'الذكاء الاصطناعي', description: 'نماذج ذكاء اصطناعي توليدي وتحليل ذكي تُعزّز إنشاء المحتوى والإشراف وتخصيص التجارب والمساعدون الافتراضيون داخل المنظومة.', points: ['إنشاء المحتوى', 'إشراف تلقائي', 'مساعدون افتراضيون', 'تخصيص'] },
         { title: 'البلوكتشين', arabic: 'البلوكتشين', description: 'سجل موزَّع للموثوقية وتتبّع الأصول الرقمية والتحقّق من الهوية. كل أصل في المنظومة قابل للإشارة إليه على السلسلة.', points: ['تتبّع الأصول', 'هوية قابلة للتحقق', 'عقود قابلة للبرمجة', 'تدقيق علني'] },
@@ -1144,9 +1147,10 @@ export const translations = {
     technology: {
       eyebrow: 'Technologie',
       arabic: 'التكنولوجيا',
-      title: 'Une infrastructure',
-      titleHighlight: 'conçue pour durer',
-      description: "AlArab combine six piliers technologiques opérant de concert : intelligence artificielle, blockchain, réalité virtuelle, infrastructure cloud, sécurité multicouche et informatique avancée. Chaque pilier est construit avec des standards ouverts et auditables, prêt à passer à l'échelle de millions d'utilisateurs.",
+      title: "L'Architecture du Futur Numérique Global",
+      titleHighlight: '',
+      description: "AlArab intègre des piliers stratégiques qui convergent dans un même écosystème technologique : Intelligence Artificielle, Blockchain, Réalité Virtuelle, Infrastructure Numérique, Sécurité et Informatique Avancée.",
+      paragraph2: 'Cette intégration impulse une architecture conçue pour connecter les technologies, développer de nouvelles opportunités économiques et étendre un écosystème numérique sûr, intelligent et évolutif à niveau mondial.',
       stack: [
         { title: 'Intelligence Artificielle', arabic: 'الذكاء الاصطناعي', description: "Des modèles d'IA générative et d'analyse intelligente alimentent la création de contenus, la modération, la personnalisation des expériences et les assistants virtuels au sein de l'écosystème.", points: ['Génération de contenu', 'Modération automatique', 'Assistants virtuels', 'Personnalisation'] },
         { title: 'Blockchain', arabic: 'البلوكتشين', description: "Registre distribué pour l'authenticité, la traçabilité des actifs numériques et la vérification d'identité. Chaque actif de l'écosystème est référençable on-chain.", points: ['Traçabilité des actifs', 'Identité vérifiable', 'Contrats programmables', 'Audit public'] },
