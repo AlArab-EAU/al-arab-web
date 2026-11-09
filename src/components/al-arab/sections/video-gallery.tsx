@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Globe2 } from 'lucide-react'
+import { Globe2, Sparkles } from 'lucide-react'
 import { Section, SectionHeading } from '../section'
 import { YouTubeCinematic } from '../youtube-cinematic'
 import { BinanceVideo } from '../binance-video'
@@ -49,9 +49,6 @@ const VIDEOS: VideoSpec[] = [
 
 /**
  * VideoGallery — professional multi-language video presentations section.
- *
- * Displays the 3 official AlArab language presentations (Arabic, Thai, English)
- * in a clean grid layout with language badges and cinematic thumbnails.
  */
 export function VideoGallerySection() {
   const { t } = useI18n()
@@ -63,14 +60,55 @@ export function VideoGallerySection() {
         eyebrow={vg.eyebrow}
         arabic={vg.arabic}
         title={
-          <>
-            {vg.title}
-            <br />
-            <span className="text-gradient-gold">{vg.titleHighlight}</span>
-          </>
+          vg.titleHighlight ? (
+            <>
+              {vg.title}
+              <br />
+              <span className="text-gradient-gold">{vg.titleHighlight}</span>
+            </>
+          ) : (
+            <span className="text-gradient-gold">{vg.title}</span>
+          )
         }
         description={vg.description}
       />
+
+      {/* Subtitle tagline */}
+      {vg.subtitle && (
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mx-auto mt-6 max-w-3xl text-center text-base font-medium leading-relaxed text-[#d4af37] md:text-lg"
+        >
+          {vg.subtitle}
+        </motion.p>
+      )}
+
+      {/* Concept block — conceptLabel + paragraph2 */}
+      {vg.paragraph2 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mx-auto mt-8 max-w-3xl rounded-2xl border border-[#d4af37]/20 bg-[#0f0f1a]/60 p-6 backdrop-blur-md md:p-7"
+        >
+          {vg.conceptLabel && (
+            <div className="mb-3 flex items-center justify-center gap-2">
+              <Sparkles className="h-3.5 w-3.5 text-[#d4af37]" />
+              <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.32em] text-[#d4af37]">
+                {vg.conceptLabel}
+              </span>
+              <Sparkles className="h-3.5 w-3.5 text-[#d4af37]" />
+            </div>
+          )}
+          <p className="text-center text-[14px] leading-relaxed text-[#cbd5e1] md:text-[14.5px]">
+            {vg.paragraph2}
+          </p>
+        </motion.div>
+      )}
 
       {/* Special Binance partnership video — cinematic showcase */}
       <BinanceVideo />
@@ -104,7 +142,7 @@ export function VideoGallerySection() {
         })}
       </div>
 
-      {/* Globe accent footer */}
+      {/* Footer tagline + globe accent */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -114,8 +152,8 @@ export function VideoGallerySection() {
       >
         <div className="flex items-center gap-3 rounded-full border border-[#c9a85c]/25 glass px-5 py-3">
           <Globe2 className="h-5 w-5 text-[#d4af37]" />
-          <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#94a3b8]">
-            3 idiomas · 3 culturas · 1 ecosistema
+          <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#d4af37]">
+            {vg.footerTagline ?? '3 idiomas · 3 culturas · 1 ecosistema'}
           </span>
         </div>
         <div className="flex items-center gap-2">
