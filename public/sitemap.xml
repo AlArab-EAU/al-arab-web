@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://alarab-defi.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://alarab-defi.com/android-chrome-512x512.png</image:loc>
+      <image:title>AL ARAB — Official Logo (Gold Commemorative Coin)</image:title>
+      <image:caption>The official AlArab digital currency concept coin with Mecca, Dubai, Abu Dhabi skyline.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://alarab-defi.com/favicon-32x32.png</image:loc>
+      <image:title>AL ARAB Favicon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alarab-defi.com/alarab-vision-poster-1600x900.png</image:loc>
+      <image:title>AlArab — The Vision: A World Without Banks</image:title>
+    </image:image>
+  </url>
+</urlset>
