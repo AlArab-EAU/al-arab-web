@@ -26,12 +26,12 @@ export function TechnologySection() {
         title={
           tt.titleHighlight ? (
             <>
-              {tt.title}
+              <span className="text-[#f4e9c9]">{tt.title}</span>
               <br />
               <span className="text-gradient-gold">{tt.titleHighlight}</span>
             </>
           ) : (
-            <span className="text-gradient-gold">{tt.title}</span>
+            <span className="text-[#f4e9c9]">{tt.title}</span>
           )
         }
         description={tt.description}
@@ -110,7 +110,7 @@ export function TechnologySection() {
       >
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
-            <h3 className="font-display text-2xl font-medium text-[#f4e9c9]">
+            <h3 className="font-display text-xl font-medium text-[#f4e9c9] md:text-2xl">
               {tt.architectureTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">

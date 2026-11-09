@@ -147,13 +147,13 @@ export function SmartContracts() {
             {ct?.eyebrow ?? 'Token Status'}
           </span>
         </div>
-        {/* Title in GOLD (text-gradient-gold) */}
-        <h3 className="font-display text-3xl font-medium md:text-4xl text-gradient-gold">
+        {/* Title — white with optional gold highlight */}
+        <h3 className="font-display text-2xl font-medium leading-tight md:text-3xl lg:text-4xl text-[#f4e9c9]">
           {ct?.title ?? 'Global Expansion and Multichain Integration'}
         </h3>
-        {/* Optional titleHighlight (currently empty) */}
+        {/* Optional titleHighlight (gold accent) */}
         {ct?.titleHighlight ? (
-          <div className="text-gradient-gold font-display text-xl font-semibold md:text-2xl">
+          <div className="text-gradient-gold font-display text-base font-semibold md:text-lg">
             {ct.titleHighlight}
           </div>
         ) : null}

@@ -58,7 +58,7 @@ export function MetaverseSection() {
           transition={{ duration: 0.8 }}
           className="flex flex-col justify-center gap-4 lg:col-span-2"
         >
-          <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
+          <h3 className="font-display text-xl font-medium text-[#f4e9c9] md:text-2xl">
             {mt.districtsTitle}
           </h3>
           <p className="text-sm leading-relaxed text-[#94a3b8]">

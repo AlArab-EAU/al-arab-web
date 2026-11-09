@@ -102,7 +102,7 @@ export function EcosystemSection() {
       >
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-3">
           <div className="md:col-span-2">
-            <h3 className="font-display text-2xl font-medium text-[#f4e9c9] md:text-3xl">
+            <h3 className="font-display text-xl font-medium text-[#f4e9c9] md:text-2xl">
               {et.bannerTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">

@@ -49,21 +49,21 @@ export function SectionHeading({
         </motion.div>
       )}
       <motion.h2
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="font-display text-4xl font-medium leading-tight tracking-tight text-[#f4e9c9] md:text-5xl lg:text-6xl"
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="font-display text-2xl font-medium leading-tight tracking-tight text-[#f4e9c9] md:text-3xl lg:text-4xl"
       >
         {title}
       </motion.h2>
       {description && (
         <motion.p
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className={`max-w-2xl text-base leading-relaxed text-[#94a3b8] md:text-lg ${
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className={`max-w-2xl text-sm leading-relaxed text-[#94a3b8] md:text-[15px] ${
             align === 'center' ? 'mx-auto' : ''
           }`}
         >

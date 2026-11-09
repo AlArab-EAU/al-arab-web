@@ -128,7 +128,7 @@ export function InvestorsSection() {
       >
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
-            <h3 className="font-display text-3xl font-medium text-[#f4e9c9]">
+            <h3 className="font-display text-xl font-medium text-[#f4e9c9] md:text-2xl">
               {it.formTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[#94a3b8]">

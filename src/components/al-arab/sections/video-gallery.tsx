@@ -62,12 +62,12 @@ export function VideoGallerySection() {
         title={
           vg.titleHighlight ? (
             <>
-              {vg.title}
+              <span className="text-[#f4e9c9]">{vg.title}</span>
               <br />
               <span className="text-gradient-gold">{vg.titleHighlight}</span>
             </>
           ) : (
-            <span className="text-gradient-gold">{vg.title}</span>
+            <span className="text-[#f4e9c9]">{vg.title}</span>
           )
         }
         description={vg.description}

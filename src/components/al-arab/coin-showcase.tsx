@@ -104,7 +104,7 @@ export function CoinShowcase({ variant = 'full' }: CoinShowcaseProps) {
             </span>
           </div>
 
-          <h3 className="font-display text-3xl font-medium leading-tight text-[#f4e9c9] md:text-4xl">
+          <h3 className="font-display text-2xl font-medium leading-tight text-[#f4e9c9] md:text-3xl">
             {cs.title}
           </h3>
           <span className="font-arabic-serif text-lg text-[#d4af37]/70" dir="rtl">
