@@ -1,0 +1,18 @@
+# Security Policy — AL ARAB
+# Following RFC 9116 (security.txt specification)
+# https://alarab-defi.com/.well-known/security.txt
+
+Contact: mailto:security@alarab-defi.com
+Contact: mailto:contact@Alarab-Defi.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: es, en, ar, fr
+Canonical: https://alarab-defi.com/.well-known/security.txt
+Policy: https://alarab-defi.com/security-policy
+
+# Reporting security vulnerabilities
+# Please report any security vulnerabilities to:
+# - security@alarab-defi.com
+# - contact@Alarab-Defi.com
+#
+# We commit to acknowledging receipt within 48 hours and
+# providing an initial response within 5 business days.

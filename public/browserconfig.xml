@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  browserconfig.xml — Windows 8/10/11 tile configuration for AL ARAB.
+  Used by Microsoft Edge, Internet Explorer 11, and Windows start screen
+  pinned tiles.
+-->
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square150x150logo src="/android-chrome-192x192.png"/>
+      <square310x310logo src="/android-chrome-512x512.png"/>
+      <wide310x150logo src="/android-chrome-512x512.png"/>
+      <square70x70logo src="/favicon-96x96.png"/>
+      <TileColor>#0f0f1a</TileColor>
+    </tile>
+    <notification>
+      <polling-uri src="/notifications.xml"/>
+      <frequency>30</frequency>
+      <cycle>1</cycle>
+    </notification>
+  </msapplication>
+</browserconfig>

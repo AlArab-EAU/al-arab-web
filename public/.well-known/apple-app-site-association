@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "TODO.REPLACE.WITH.YOUR.APPLE.APP.IDENTIFIER"
+        ],
+        "components": [
+          {
+            "/": "/*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TODO.REPLACE.WITH.YOUR.APPLE.APP.IDENTIFIER"
+    ]
+  }
+}
